@@ -36,6 +36,13 @@ gem 'slim'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Test suite
+  gem 'rspec-rails', '~> 3.0'
+end
+
+group :test do
+  # Fixtures
+  gem 'factory_girl_rails'
 end
 
 group :development do
