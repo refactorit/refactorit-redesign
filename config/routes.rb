@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   # mount ActionCable.server => '/cable'
   root to: 'pages#home'
   # Pages routes
-  get 'about', to: 'pages#about'
-  get 'team', to: 'pages#team'
-  get 'contact', to: 'pages#contact'
-  get 'services', to: 'pages#services'
+  get 'about',             to: 'pages#about'
+  get 'team',              to: 'pages#team'
+  get 'contact',           to: 'pages#contact'
+  get 'services',          to: 'pages#services'
+  post 'send-question',    to: 'contact#send_question'
 end
