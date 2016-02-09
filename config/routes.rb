@@ -5,4 +5,9 @@ Rails.application.routes.draw do
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
   root to: 'pages#home'
+  # Pages routes
+  get 'about', to: 'pages#about'
+  get 'team', to: 'pages#team'
+  get 'contact', to: 'pages#contact'
+  get 'services', to: 'pages#services'
 end
