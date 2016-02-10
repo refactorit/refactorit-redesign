@@ -35,6 +35,8 @@ gem 'slim'
 # Authentication
 gem 'devise', git: 'https://github.com/plataformatec/devise.git'
 
+gem 'simple_form'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -45,6 +47,10 @@ end
 group :test do
   # Fixtures
   gem 'factory_girl_rails'
+  gem 'capybara', git: 'https://github.com/jnicklas/capybara.git'
+  gem 'capybara-email'
+  # Helpers for validation specs
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -52,6 +58,8 @@ group :development do
   gem 'web-console', '~> 3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem "letter_opener"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

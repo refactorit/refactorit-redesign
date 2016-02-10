@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title RefactoritRedesign
+    title Refactorit
     = csrf_meta_tags
     = action_cable_meta_tag
 
@@ -9,5 +9,8 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
   body
+    nav
+      = render 'layouts/navigation'
+    = render 'layouts/flash_messages'
     = yield
 
