@@ -1,0 +1,7 @@
+= simple_form_for @contact, url: send_question_path, method: :post do |f|
+  = f.input :email
+  = f.input :name
+  = f.input :message
+  = f.button :submit, id: :contact_submit
+
+

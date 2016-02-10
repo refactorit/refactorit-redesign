@@ -47,6 +47,9 @@ end
 group :test do
   # Fixtures
   gem 'factory_girl_rails'
+  gem 'capybara', git: 'https://github.com/jnicklas/capybara.git'
+  # Helpers for validation specs
+  gem 'shoulda-matchers'
 end
 
 group :development do

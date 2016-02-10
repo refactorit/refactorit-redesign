@@ -11,13 +11,8 @@ describe PagesController do
     expect(response).to have_http_status 200
   end
 
-  it "#about responds with 200" do
+  it "#team responds with 200" do
     get :team
-    expect(response).to have_http_status 200
-  end
-
-  it "#about responds with 200" do
-    get :contact
     expect(response).to have_http_status 200
   end
 
