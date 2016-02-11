@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Post, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validations' do
+    it 'should have a valid factory' do
+      FactoryGirl.build(:post)
+    end
+
+    it { should belong_to(:author) }
+  end
 end
+

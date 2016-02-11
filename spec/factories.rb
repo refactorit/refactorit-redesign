@@ -9,5 +9,12 @@ FactoryGirl.define do
     sequence(:name)  { |n| "Person no.#{n}"}
     message "This is a message!"
   end
+
+  factory :post do
+    association :author, factory: :user
+    title 'Post title'
+    description 'Post description'
+    body 'Post body'
+  end
 end
 
