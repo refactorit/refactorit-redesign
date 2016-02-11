@@ -33,7 +33,7 @@ gem 'redis', '~> 3.0'
 # gem 'capistrano-rails', group: :development
 
 # Template engine
-gem 'slim'
+gem 'slim-rails'
 # Authentication
 gem 'devise', git: 'https://github.com/plataformatec/devise.git'
 
