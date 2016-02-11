@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "Contact" do
   let(:contact_form) { FactoryGirl.build(:contact_form) }
-  context "guest visits new page" do
+  context "guest visits contact page" do
     before { visit contact_new_path }
 
     specify "he can see the correct title" do
