@@ -5,6 +5,7 @@ feature 'Navigation' do
     before { visit root_path }
 
     specify "he sees correct navigation links" do
+      expect(page).to have_link "Home"
       expect(page).to have_link "About us"
       expect(page).to have_link "Team"
       expect(page).to have_link "Contact us"
