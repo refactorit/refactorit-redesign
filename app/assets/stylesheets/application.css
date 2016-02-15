@@ -15,3 +15,16 @@
  *= require foundation_and_overrides
 
  */
+
+ /* main */
+ .cover-photo {
+ 	@include grid-column;
+ 	height: 20em;
+ 	background-color: $light-gray;
+ }
+
+
+/* footer */
+footer {
+	background-color: #eee;
+} 
