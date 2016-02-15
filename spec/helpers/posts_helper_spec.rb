@@ -11,5 +11,10 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe PostsHelper, :type => :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#markdown_to_html" do
+    it "converts markdown to html correctly" do
+      markdown_text = "This is a header\r======="
+      expect(markdown_to_html(markdown_text)).to eq "<h1>This is a header</h1>\n"
+    end
+  end
 end

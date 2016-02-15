@@ -14,5 +14,6 @@ module RefactoritRedesign
 
     # Add folders to the auto load path
     config.autoload_paths += %W(#{config.root}/app/forms)
+    config.autoload_paths += %W(#{config.root}/app/services)
   end
 end

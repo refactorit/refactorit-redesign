@@ -39,6 +39,11 @@ gem 'devise', git: 'https://github.com/plataformatec/devise.git'
 
 gem 'simple_form'
 
+# Markdown converter
+gem 'redcarpet'
+# Syntax highlighting
+gem 'rouge'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
