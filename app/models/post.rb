@@ -1,4 +1,7 @@
 class Post < ApplicationRecord
+  include FriendlyId
+  friendly_id :slug, use: :slugged
+
   belongs_to :author, class_name: 'User'
   validates :title, :body, presence: true
 

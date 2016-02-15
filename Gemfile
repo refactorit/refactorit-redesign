@@ -43,6 +43,8 @@ gem 'simple_form'
 gem 'redcarpet'
 # Syntax highlighting
 gem 'rouge'
+# Find by slug instead of id
+gem 'friendly_id'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

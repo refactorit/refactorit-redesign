@@ -23,7 +23,7 @@ RSpec.describe PostsController, :type => :controller do
     describe 'GET show' do
       let(:post) { FactoryGirl.create(:post) }
       it 'responds with 200' do
-        get :show, params: { id: post.id }
+        get :show, params: { id: post.slug }
         expect(response).to have_http_status 200
       end
     end
@@ -45,14 +45,14 @@ RSpec.describe PostsController, :type => :controller do
       let!(:post) { FactoryGirl.create(:post) }
 
       it 'responds with 200' do
-        get :edit, params: { id: post.id }
+        get :edit, params: { id: post.slug }
         expect(response).to have_http_status 200
       end
     end
 
     describe 'PUT update' do
       let!(:post) { FactoryGirl.create(:post, title: 'Original title') }
-      subject { put :update, params: { id: post.id, post: { title: 'Updated title' }}}
+      subject { put :update, params: { id: post.slug, post: { title: 'Updated title' }}}
 
       it 'responds with redirect' do
         subject
@@ -67,7 +67,7 @@ RSpec.describe PostsController, :type => :controller do
 
     describe 'DELETE destroy' do
       let!(:post) { FactoryGirl.create(:post) }
-      subject { delete :destroy, params: { id: post.id }}
+      subject { delete :destroy, params: { id: post.slug }}
 
       it 'responds with redirect' do
         subject
@@ -99,7 +99,7 @@ RSpec.describe PostsController, :type => :controller do
     describe 'GET show' do
       let(:post) { FactoryGirl.create(:post) }
       it 'responds with 200' do
-        get :show, params: { id: post.id }
+        get :show, params: { id: post.slug }
         expect(response).to have_http_status 200
       end
     end
@@ -122,14 +122,14 @@ RSpec.describe PostsController, :type => :controller do
       let!(:post) { FactoryGirl.create(:post) }
 
       it 'responds with 302' do
-        get :edit, params: { id: post.id }
+        get :edit, params: { id: post.slug }
         expect(response).to have_http_status 302
       end
     end
 
     describe 'PUT update' do
       let!(:post) { FactoryGirl.create(:post, title: 'Original title') }
-      subject { put :update, params: { id: post.id, post: { title: 'Updated title' }}}
+      subject { put :update, params: { id: post.slug, post: { title: 'Updated title' }}}
 
       it 'responds with redirect' do
         subject
@@ -144,7 +144,7 @@ RSpec.describe PostsController, :type => :controller do
 
     describe 'DELETE destroy' do
       let!(:post) { FactoryGirl.create(:post) }
-      subject { delete :destroy, params: { id: post.id }}
+      subject { delete :destroy, params: { id: post.slug }}
 
       it 'responds with redirect' do
         subject
