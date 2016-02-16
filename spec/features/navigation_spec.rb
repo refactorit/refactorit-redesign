@@ -11,6 +11,7 @@ feature 'Navigation' do
       expect(page).to have_link "Contact us", href: contact_new_path
       expect(page).to have_link "Services", href: services_path
       expect(page).to have_link "Blog", href: posts_path
+      expect(page).to_not have_link "Logout", href: destroy_user_session_path
     end
   end
 
@@ -23,6 +24,7 @@ feature 'Navigation' do
 
     specify "he sees correct blog link" do
       expect(page).to have_link "Blog", href: admin_posts_path
+      expect(page).to have_link "Logout", href: destroy_user_session_path
     end
   end
 end
