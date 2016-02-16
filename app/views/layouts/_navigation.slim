@@ -8,7 +8,7 @@ div class="top-bar" id="navbar-menu"
 			li class="title-bar-title hidden-for-small-only"
 				a href="#"
 					img src="../../images/refactorit.svg" alt="refactorit-logo"
-		section class="top-bar-section"
+		div class="top-bar-section"
 			ul class="medium-horizontal menu drilldown vertical top-bar-right" data-responsive-menu="drilldown medium-dropdown"
 			  li = link_to "Home", root_path
 			  li = link_to "About us", about_path
@@ -18,3 +18,15 @@ div class="top-bar" id="navbar-menu"
 			  li = link_to "Blog", determine_blog_path
         - if current_user.present?
           li = link_to "Logout", destroy_user_session_path, method: :delete
+			  li
+			  	a href="#"
+			  		i class="fi-social-facebook"
+			  li
+			  	a href="#"
+			  		i class="fi-social-github"
+			  li
+			  	a href="#"
+			  		i class="fi-social-dribbble"
+			  li Blog link here
+
+

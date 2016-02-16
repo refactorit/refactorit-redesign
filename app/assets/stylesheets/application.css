@@ -16,6 +16,33 @@
 
  */
 
+/************************* GLOBAL *************************/
+
+$refactorit-red: #ed1a33;
+
+html {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  margin: 0 0 16em; /* bottom = footer height */
+}
+
+i {
+	font-size: 1.5em;
+}
+
+h5 {
+	text-transform: lowercase;
+	font-variant: small-caps;
+  color: $refactorit-red;
+}
+
+section {
+  padding: 5em 0;
+}
+
  /* main */
  .cover-photo {
  	@include grid-column;
@@ -23,8 +50,20 @@
  	background-color: $light-gray;
  }
 
-
 /* footer */
 footer {
-	background-color: #eee;
-} 
+	width: 100%;
+	background-color: #292c2f;
+	text-align: center;
+	font-size: 1.2rem;
+	padding: 1rem;
+  height: 16em;
+  position: absolute;
+/*  bottom: 0;*/
+  left: 0;
+}
+
+footer a {
+  font-size: 0.7em;
+}
+
