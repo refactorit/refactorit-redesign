@@ -35,16 +35,55 @@ RSpec.describe PostsController, :type => :controller do
       end
     end
 
-    describe 'POST create' do
+    describe 'POST create without slug in params' do
       subject { post :create, params: { post: FactoryGirl.attributes_for(:post) } }
 
-      it 'responds with 200' do
-        expect(response).to have_http_status 200
+      it 'responds with 302' do
+        subject
+        expect(response).to have_http_status 302
       end
 
       it 'increases the number of posts' do
         expect{ subject }.
         to change{ Post.count }.by(1)
+      end
+    end
+
+    describe 'POST create with slug in params' do
+      subject do
+        post :create, params: { post: { title: "Some title", body: "Some body" } }
+      end
+
+      it 'responds with 302' do
+        subject
+        expect(response).to have_http_status 302
+      end
+
+      it 'increases the number of posts' do
+        expect{ subject }.
+        to change{ Post.count }.by(1)
+      end
+
+      it 'assigns slug from params' do
+        subject
+        post = Post.last
+        expect(post.slug).to eq "some-title"
+      end
+    end
+
+    describe 'POST create with invalid params' do
+      subject do
+        post :create, params: { post: { title: "", body: "Some body" } }
+      end
+
+      it 'responds with 200' do
+        subject
+        expect(response).to have_http_status 200
+      end
+
+      it "doesn't increase the number of posts" do
+        subject
+        expect(Post.count).to eq 0
       end
     end
 

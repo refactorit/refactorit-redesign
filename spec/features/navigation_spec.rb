@@ -13,4 +13,16 @@ feature 'Navigation' do
       expect(page).to have_link "Blog", href: posts_path
     end
   end
+
+  context "user visits home page" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      login_as user, scope: :user
+      visit root_path
+    end
+
+    specify "he sees correct blog link" do
+      expect(page).to have_link "Blog", href: admin_posts_path
+    end
+  end
 end
