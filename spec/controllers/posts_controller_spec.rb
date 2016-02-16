@@ -13,6 +13,13 @@ RSpec.describe PostsController, :type => :controller do
       end
     end
 
+    describe 'GET admin_index' do
+      it 'responds with 200' do
+        get :admin_index
+        expect(response).to have_http_status 200
+      end
+    end
+
     describe 'GET new' do
       it 'responds with 200' do
         get :new
@@ -36,8 +43,8 @@ RSpec.describe PostsController, :type => :controller do
       end
 
       it 'increases the number of posts' do
-        subject
-        expect(Post.count).to eq 1
+        expect{ subject }.
+        to change{ Post.count }.by(1)
       end
     end
 
@@ -86,6 +93,13 @@ RSpec.describe PostsController, :type => :controller do
       it 'responds with 302' do
         get :index
         expect(response).to have_http_status 200
+      end
+    end
+
+    describe 'GET admin_index' do
+      it 'responds with 302' do
+        get :admin_index
+        expect(response).to have_http_status 302
       end
     end
 
@@ -138,7 +152,7 @@ RSpec.describe PostsController, :type => :controller do
 
       it 'does not update post' do
         subject
-        expect(post.title).to eq post.reload.title
+        expect(post.reload.title).to eq 'Original title'
       end
     end
 

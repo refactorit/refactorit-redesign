@@ -1,27 +1,5 @@
-h1 Listing posts
+- @posts.each do |post|
+ h1 = post.title
+ hr
+ p  = markdown_to_html(post.body)
 
-table
-  thead
-    tr
-      th Title
-      th Description
-      th Body
-      th Status
-      th
-      th
-      th
-
-  tbody
-    - @posts.each do |post|
-      tr
-        td = post.title
-        td = post.description
-        td = post.body
-        td = post.status
-        td = link_to 'Show', post
-        td = link_to 'Edit', edit_post_path(post)
-        td = link_to 'Destroy', post, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Post', new_post_path

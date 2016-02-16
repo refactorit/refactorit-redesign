@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :posts, only: [:show, :index]
-  resources :posts, path: 'pirates/posts', except: [:show, :index]
   devise_for :users, path: 'pirates', path_names: {sign_in: 'boarding' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -14,4 +12,8 @@ Rails.application.routes.draw do
   # Contact routes
   get 'contact',           to: 'contact#new',            as: :contact_new
   post 'send-question',    to: 'contact#send_question'
+  # Posts routes
+  resources :posts, only: [:show, :index]
+  resources :posts, path: 'pirates/posts', except: [:show, :index]
+  get 'pirates/posts', to: 'posts#admin_index', as: :admin_posts_path
 end

@@ -7,6 +7,10 @@ RSpec.describe PostsController, :type => :routing do
       expect(:get => "/posts").to route_to("posts#index")
     end
 
+    it "routes to #admin_index" do
+      expect(:get => "/pirates/posts").to route_to("posts#admin_index")
+    end
+
     it "routes to #new" do
       expect(:get => "pirates/posts/new").to route_to("posts#new")
     end
