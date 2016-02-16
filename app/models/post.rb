@@ -4,6 +4,7 @@ class Post < ApplicationRecord
 
   belongs_to :author, class_name: 'User'
   validates :title, :body, presence: true
+  validates :slug, :title, uniqueness: true
 
   before_save :assign_slug
   before_save :strip_title
@@ -13,7 +14,10 @@ class Post < ApplicationRecord
   end
 
   def strip_title
-    self.title = self.title.strip
+    # if statement is here because it messes up validation tests
+    # in practical usage it shouldn't be necessary since we check for
+    # title's presence
+    self.title = self.title.strip if self.title.present?
   end
 
   def title_to_slug

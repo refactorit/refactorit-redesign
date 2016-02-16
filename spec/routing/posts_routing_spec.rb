@@ -24,15 +24,15 @@ RSpec.describe PostsController, :type => :routing do
     end
 
     it "routes to #create" do
-      expect(:post => "pirates/posts").to route_to("posts#create")
+      expect(:post => "posts").to route_to("posts#create")
     end
 
     it "routes to #update" do
-      expect(:put => "pirates/posts/1").to route_to("posts#update", :id => "1")
+      expect(:put => "posts/some-post").to route_to("posts#update", :id => "some-post")
     end
 
     it "routes to #destroy" do
-      expect(:delete => "pirates/posts/1").to route_to("posts#destroy", :id => "1")
+      expect(:delete => "posts/some-post").to route_to("posts#destroy", :id => "some-post")
     end
 
   end

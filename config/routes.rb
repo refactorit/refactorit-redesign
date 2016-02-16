@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   get 'contact',           to: 'contact#new',            as: :contact_new
   post 'send-question',    to: 'contact#send_question'
   # Posts routes
-  resources :posts, only: [:show, :index]
-  resources :posts, path: 'pirates/posts', except: [:show, :index]
-  get 'pirates/posts', to: 'posts#admin_index', as: :admin_posts_path
+  resources :posts, except: [:edit, :new]
+  scope "pirates" do
+    resources :posts, only: [:edit, :new]
+  end
+  get  'pirates/posts', to: 'posts#admin_index', as: :admin_posts
 end

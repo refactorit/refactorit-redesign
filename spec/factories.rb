@@ -12,7 +12,7 @@ FactoryGirl.define do
 
   factory :post do
     association :author, factory: :user
-    title 'Post title'
+    sequence(:title) { |n| "Post title #{n}" }
     description 'Post description'
     body 'Post body'
   end
