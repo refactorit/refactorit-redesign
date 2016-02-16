@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :posts, path: 'pirates/posts', except: [:show]
-  resources :posts, only: :show
+  resources :posts, only: [:show, :index]
+  resources :posts, path: 'pirates/posts', except: [:show, :index]
   devise_for :users, path: 'pirates', path_names: {sign_in: 'boarding' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
