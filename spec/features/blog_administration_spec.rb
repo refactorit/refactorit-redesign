@@ -14,6 +14,10 @@ feature "Blog administration" do
         expect(page).to have_content posts[0].title
         expect(page).to have_content posts[1].title
       end
+
+      specify "user can't see administration links" do
+        expect(page).to_not have_link "Edit", href: edit_post_path(posts[0].slug)
+      end
     end
 
     describe "on admin index page" do
