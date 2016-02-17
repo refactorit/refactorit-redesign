@@ -17,7 +17,7 @@
  */
 
 /************************* GLOBAL *************************/
-
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,500,300&subset=latin,latin-ext);
 $refactorit-red: #ed1a33;
 
 html {
@@ -26,6 +26,7 @@ html {
 }
 
 body {
+  font-family: 'Fira Sans', sans-serif;
   margin: 0 0 16em; /* bottom = footer height */
 }
 
@@ -37,18 +38,16 @@ h5 {
 	text-transform: lowercase;
 	font-variant: small-caps;
   color: $refactorit-red;
+  letter-spacing: 0.05em;
 }
 
 section {
   padding: 5em 0;
 }
 
- /* main */
- .cover-photo {
- 	@include grid-column;
- 	height: 20em;
- 	background-color: $light-gray;
- }
+p {
+  font-size: 0.9em;
+}
 
 /* footer */
 footer {
@@ -67,3 +66,17 @@ footer a {
   font-size: 0.7em;
 }
 
+/* dribbble*/
+.dribbble-expanded {
+  display: inline-block;
+  width: 100%;
+}
+
+.dribbble .frame {
+  display: inline-block;
+}
+.dribbble img {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 10px;
+}
