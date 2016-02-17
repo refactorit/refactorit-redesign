@@ -11,8 +11,6 @@ class Post < ApplicationRecord
 
   enum status: [:draft, :published]
 
-  scope :published, -> { where(status: 'published') }
-
   def assign_slug
     self.slug ||= title_to_slug
   end

@@ -11,6 +11,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    unless @post.published? || current_user.present?
+      render_404
+    end
   end
 
 
@@ -57,5 +60,9 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:title, :description, :body, :status)
+    end
+
+    def render_404
+      raise ActionController::RoutingError.new('Not Found')
     end
 end
