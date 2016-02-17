@@ -33,11 +33,18 @@ gem 'redis', '~> 3.0'
 # gem 'capistrano-rails', group: :development
 
 # Template engine
-gem 'slim'
+gem 'slim-rails'
 # Authentication
 gem 'devise', git: 'https://github.com/plataformatec/devise.git'
 
 gem 'simple_form'
+
+# Markdown converter
+gem 'redcarpet'
+# Syntax highlighting
+gem 'rouge'
+# Find by slug instead of id
+gem 'friendly_id'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

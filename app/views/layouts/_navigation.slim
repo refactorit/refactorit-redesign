@@ -4,4 +4,7 @@ ul
   li = link_to "Team", team_path
   li = link_to "Services", services_path
   li = link_to "Contact us", contact_new_path
-  li Blog link here
+  li = link_to "Blog", determine_blog_path
+  - if current_user.present?
+    li = link_to "Logout", destroy_user_session_path, method: :delete
+

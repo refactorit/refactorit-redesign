@@ -5,5 +5,7 @@ RSpec.describe User, :type => :model do
     it 'should have a valid factory' do
       FactoryGirl.build(:user)
     end
+
+    it { should have_many(:posts) }
   end
 end
