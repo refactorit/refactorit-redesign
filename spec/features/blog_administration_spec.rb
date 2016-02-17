@@ -4,36 +4,39 @@ feature "Blog administration" do
 
   context "logged in user and two posts exist" do
    let(:user)   { FactoryGirl.create(:user) }
-   let!(:posts) { FactoryGirl.create_list(:post, 3, author: user) }
+   let!(:published_posts) { FactoryGirl.create_list(:published_post, 3, author: user) }
+   let!(:draft_post) { FactoryGirl.create(:post) }
    before { login_as(user, scope: :user) }
 
     describe "on index page" do
       before { visit posts_path }
 
-      specify "user sees blog posts" do
-        expect(page).to have_content posts[0].title
-        expect(page).to have_content posts[1].title
+      specify "user sees correct blog posts" do
+        expect(page).to have_content published_posts[0].title
+        expect(page).to have_content published_posts[1].title
+        expect(page).to_not have_content draft_post.title
       end
 
       specify "user can't see administration links" do
-        expect(page).to_not have_link "Edit", href: edit_post_path(posts[0].slug)
+        expect(page).to_not have_link "Edit", href: edit_post_path(published_posts[0].slug)
       end
     end
 
     describe "on admin index page" do
       before { visit admin_posts_path }
 
-      specify "user sees blog posts" do
-        expect(page).to have_content posts[0].title
-        expect(page).to have_content posts[1].title
+      specify "user sees correct blog posts" do
+        expect(page).to have_content published_posts[0].title
+        expect(page).to have_content published_posts[1].title
+        expect(page).to have_content draft_post.title
       end
 
       specify "user sees edit post link" do
-        expect(page).to have_link "Edit", href: edit_post_path(posts[0].slug)
+        expect(page).to have_link "Edit", href: edit_post_path(published_posts[0].slug)
       end
 
       specify "user sees destroy post link" do
-        expect(page).to have_link "Destroy", href: post_path(posts[0].slug)
+        expect(page).to have_link "Destroy", href: post_path(published_posts[0].slug)
       end
 
       specify "user sees new post option" do
@@ -60,7 +63,7 @@ feature "Blog administration" do
         end
 
         specify "he can see the admin index page again" do
-          expect(page).to have_content posts[0].title
+          expect(page).to have_content published_posts[0].title
           expect(page).to have_link "New Post", href: new_post_path
         end
       end

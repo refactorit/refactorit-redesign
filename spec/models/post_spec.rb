@@ -41,5 +41,19 @@ RSpec.describe Post, :type => :model do
       expect(post.title_to_slug).to eq "title-with-whitespace"
     end
   end
+
+  describe "#save" do
+    let(:default_post) { FactoryGirl.build(:post) }
+    let(:published_post) { FactoryGirl.build(:published_post)}
+    it "post is saved with default status value if no status is provided" do
+      default_post.save
+      expect(default_post.reload.status).to eq "draft"
+    end
+
+    it "post is saved with provided status value" do
+      published_post.save
+      expect(published_post.reload.status).to eq "published"
+    end
+  end
 end
 
