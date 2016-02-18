@@ -8,6 +8,7 @@ class Post < ApplicationRecord
 
   before_save :assign_slug
   before_save :strip_title
+  before_save :change_published_date
 
   enum status: [:draft, :published]
 
@@ -35,4 +36,15 @@ class Post < ApplicationRecord
   def self.default_status
     "draft"
   end
+
+  private
+
+    def change_published_date
+      if draft? && published_at.present?
+        published_at = nil
+      elsif published? && published_at.nil?
+        published_at = Time.now
+      end
+    end
+
 end

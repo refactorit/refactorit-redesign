@@ -50,9 +50,19 @@ RSpec.describe Post, :type => :model do
       expect(default_post.reload.status).to eq "draft"
     end
 
+    it "post is not saved with published_at date if status is draft" do
+      default_post.save
+      expect(default_post.reload.published_at).to eq nil
+    end
+
     it "post is saved with provided status value" do
       published_post.save
       expect(published_post.reload.status).to eq "published"
+    end
+
+    it "post is saved with published_at date if status is published" do
+      published_post.save
+      expect(published_post.reload.published_at).to_not eq nil
     end
   end
 end
