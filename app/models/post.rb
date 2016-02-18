@@ -41,9 +41,9 @@ class Post < ApplicationRecord
 
     def change_published_date
       if draft? && published_at.present?
-        published_at = nil
+        self.published_at = nil
       elsif published? && published_at.nil?
-        published_at = Time.now
+        self.published_at = Time.now
       end
     end
 
