@@ -41,5 +41,37 @@ RSpec.describe Post, :type => :model do
       expect(post.title_to_slug).to eq "title-with-whitespace"
     end
   end
+
+  describe "#save" do
+    let(:default_post) { FactoryGirl.build(:post) }
+    let(:published_post) { FactoryGirl.build(:published_post) }
+    let(:published_post_with_date) { FactoryGirl.build(:published_post,
+      published_at: Time.now) }
+    it "post is saved with default status value if no status is provided" do
+      default_post.save
+      expect(default_post.reload.status).to eq "draft"
+    end
+
+    it "post is not saved with published_at date if status is draft" do
+      default_post.save
+      expect(default_post.reload.published_at).to eq nil
+    end
+
+    it "post is saved with provided status value" do
+      published_post.save
+      expect(published_post.reload.status).to eq "published"
+    end
+
+    it "post is saved with published_at date if status is published" do
+      published_post.save
+      expect(published_post.reload.published_at).to_not eq nil
+    end
+
+    it "post is saved without published_date if status is changed from published to draft" do
+      published_post_with_date.status = "draft"
+      published_post_with_date.save
+      expect(published_post_with_date.reload.published_at).to eq nil
+    end
+  end
 end
 

@@ -8,6 +8,9 @@ class Post < ApplicationRecord
 
   before_save :assign_slug
   before_save :strip_title
+  before_save :change_published_date
+
+  enum status: [:draft, :published]
 
   def assign_slug
     self.slug ||= title_to_slug
@@ -23,4 +26,25 @@ class Post < ApplicationRecord
   def title_to_slug
     title.downcase.gsub(/\s+/, "-")
   end
+
+  # necessary for select inputs in forms, since enum is a number and
+  # forms send strings
+  def self.status_keys
+    self.statuses.keys
+  end
+
+  def self.default_status
+    "draft"
+  end
+
+  private
+
+    def change_published_date
+      if draft? && published_at.present?
+        self.published_at = nil
+      elsif published? && published_at.nil?
+        self.published_at = Time.now
+      end
+    end
+
 end

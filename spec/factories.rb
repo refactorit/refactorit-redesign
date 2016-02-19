@@ -15,6 +15,9 @@ FactoryGirl.define do
     sequence(:title) { |n| "Post title #{n}" }
     description 'Post description'
     body 'Post body'
+    factory :published_post do
+      status "published"
+    end
   end
 end
 

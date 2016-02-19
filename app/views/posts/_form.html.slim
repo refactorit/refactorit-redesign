@@ -2,6 +2,6 @@
   = f.input :title
   = f.input :slug
   = f.input :body
-  = f.input :status
+  = f.input :status, as: :select, collection: Post.status_keys, default: Post.default_status
   = f.button :submit
 

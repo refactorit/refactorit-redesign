@@ -151,9 +151,17 @@ RSpec.describe PostsController, :type => :controller do
 
     describe 'GET show' do
       let(:post) { FactoryGirl.create(:post) }
-      it 'responds with 200' do
-        get :show, params: { id: post.slug }
+      let(:published_post) { FactoryGirl.create(:published_post) }
+
+      it 'responds with 200 for published post' do
+        get :show, params: { id: published_post.slug }
         expect(response).to have_http_status 200
+      end
+
+      it 'responds with RoutingError for drafted post' do
+        expect do
+          get :show, params: { id: post.slug }
+        end.to raise_error ActionController::RoutingError
       end
     end
 
