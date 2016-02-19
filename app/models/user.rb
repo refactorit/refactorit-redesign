@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :rememberable, :trackable, :validatable
 
   has_many :posts, foreign_key: 'author_id'
+  validates :name, presence: true
 end
