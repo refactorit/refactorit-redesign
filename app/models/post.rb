@@ -14,6 +14,8 @@ class Post < ApplicationRecord
 
   enum status: [:draft, :published]
 
+  delegate :name, :slug, to: :author, prefix: true
+
   def assign_slug
     self.slug ||= slugify(title)
   end

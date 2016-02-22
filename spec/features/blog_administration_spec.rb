@@ -8,20 +8,6 @@ feature "Blog administration" do
    let!(:draft_post) { FactoryGirl.create(:post) }
    before { login_as(user, scope: :user) }
 
-    describe "on index page" do
-      before { visit posts_path }
-
-      specify "user sees correct blog posts" do
-        expect(page).to have_content published_posts[0].title
-        expect(page).to have_content published_posts[1].title
-        expect(page).to_not have_content draft_post.title
-      end
-
-      specify "user can't see administration links" do
-        expect(page).to_not have_link "Edit", href: edit_post_path(published_posts[0].slug)
-      end
-    end
-
     describe "on admin index page" do
       before { visit admin_posts_path }
 

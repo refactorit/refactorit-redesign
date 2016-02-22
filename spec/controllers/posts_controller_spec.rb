@@ -20,6 +20,13 @@ RSpec.describe PostsController, :type => :controller do
       end
     end
 
+    describe 'GET author_index' do
+      it 'responds with 200' do
+        get :author_index, params: { id: user.slug }
+        expect(response).to have_http_status 200
+      end
+    end
+
     describe 'GET new' do
       it 'responds with 200' do
         get :new
@@ -129,7 +136,7 @@ RSpec.describe PostsController, :type => :controller do
 
   context "user is not signed in" do
     describe 'GET index' do
-      it 'responds with 302' do
+      it 'responds with 200' do
         get :index
         expect(response).to have_http_status 200
       end
@@ -139,6 +146,13 @@ RSpec.describe PostsController, :type => :controller do
       it 'responds with 302' do
         get :admin_index
         expect(response).to have_http_status 302
+      end
+    end
+
+    describe 'GET author_index' do
+      it 'responds with 200' do
+        get :author_index, params: { id: user.slug }
+        expect(response).to have_http_status 200
       end
     end
 
