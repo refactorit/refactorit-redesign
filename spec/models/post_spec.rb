@@ -28,20 +28,6 @@ RSpec.describe Post, :type => :model do
     end
   end
 
-  describe "#title_to_slug" do
-    let(:post) { FactoryGirl.build(:post) }
-
-    it "returns correctly slugified text" do
-      post.title = "This is a rails 5 text"
-      expect(post.title_to_slug).to eq "this-is-a-rails-5-text"
-    end
-
-    it "returns correctly slugified text with multiple whitespace" do
-      post.title = "Title WIth    whitespace"
-      expect(post.title_to_slug).to eq "title-with-whitespace"
-    end
-  end
-
   describe "#save" do
     let(:default_post) { FactoryGirl.build(:post) }
     let(:published_post) { FactoryGirl.build(:published_post) }
@@ -71,6 +57,12 @@ RSpec.describe Post, :type => :model do
       published_post_with_date.status = "draft"
       published_post_with_date.save
       expect(published_post_with_date.reload.published_at).to eq nil
+    end
+
+    it "post is saved with the slug derived from title" do
+      default_post.title = "Some cool title"
+      default_post.save
+      expect(default_post.reload.slug).to eq "some-cool-title"
     end
   end
 end
