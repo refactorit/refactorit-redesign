@@ -23,7 +23,7 @@ class Post < ApplicationRecord
     self.title = self.title.strip if self.title.present?
   end
 
-  def title_to_slug
+  def title_to_slug(slugifier=)
     Slugifier.new(title).slugify
   end
 

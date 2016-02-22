@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
   has_many :posts, foreign_key: 'author_id'
   validates :name, presence: true
+  before_save :name_to_slug
 
-  def find_by_slug
+  def name_to_slug
+    self.slug = Slugifier.new(name).slugify
   end
 end
