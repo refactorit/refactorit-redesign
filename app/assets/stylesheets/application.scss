@@ -17,8 +17,13 @@
  */
 
 /************************* GLOBAL *************************/
-@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,500,300&subset=latin,latin-ext);
+
 $refactorit-red: #ed1a33;
+$refactorit-gray: #666666;
+
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,500,300&subset=latin,latin-ext);
+
+
 
 html {
   position: relative;
@@ -28,6 +33,7 @@ html {
 body {
   font-family: 'Fira Sans', sans-serif;
   margin: 0 0 16em; /* bottom = footer height */
+  color: $refactorit-gray;
 }
 
 i {
@@ -37,7 +43,7 @@ i {
 h5 {
 	text-transform: lowercase;
 	font-variant: small-caps;
-  color: $refactorit-red;
+  color: $refactorit-gray;
   letter-spacing: 0.05em;
 }
 
@@ -53,6 +59,10 @@ p {
 
 .r-brand {
   width: 90px;
+}
+
+nav a {
+  color: $refactorit-gray;
 }
 
 /********** footer **********/
@@ -85,4 +95,12 @@ footer a {
   width: 100%;
   overflow: hidden;
   margin: 0 10px;
+}
+
+
+/********** blog **********/
+.category {
+  color: $refactorit-red;
+  text-transform: lowercase;
+  font-variant: small-caps;
 }
