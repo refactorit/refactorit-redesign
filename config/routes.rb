@@ -18,4 +18,5 @@ Rails.application.routes.draw do
     resources :posts, only: [:edit, :new]
   end
   get  'pirates/posts', to: 'posts#admin_index', as: :admin_posts
+  get  'author/:name/posts', to: 'author#post_index', as: :author_posts
 end

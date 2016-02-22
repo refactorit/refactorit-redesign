@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts, foreign_key: 'author_id'
   validates :name, presence: true
+
+  def find_by_slug
+  end
 end

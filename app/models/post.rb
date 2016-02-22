@@ -24,7 +24,7 @@ class Post < ApplicationRecord
   end
 
   def title_to_slug
-    title.downcase.gsub(/\s+/, "-")
+    Slugifier.new(title).slugify
   end
 
   # necessary for select inputs in forms, since enum is a number and
