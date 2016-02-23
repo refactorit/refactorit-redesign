@@ -13,6 +13,8 @@ class PostsController < ApplicationController
   def author_index
     @author = User.friendly.find(params[:id])
     @posts = @author.posts.published
+
+    render template: 'posts/index'
   end
 
   def show
