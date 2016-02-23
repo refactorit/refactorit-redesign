@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: [:show, :index, :author_index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def admin_index
@@ -7,7 +7,14 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.published
+    @posts = Post.published.includes(:author)
+  end
+
+  def author_index
+    @author = User.friendly.find(params[:id])
+    @posts = @author.posts.published
+
+    render template: 'posts/index'
   end
 
   def show
