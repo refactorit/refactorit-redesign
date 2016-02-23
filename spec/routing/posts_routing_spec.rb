@@ -12,7 +12,7 @@ RSpec.describe PostsController, :type => :routing do
     end
 
     it "routes to #author_index" do
-      expect(:get => "/author/some-author/posts").to route_to("posts#author_index", :id => "some-author")
+      expect(:get => "/authors/some-author/posts").to route_to("posts#author_index", :id => "some-author")
     end
 
     it "routes to #new" do
