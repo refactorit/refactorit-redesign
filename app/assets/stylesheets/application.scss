@@ -24,17 +24,27 @@ $refactorit-gray: #666666;
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,500,300&subset=latin,latin-ext);
 
 
+*{
+  margin: 0;
+}
+
+html, body {
+  
+}
+
 
 html {
   position: relative;
-  height: 100%;
+  min-height: 100%;
+  height: auto;
 }
 
 body {
   font-family: 'Fira Sans', sans-serif;
-  margin: 0 0 16em; /* bottom = footer height */
   color: $refactorit-gray;
   font-size: 100%;
+  height: auto;
+  margin-bottom: 16em;
 }
 
 i {
@@ -85,14 +95,23 @@ footer {
 	text-align: center;
 	font-size: 1.2rem;
 	padding: 1rem;
-  height: 16em;
   position: absolute;
-/*  bottom: 0;*/
-  left: 0;
+  bottom: 0;
+}
+
+footer, .push {
+  height: 16em;
 }
 
 footer a {
   font-size: 0.7em;
+}
+
+.footer-wrap {
+  min-height: 100%;
+  height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+  height: 100%;
+  margin: 0 auto -16em; /* the bottom margin is the negative value of the footer's height */
 }
 
 /* dribbble*/
