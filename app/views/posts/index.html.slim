@@ -1,5 +1,26 @@
 div class="row"
-  div class="small-9 large-offset-2"
+  div class="medium-2 columns hide-for-small-only"
+    ul class="menu vertical"
+      li class="menu-text" topic
+      li
+        a href="#" ruby
+      li
+        a href="#" design
+      li class="menu-text" published
+      li
+        a href="#" 2014
+      li
+        a href="#" 2015
+      li
+        a href="#" 2016
+      li class="menu-text" authors
+      li
+        a href="#" Neven Rakonić
+      li
+        a href="#" Vanessa Šerka
+      li
+        a href="#" Ivan Lučev
+  div class="medium-9 medium-pull-1 columns"
     - @posts.each do |post|
      h3 = post.title
      hr
