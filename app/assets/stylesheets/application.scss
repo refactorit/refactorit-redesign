@@ -34,6 +34,7 @@ body {
   font-family: 'Fira Sans', sans-serif;
   margin: 0 0 16em; /* bottom = footer height */
   color: $refactorit-gray;
+  font-size: 100%;
 }
 
 i {
@@ -53,6 +54,18 @@ section {
 
 p {
   font-size: 0.9em;
+}
+
+.hr-margin {
+  width: inherit;
+}
+
+aside {
+  margin-top: 3em;
+}
+
+.space-top {
+  margin-top: 3.5em;
 }
 
 /********** navbar **********/
@@ -104,3 +117,4 @@ footer a {
   text-transform: lowercase;
   font-variant: small-caps;
 }
+

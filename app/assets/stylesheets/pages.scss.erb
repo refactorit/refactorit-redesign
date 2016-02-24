@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$refactorit-red: #ed1a33;
+$refactorit-gray: #666666;
+
+
 // home
 .cover-photo {
   // @include grid-column;
@@ -42,3 +46,26 @@
 .main-back {
   background: no-repeat center/100% url("<%= asset_path 'r-back.jpg' %>");
 }
+
+// blog
+
+.category-icon {
+  margin-top: 0.5em;
+  img {
+    margin: 0 auto;
+  }
+  .fi-monitor {
+    color: #ed1a33;
+    font-size: 1.7em;
+  }
+}
+
+
+// contact
+
+.required abbr {
+  margin-left: -0.7em;
+  border-bottom: none;
+  color: $refactorit-red;
+}
+
