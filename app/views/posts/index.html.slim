@@ -1,6 +1,33 @@
-- @posts.each do |post|
- h1 = link_to post.title, post_path(id: post.slug)
- hr
- p  = markdown_to_html(post.body)
- p  = link_to post.author_name, author_posts_path(id: post.author_slug)
+div class="callout small page-headline"
+  div class="row"
+    div class="medium-offset-1 medium-pull-1 medium-3 columns" 
+      h5 blog
+div class="row"
+  div class="medium-2 columns hide-for-small-only"
+    ul class="menu vertical"
+      li class="menu-text" topic
+      li
+        a href="#" ruby
+      li
+        a href="#" design
+      li class="menu-text" published
+      li
+        a href="#" 2014
+      li
+        a href="#" 2015
+      li
+        a href="#" 2016
+      li class="menu-text" authors
+      li
+        a href="#" Neven Rakonić
+      li
+        a href="#" Vanessa Šerka
+      li
+        a href="#" Ivan Lučev
+  div class="medium-9 medium-pull-1 columns"
+    - @posts.each do |post|
+     h3 = link_to post.title, post_path(id: post.slug)
+     hr
+     p  = markdown_to_html(post.body)
+     p  = link_to post.author_name, author_posts_path(id: post.author_slug)
 

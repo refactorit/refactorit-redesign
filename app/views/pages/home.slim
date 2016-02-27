@@ -1,1 +1,119 @@
-h1 This is the home page!
+/ cover
+div class="callout large cover-photo main-back"
+  div class="expanded row column text-center"
+    / h4 Ruby. That's what we do.
+/ main
+section
+  div class="row"
+    / blog post snippet
+    div class="medium-7 columns"
+      h5 class="medium-2 text-center" Blog
+      div class="medium-2 columns text-center category-icon"
+        = image_tag "ruby.png", alt: "ruby"
+        br
+        span class="category" Ruby
+        hr
+      div class="medium-10 columns"
+        h3 Super Awesome Headline
+        p Maecenas dapibus elit a enim vulputate consequat. Maecenas urna enim, viverra molestie tortor a, viverra scelerisque eros. Sed hendrerit, urna sit amet interdum volutpat, mi justo interdum libero, a interdum massa quam vitae ex. Nullam in ornare augue, non interdum lectus.
+        br
+
+      div class="medium-2 columns text-center category-icon"
+        i class="fi-monitor"
+        br
+        span class="category" Design
+        hr
+      div class="medium-10 columns"
+        h3 Another One
+        p Maecenas dapibus elit a enim vulputate consequat. Maecenas urna enim, viverra molestie tortor a, viverra scelerisque eros. Sed hendrerit, urna sit amet interdum volutpat, mi justo interdum libero, a interdum massa quam vitae ex. Nullam in ornare augue, non interdum lectus.
+
+
+
+    / news and testimonials
+    div class="medium-5 columns"
+      aside
+        h5 News
+        p Maecenas dapibus elit a enim vulputate consequat. Maecenas urna enim, viverra molestie tortor a, viverra scelerisque eros. Sed hendrerit, urna sit amet interdum volutpat, mi justo interdum libero, a interdum massa quam vitae ex. Nullam in ornare augue, non interdum lectus. 
+        h5  class="space-top" Testimonials
+        blockquote Those people who think they know everything are a great annoyance to those of us who do.
+        cite Isaac Asimov
+        blockquote Those people who think they know everything are a great annoyance to those of us who do.
+        cite Isaac Asimov
+  section class="dribbble"
+    div class="row"
+      div class="small-12 columns"
+        h5 Dribbble
+    div class="row expanded dribbble-expanded"
+      div class="frame"
+        img class="thumbnail" src="http://placehold.it/220x161"
+      div class="frame"
+        img class="thumbnail" src="http://placehold.it/220x161"
+      div class="frame"
+        img class="thumbnail" src="http://placehold.it/220x161"
+      div class="frame"
+        img class="thumbnail" src="http://placehold.it/220x161"
+      div class="frame"
+        img class="thumbnail" src="http://placehold.it/220x161"
+
+/ team
+section
+  div class="row"
+    div class="small-12 columns"
+      h5 Team
+  div class="row team"
+    div class="medium-4 columns text-center team-wrap"
+      div class=="small-8 small-offset-2 member-box"
+        = image_tag "lucev.png", alt: "lucev"
+        h5 Ivan Lučev
+        small developer
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius id optio cumque unde aut eligendi sunt velit expedita ad recusandae voluptatem possimus, maxime illo autem necessitatibus quam dolore veritatis hic.
+        div class="social-icons text-center"
+          a href="#"
+            i class="fi-social-stack-overflow"
+          a href="#"
+            i class="fi-social-github"
+          a href="#" 
+            i class="fi-social-linkedin"  
+    div class="medium-4 columns text-center team-wrap"
+      div class=="small-8 small-offset-2 member-box"
+        = image_tag "rakonic.png", alt: "rakonic"
+        h5 Neven Rakonić
+        small developer
+        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero harum in sequi, voluptatem, vero, vel delectus aspernatur adipisci soluta rem non obcaecati hic corporis nulla velit distinctio quos totam! Ratione!
+        div class="social-icons text-center"
+          a href="#"
+            i class="fi-social-stack-overflow"
+          a href="#"
+            i class="fi-social-github"
+          a href="#" 
+            i class="fi-social-linkedin"  
+    div class="medium-4 columns text-center team-wrap"
+      div class=="small-8 small-offset-2 member-box"
+        = image_tag "serka.png", alt: "serka"
+        h5 Vanessa Šerka
+        small designer
+        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, labore quisquam incidunt molestiae, consequatur iusto delectus tenetur distinctio qui repellat praesentium eum fuga saepe nihil aliquam fugiat, in! Reiciendis, sequi.
+        div class="social-icons text-center"
+          a href="#"
+            i class="fi-social-behance"
+          a href="#"
+            i class="fi-social-dribbble"
+          a href="#" 
+            i class="fi-social-twitter"
+          a href="#" 
+            i class="fi-social-linkedin"
+
+/ newsletter
+section
+  form
+    div class="row"
+      div class="large-8 large-offset-2 columns"
+        div class="row collapse"
+          div class="small-12"
+            label for="n-invite" class="right inline small-12" Subscribe to our newsletter!
+          div class="small-10 columns"
+            input type="text" id="n-invite" placeholder="Your email here"
+          div class="small-2 columns"
+            a href="#" class="button postfix" Subscribe!
+
+

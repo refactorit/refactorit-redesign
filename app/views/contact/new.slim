@@ -1,7 +1,29 @@
-= simple_form_for @contact, url: send_question_path, method: :post do |f|
-  = f.input :email
-  = f.input :name
-  = f.input :message
-  = f.button :submit, id: :contact_submit
-
+div class="callout small page-headline"
+  div class="row"
+    div class="medium-offset-1 medium-pull-1 medium-3 columns" 
+      h5 contact us
+div class="row"
+  div class="medium-2 columns hide-for-small-only"
+    ul class="menu vertical"
+      li class="menu-text" social
+      li
+        a href="#" Facebook
+      li
+        a href="#" Twitter
+      li
+        a href="#" Github
+      li
+        a href="#" Dribbble
+      li
+        Refactorit d.o.o.
+        OIB: 39100529663
+        Remetinečka cesta 7
+        10000 Zagreb
+  div class="medium-9 medium-pull-1 columns"
+    = simple_form_for @contact, url: send_question_path, method: :post do |f|
+      = f.input :name
+      = f.input :email
+      = f.input :message, as: :text, input_html: { rows: 8 }
+      div class="small-5 small-offset-7"
+        = f.button :submit, id: :contact_submit, value: "Send message", class: "button expanded"
 

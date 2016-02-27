@@ -1,0 +1,139 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+
+/************************* GLOBAL *************************/
+
+$refactorit-red: #ed1a33;
+$refactorit-gray: #666666;
+
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,500,300&subset=latin,latin-ext);
+
+
+*{
+  margin: 0;
+}
+
+html, body {
+  
+}
+
+
+html {
+  position: relative;
+  min-height: 100%;
+  height: auto;
+}
+
+body {
+  font-family: 'Fira Sans', sans-serif;
+  color: $refactorit-gray;
+  font-size: 100%;
+  height: auto;
+  margin-bottom: 16em;
+}
+
+i {
+	font-size: 1.5em;
+}
+
+h5 {
+	text-transform: lowercase;
+	font-variant: small-caps;
+  color: $refactorit-gray;
+  letter-spacing: 0.05em;
+}
+
+section {
+  padding: 5em 0;
+}
+
+p {
+  font-size: 0.9em;
+}
+
+.hr-margin {
+  width: inherit;
+}
+
+aside {
+  margin-top: 3em;
+}
+
+.space-top {
+  margin-top: 3.5em;
+}
+
+/********** navbar **********/
+
+.r-brand {
+  width: 90px;
+}
+
+nav a {
+  color: $refactorit-gray;
+}
+
+/********** footer **********/
+footer {
+	width: 100%;
+	background-color: #292c2f;
+	text-align: center;
+	font-size: 1.2rem;
+	padding: 1rem;
+  position: absolute;
+  bottom: 0;
+}
+
+footer, .push {
+  height: 16em;
+}
+
+footer a {
+  font-size: 0.7em;
+}
+
+.footer-wrap {
+  min-height: 100%;
+  height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+  height: 100%;
+  margin: 0 auto -16em; /* the bottom margin is the negative value of the footer's height */
+}
+
+/* dribbble*/
+.dribbble-expanded {
+  display: inline-block;
+  width: 100%;
+}
+
+.dribbble .frame {
+  display: inline-block;
+}
+.dribbble img {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 10px;
+}
+
+
+/********** blog **********/
+.category {
+  color: $refactorit-red;
+  text-transform: lowercase;
+  font-variant: small-caps;
+}
+
