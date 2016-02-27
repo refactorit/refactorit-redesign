@@ -1,5 +1,5 @@
 - @posts.each do |post|
- h1 = post.title
+ h1 = link_to post.title, post_path(id: post.slug)
  hr
  p  = markdown_to_html(post.body)
  p  = link_to post.author_name, author_posts_path(id: post.author_slug)
