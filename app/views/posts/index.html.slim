@@ -26,7 +26,7 @@ div class="row"
         a href="#" Ivan Lučev
   div class="medium-9 medium-pull-1 columns"
     - @posts.each do |post|
-     h3 = post.title
+     h3 = link_to post.title, post_path(id: post.slug)
      hr
      p  = markdown_to_html(post.body)
      p  = link_to post.author_name, author_posts_path(id: post.author_slug)
