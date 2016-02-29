@@ -44,16 +44,13 @@ section
       div class="small-12 columns"
         h5 Dribbble
     div class="row expanded dribbble-expanded"
-      div class="frame"
-        img class="thumbnail" src="http://placehold.it/220x161"
-      div class="frame"
-        img class="thumbnail" src="http://placehold.it/220x161"
-      div class="frame"
-        img class="thumbnail" src="http://placehold.it/220x161"
-      div class="frame"
-        img class="thumbnail" src="http://placehold.it/220x161"
-      div class="frame"
-        img class="thumbnail" src="http://placehold.it/220x161"
+      - @dribbble_shots.each do |shot|
+        div class="frame"
+          p = shot.title
+          p = shot.views_count
+          p = shot.likes_count
+          = link_to shot.html_url do
+            = image_tag shot.images['teaser'], class: 'thumbnail'
 
 / team
 section

@@ -47,12 +47,16 @@ gem 'redcarpet'
 gem 'rouge'
 # Find by slug instead of id
 gem 'friendly_id'
+# Wrapper for the Dribbble API
+gem 'dribbble'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   # Test suite
   gem 'rspec-rails', '~> 3.0'
+  # Loading environment variables
+  gem 'dotenv-rails'
 end
 
 group :test do
