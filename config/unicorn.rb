@@ -23,7 +23,7 @@ APP_PATH = "/srv/www/refactorit/shared"
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
-working_directory "/srv/www/refactorit/shared" # available in 0.94.0+
+working_directory "/srv/www/refactorit/current" # available in 0.94.0+
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
