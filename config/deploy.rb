@@ -35,7 +35,9 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 # set :keep_releases, 5\
 
 # rbenv related
-set :rbenv_ruby, '2.2.2p95'
+set :rbenv_type, :user
+set :rbenv_ruby, File.read('.ruby-version').strip
+set :rbenv_custom_path, "/opt/rbenv/"
 
 namespace :deploy do
 
