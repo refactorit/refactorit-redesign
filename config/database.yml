@@ -1,11 +1,11 @@
 default: &default
+  host: localhost
   adapter: postgresql
   pool: 5
   timeout: 5000
 
 development:
   <<: *default
-  host: localhost
   database: refactorit_dev
   username: <%= ENV['USER'] %>
   password: <%= ENV['PASSWORD'] %>
@@ -15,7 +15,6 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  host: localhost
   database: refactorit_test
   username: <%= ENV['USER'] %>
   password: <%= ENV['PASSWORD'] %>
