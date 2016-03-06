@@ -23,3 +23,6 @@ test:
 production:
   <<: *default
   database: refactorit_production
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+
