@@ -21,5 +21,6 @@
 .byebug_history
 
 .ruby-version
+.env
 
 .DS_Store
