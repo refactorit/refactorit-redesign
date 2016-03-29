@@ -50,6 +50,19 @@ gem 'friendly_id'
 # Wrapper for the Dribbble API
 gem 'dribbble'
 
+# Deployment related gems
+gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rails', '~> 1.1.1'
+gem 'capistrano-rbenv', github: "capistrano/rbenv"
+
+group :production do
+  # Server
+  gem 'unicorn'
+end
+
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
