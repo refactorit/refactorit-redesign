@@ -66,6 +66,7 @@ group :test do
   gem 'capybara-email'
   # Helpers for validation specs
   gem 'shoulda-matchers'
+  gem 'simplecov', require: false
 end
 
 group :development do
