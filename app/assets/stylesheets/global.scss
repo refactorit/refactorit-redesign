@@ -1,3 +1,28 @@
+$refactorit-red: #ed1a33;
+$refactorit-gray: #666666;
+$light-red: #FF4C62;
+$dark-red: #7F000F;
+
+a {
+  color: $light-red;
+}
+
+a:focus {
+  outline: 0;
+}
+
+a:hover, a:active {
+  color: $dark-red;
+}
+
+.button {
+  background-color: $light-red;
+}
+
+.button:hover {
+  background-color: $dark-red;
+}
+
 input {
   margin-bottom: 0;
 }
