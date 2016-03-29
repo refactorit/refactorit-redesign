@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @dribbble_shots = DribbbleShot.all
+    @dribbble_shots = DribbbleShot.limit(6)
   end
 
   def about
