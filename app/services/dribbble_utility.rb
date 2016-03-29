@@ -20,7 +20,7 @@ class DribbbleUtility
       shots.each do |shot|
         DribbbleShot.create!(title: shot.title, views_count: shot.views_count,
           likes_count: shot.likes_count, html_url: shot.html_url,
-          teaser_image_url: shot.images['teaser'],
+          image_url: shot.images['normal'],
           response_body: shot.as_json.reject!{ |k,v| k == 'token' }.to_json)
       end
     end
