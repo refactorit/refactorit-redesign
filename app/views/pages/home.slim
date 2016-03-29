@@ -1,5 +1,5 @@
 / cover
-div class="callout large cover-photo main-back"
+div class="large cover-photo main-back"
   div class="expanded row column text-center"
     / h4 Ruby. That's what we do.
 / main
@@ -7,7 +7,7 @@ section
   div class="row"
     / blog post snippet
     div class="medium-7 columns"
-      h5 class="medium-2 text-center" Blog
+      h5 class="medium-2 medium-text-center large-text-center" Blog
       div class="medium-2 columns text-center category-icon"
         = image_tag "ruby.png", alt: "ruby"
         br
@@ -39,18 +39,29 @@ section
         cite Isaac Asimov
         blockquote Those people who think they know everything are a great annoyance to those of us who do.
         cite Isaac Asimov
+
+    / dribbble
   section class="dribbble"
     div class="row"
       div class="small-12 columns"
         h5 Dribbble
-    div class="row expanded dribbble-expanded"
-      - @dribbble_shots.each do |shot|
-        div class="frame"
-          p = shot.title
-          p = shot.views_count
-          p = shot.likes_count
-          = link_to shot.html_url do
-            = image_tag shot.images['teaser'], class: 'thumbnail'
+    div class="row expanded"
+      - @dribbble_shots.take(6).each do |shot|
+        div class="medium-4 large-2 columns"
+          div class="row card"
+            div class="shot-image"
+              = link_to shot.html_url do
+                = image_tag shot.images['normal'], class: 'thumbnail'
+          div class="row text-right"
+            div class="small-7 columns"
+              p.text-left = shot.title
+            div class="small-5 columns text-right"
+              p.card-likes
+              span class="size-10 fi-heart"
+                = shot.likes_count
+              p.card-views
+              span class="size-10 fi-eye"
+                = shot.views_count
 
 / team
 section
@@ -104,9 +115,9 @@ section
 section
   form
     div class="row"
-      div class="large-8 large-offset-2 columns"
+      div class="small-10 large-8 large-offset-2 columns"
         div class="row collapse"
-          div class="small-12"
+          div class="small-10"
             label for="n-invite" class="right inline small-12" Subscribe to our newsletter!
           div class="small-10 columns"
             input type="text" id="n-invite" placeholder="Your email here"
