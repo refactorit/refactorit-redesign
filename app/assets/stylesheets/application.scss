@@ -18,6 +18,7 @@
 
 /************************* GLOBAL *************************/
 
+$white: #ffffff;
 $refactorit-red: #ed1a33;
 $refactorit-gray: #666666;
 
@@ -115,20 +116,18 @@ footer a {
 }
 
 /* dribbble*/
-.dribbble-expanded {
-  display: inline-block;
-  width: 100%;
+
+.shot-image {
+  position: relative;
 }
 
-.dribbble .frame {
-  display: inline-block;
-}
-.dribbble img {
-  width: 100%;
-  overflow: hidden;
-  margin: 0 10px;
+.card .fi-eye:before, .card .fi-heart:before {
+  margin-right: 0.3em;
 }
 
+.card-views {
+  margin: 0;
+}
 
 /********** blog **********/
 .category {
