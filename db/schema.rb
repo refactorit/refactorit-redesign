@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222105829) do
+ActiveRecord::Schema.define(version: 20160329105131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dribbble_shots", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "views_count"
+    t.integer  "likes_count"
+    t.string   "html_url"
+    t.string   "teaser_image_url"
+    t.text     "response_body"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"

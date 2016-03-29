@@ -39,18 +39,19 @@ section
         cite Isaac Asimov
         blockquote Those people who think they know everything are a great annoyance to those of us who do.
         cite Isaac Asimov
-  section class="dribbble"
-    div class="row"
-      div class="small-12 columns"
-        h5 Dribbble
-    div class="row expanded dribbble-expanded"
-      - @dribbble_shots.each do |shot|
-        div class="frame"
-          p = shot.title
-          p = shot.views_count
-          p = shot.likes_count
-          = link_to shot.html_url do
-            = image_tag shot.images['teaser'], class: 'thumbnail'
+  - if @dribbble_shots.any?
+    section class="dribbble"
+      div class="row"
+        div class="small-12 columns"
+          h5 Dribbble
+      div class="row expanded dribbble-expanded"
+        - @dribbble_shots.each do |shot|
+          div class="frame"
+            p = shot.title
+            p = shot.views_count
+            p = shot.likes_count
+            = link_to shot.html_url do
+              = image_tag shot.teaser_image_url, class: 'thumbnail'
 
 / team
 section
