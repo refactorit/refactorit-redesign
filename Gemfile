@@ -49,6 +49,8 @@ gem 'rouge'
 gem 'friendly_id'
 # Wrapper for the Dribbble API
 gem 'dribbble'
+# Background job processing
+gem 'sidekiq'
 
 # Deployment related gems
 gem 'capistrano', '~> 3.1.0'
