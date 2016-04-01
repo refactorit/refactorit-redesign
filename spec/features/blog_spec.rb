@@ -55,6 +55,19 @@ feature "Blog" do
       end
     end
 
+    describe "on topic index page" do
+      before { visit topic_posts_path(id: topics.first.slug) }
+      let!(:design_post) { FactoryGirl.create(:published_post, author: author, topic: topics.first) }
+
+      specify "he sees posts for a topic" do
+        expect(page).to have_content design_post.title
+      end
+
+      # specify "he can't see other author's posts" do
+      #   expect(page).to_not have_content other_authors_post.title
+      # end
+    end
+
     describe "on show post page" do
       before { visit post_path(published_posts.first) }
 
