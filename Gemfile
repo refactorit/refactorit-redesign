@@ -51,8 +51,6 @@ gem 'friendly_id'
 gem 'dribbble'
 # Background job processing
 gem 'sidekiq'
-# Stubbing HTTP requests
-gem 'webmock'
 
 # Deployment related gems
 gem 'capistrano', '~> 3.1.0'
@@ -84,6 +82,8 @@ group :test do
   # Helpers for validation specs
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  # Stubbing HTTP requests
+  gem 'webmock'
 end
 
 group :development do
