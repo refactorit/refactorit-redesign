@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 20160401140622) do
     t.datetime "updated_at",               null: false
     t.string   "slug"
     t.datetime "published_at"
-    t.integer  "topics_id"
+    t.integer  "topic_id"
     t.index ["author_id"], name: "index_posts_on_author_id", using: :btree
-    t.index ["topics_id"], name: "index_posts_on_topics_id", using: :btree
+    t.index ["topic_id"], name: "index_posts_on_topic_id", using: :btree
   end
 
   create_table "topics", force: :cascade do |t|
@@ -68,4 +68,5 @@ ActiveRecord::Schema.define(version: 20160401140622) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "posts", "topics"
 end

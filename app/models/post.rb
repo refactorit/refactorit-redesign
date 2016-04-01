@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   friendly_id :slug, use: :slugged
 
   belongs_to :author, class_name: 'User'
+  belongs_to :topic
   validates :title, :body, presence: true
   validates :slug, :title, uniqueness: true
 

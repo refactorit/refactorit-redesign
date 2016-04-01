@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Topic, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validations' do
+    it 'should have a valid factory' do
+      FactoryGirl.build(:user)
+    end
+
+    it { should have_many(:posts) }
+    it { should validate_presence_of(:name) }
+  end
 end
