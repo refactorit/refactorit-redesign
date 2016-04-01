@@ -5,11 +5,13 @@ div class="callout small page-headline"
 div class="row blog-list"
   div class="medium-2 columns hide-for-small-only"
     ul class="menu vertical"
-      li class="menu-text" topic
-      li
-        a href="#" ruby
-      li
-        a href="#" design
+      li class="menu-text"
+        | topic
+        = render @topics
+      / li
+      /   a href="#" ruby
+      / li
+      /   a href="#" design
       li class="menu-text"
         | authors
         = render @authors
