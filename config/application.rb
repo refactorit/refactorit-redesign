@@ -15,5 +15,7 @@ module RefactoritRedesign
     # Add folders to the auto load path
     config.autoload_paths += %W(#{config.root}/app/forms)
     config.autoload_paths += %W(#{config.root}/app/services)
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end
