@@ -3,12 +3,13 @@ require 'rails_helper'
 feature "Blog" do
 
 
-  context "visitor when authors and posts exist" do
+  context "visitor when authors, posts and topics exist" do
     let(:author)   { FactoryGirl.create(:user) }
     let(:other_author) { FactoryGirl.create(:user) }
     let!(:draft_post) { FactoryGirl.create(:post, author: author) }
     let!(:published_posts) { FactoryGirl.create_list(:published_post, 3, author: author) }
     let!(:other_authors_post) { FactoryGirl.create(:published_post, author: other_author) }
+    let!(:topics) { FactoryGirl.create_list(:topic, 2)}
 
     describe "on index page" do
       before { visit posts_path }
@@ -32,6 +33,11 @@ feature "Blog" do
           expect(page).to have_link author.name, href: author_posts_path(author)
           expect(page).to have_link other_author.name, href: author_posts_path(other_author)
         end
+      end
+
+      specify "he sees topic links" do
+        expect(page).to have_link topics.first.name, href: topic_posts_path(topics.first)
+        expect(page).to have_link topics.second.name, href: topic_posts_path(topics.second)
       end
     end
 

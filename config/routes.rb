@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   end
   get  'pirates/posts', to: 'posts#admin_index', as: :admin_posts
   get  'authors/:id/posts', to: 'posts#author_index', as: :author_posts
+  get  'topics/:id/posts', to: 'posts#topic_index', as: :topic_posts
 end

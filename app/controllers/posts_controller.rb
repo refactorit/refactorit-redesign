@@ -1,20 +1,29 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index, :author_index]
+  before_action :authenticate_user!, except: [:show, :index, :author_index, :topic_index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_authors, only: [:index, :author_index, :topic_index]
 
   def admin_index
     @posts = Post.all
   end
 
   def index
+    @topics = Topic.all
     @posts = Post.published_with_authors
-    @authors = User.all
   end
 
   def author_index
+    @topics = Topic.all
     @author = User.friendly.find(params[:id])
-    @authors = User.all
     @posts = @author.posts.published
+
+    render template: 'posts/index'
+  end
+
+  def topic_index
+    @topic = Topic.friendly.find(params[:id])
+    @topics = Topic.all
+    @posts = @topic.posts.published
 
     render template: 'posts/index'
   end
@@ -65,6 +74,10 @@ class PostsController < ApplicationController
 
     def set_post
       @post = Post.friendly.find(params[:id])
+    end
+
+    def set_authors
+      @authors = User.all
     end
 
     def post_params
