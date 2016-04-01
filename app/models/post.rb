@@ -13,6 +13,7 @@ class Post < ApplicationRecord
   before_save :change_published_date
 
   enum status: [:draft, :published]
+  scope :published_with_authors, -> { published.includes(:author) }
 
   delegate :name, :slug, to: :author, prefix: true
 
