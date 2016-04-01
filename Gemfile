@@ -51,6 +51,8 @@ gem 'friendly_id'
 gem 'dribbble'
 # Background job processing
 gem 'sidekiq'
+# Stubbing HTTP requests
+gem 'webmock'
 
 # Deployment related gems
 gem 'capistrano', '~> 3.1.0'
