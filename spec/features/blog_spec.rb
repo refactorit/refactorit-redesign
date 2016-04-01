@@ -26,6 +26,13 @@ feature "Blog" do
       specify "user can't see administration links" do
         expect(page).to_not have_link "Edit", href: edit_post_path(published_posts[0].slug)
       end
+
+      specify "he sees author links in a special box" do
+        within(".menu-text", text: "authors") do
+          expect(page).to have_link author.name, href: author_posts_path(author)
+          expect(page).to have_link other_author.name, href: author_posts_path(other_author)
+        end
+      end
     end
 
     describe "on author index page" do
@@ -39,7 +46,18 @@ feature "Blog" do
 
       specify "he can't see other author's posts" do
         expect(page).to_not have_content other_authors_post.title
-        expect(page).to_not have_content other_author.name
+      end
+    end
+
+    describe "on show post page" do
+      before { visit post_path(published_posts.first) }
+
+      specify "user sees edit post link" do
+        expect(page).to_not have_link "Edit", href: edit_post_path(published_posts[0].slug)
+      end
+
+      specify "user sees back link" do
+        expect(page).to have_link "Back", href: posts_path
       end
     end
   end

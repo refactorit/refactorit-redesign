@@ -7,11 +7,13 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.published.includes(:author)
+    @posts = Post.published_with_authors
+    @authors = User.all
   end
 
   def author_index
     @author = User.friendly.find(params[:id])
+    @authors = User.all
     @posts = @author.posts.published
 
     render template: 'posts/index'
