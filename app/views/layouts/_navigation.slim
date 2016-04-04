@@ -6,12 +6,11 @@ div class="top-bar" id="navbar-menu"
   nav class="top-bar" data-topbar="topbar" role="navigation"
     ul class="title-bar-left large-horizontal menu"
       li class="title-bar-title"
-        a href="#"
+        = link_to root_path do
           = image_tag "refactorit.svg", alt: "refactorit-logo", class: "r-brand hide-for-small-only"
+        end
     div class="top-bar-section"
       ul class="medium-horizontal menu drilldown vertical top-bar-right" data-responsive-menu="drilldown medium-dropdown"
-        li = link_to "Home", root_path
-        li = link_to "About us", about_path
         li = link_to "Team", team_path
         li = link_to "Services", services_path
         li = link_to "Contact us", contact_new_path
