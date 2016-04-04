@@ -14,5 +14,11 @@ describe DribbbleUtility do
       expect(dribbble.team).to be_a Dribbble::Team
     end
   end
+
+  describe '#save_team_shots' do
+    it 'saves DribbbleShot' do
+      expect { dribbble.save_team_shots }.to change { DribbbleShot.count }
+    end
+  end
 end
 

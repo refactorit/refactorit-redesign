@@ -53,4 +53,13 @@ RSpec.configure do |config|
   config.before :suite do
     Warden.test_mode!
   end
+
+  config.before(:each) do
+    stub_request(:get, "https://api.dribbble.com/v1/user?page=1&per_page=100").
+      to_return(:status => 200, :body => '{ "id":"123" }', :headers => {})
+    stub_request(:get, "https://api.dribbble.com/v1/users/123/teams?page=1&per_page=100").
+      to_return(:status => 200, :body => '[{ "id":"123" }]', :headers => {})
+    stub_request(:get, "https://api.dribbble.com/v1/teams/123/shots?page=1&per_page=100").
+      to_return(:status => 200, :body => '[{ "id":"123", "title":"Beautiful design",  "views_count":"5", "likes_count":"3", "html_url":"http://example.com", "images":{"normal":"http://example.com" }}]', :headers => {})
+  end
 end
