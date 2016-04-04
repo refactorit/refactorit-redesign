@@ -63,53 +63,7 @@ section
                 span class="size-10 fi-eye"
                   = shot.views_count
 
-/ team
-section
-  div class="row"
-    div class="small-12 columns"
-      h5 Team
-  div class="row team"
-    div class="medium-4 columns text-center team-wrap"
-      div class=="small-8 small-offset-2 member-box"
-        = image_tag "lucev.png", alt: "lucev"
-        h5 Ivan Lučev
-        small developer
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius id optio cumque unde aut eligendi sunt velit expedita ad recusandae voluptatem possimus, maxime illo autem necessitatibus quam dolore veritatis hic.
-        div class="social-icons text-center"
-          a href="#"
-            i class="fi-social-stack-overflow"
-          a href="#"
-            i class="fi-social-github"
-          a href="#" 
-            i class="fi-social-linkedin"  
-    div class="medium-4 columns text-center team-wrap"
-      div class=="small-8 small-offset-2 member-box"
-        = image_tag "rakonic.png", alt: "rakonic"
-        h5 Neven Rakonić
-        small developer
-        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero harum in sequi, voluptatem, vero, vel delectus aspernatur adipisci soluta rem non obcaecati hic corporis nulla velit distinctio quos totam! Ratione!
-        div class="social-icons text-center"
-          a href="#"
-            i class="fi-social-stack-overflow"
-          a href="#"
-            i class="fi-social-github"
-          a href="#" 
-            i class="fi-social-linkedin"  
-    div class="medium-4 columns text-center team-wrap"
-      div class=="small-8 small-offset-2 member-box"
-        = image_tag "serka.png", alt: "serka"
-        h5 Vanessa Šerka
-        small designer
-        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, labore quisquam incidunt molestiae, consequatur iusto delectus tenetur distinctio qui repellat praesentium eum fuga saepe nihil aliquam fugiat, in! Reiciendis, sequi.
-        div class="social-icons text-center"
-          a href="#"
-            i class="fi-social-behance"
-          a href="#"
-            i class="fi-social-dribbble"
-          a href="#" 
-            i class="fi-social-twitter"
-          a href="#" 
-            i class="fi-social-linkedin"
+= render partial: 'pages/shared/team'
 
 / newsletter
 section
