@@ -1,0 +1,2 @@
+class DribbbleShot < ApplicationRecord
+end
