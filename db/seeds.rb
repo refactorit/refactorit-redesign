@@ -229,4 +229,133 @@ ActiveRecord::Base.transaction do
     BODY
     )
   )
+  Post.create!(title: 'Bath Ruby 2016 Review', author: ivan,
+    status: 1, slug: 'bath-ruby-2016-review',
+    published_at: DateTime.parse('2016-03-16 16:24:27'), topic: community,
+    description: (<<~DESC
+      We’re just back from the Bath Ruby Conference and thought we should summarize our impressions now while they’re fresh. In case you’re not familiar with it, the one-day, single-track conference took place in Bath, England, on March 11, and around 500 Rubyists attended.
+    DESC
+    ),
+    body: (<<~BODY
+      We’re just back from the Bath Ruby Conference and thought we should
+      summarize our impressions now while they’re fresh. In case you’re not
+      familiar with it, the one-day, single-track conference took place in Bath,
+      England, on March 11, and around 500 Rubyists attended.
+
+      #### Bath Conference Venue
+
+      If you don’t know Bath, the city is a beautiful spa destination well known
+      for its Roman-built, hot-spring baths. In fact, in 1987 it was selected as
+      a UNESCO World Heritage site in recognition of its international cultural
+      importance. It’s definitely worth visiting if you’re looking for a short
+      break from everyday life.
+
+      Unfortunately, we didn’t visit the spa this
+      time, but, hey, we had to leave something for the next year.
+
+      ![Location](http://www.refactorit.co/images/bathruby_location.jpg)
+
+      The conference venue at the National Trust’s Assembly Rooms made up for
+      this, though. It is an elegant and fashionable meeting place and imparted
+      a sense of nobility to the entire conference.
+
+      #### Conference Agenda
+
+      Bathy Ruby featured six talks of around 30 minutes each that provided a
+      good mix of technical and non-technical information on a wide range of
+      topics. The conference also included three lightning talk sessions made up
+      of four or five short presentations each.
+
+      While the lightning talks were fun and important, we’ll focus here on
+      summarizing the ones on Bath Ruby’s main agenda.
+
+      ![Talks](http://www.refactorit.co/images/bathruby_talks.jpg)
+
+      #### The Main Presentations
+
+      **Xavier Riley** - *Rocking out in Ruby: a playful introduction to Sonic Pi*
+
+      Following our warm welcome by our hosts, Xavier gave a truly amazing talk
+      about Sonic Pi. It’s a tool designed to teach programming concepts through
+      the process of creating new sounds, and it’s available for Raspberry Pi,
+      Mac OS X, and Windows.
+
+      It was quite interesting to hear Xavier’s live coding on stage be
+      transformed into multi-threaded music. This talk was definitely a great
+      way to start the conference.
+
+      **Coraline Ada Ehmke** - *How Neo4j Saved My Relationship*
+
+      Coraline explained the basic concepts of graph databases using one of the
+      most popular ones—Neo4j—as an example. It comes in three editions, has a
+      cool admin panel, and offers plentiful use cases that demonstrate why it’s
+      better choice than relational databases.
+
+      Neo4j.rb is an Active Model compliant Ruby wrapper, which makes switching
+      to Neo4j easy if you’re already used to Active Record.
+
+      **Courteney Ervin** - *Open Source for Your Benefit*
+
+      In this interactive talk, Courtney explained different ways and reasons
+      for contributing to open source. In particular, she asked us to think of
+      personal reasons for doing this, and, at the end, we all received
+      permission to do so. She also let us know that, if we didn’t feel excited
+      about contributing to open source, that’s also okay. :)
+
+      **Janet Crawford** - *The Surprising Neuro-science of Gender Inequality*
+
+      As the only female student in a real physics department, Janet experienced
+      gender inequality in a professional surrounding early on. With regard to
+      this topic, she explained how our brain tries to put terms and concepts
+      into groups and why we consider some professions and activities more
+      appropriate for females or males.
+
+      Even if we consciously strive for gender equality, she pointed out,
+      unconsciously our brain is struggling because it’s wired with stereotypes
+      that have been stuck in our heads since early ages.
+
+      **Zach Holman** - *Firing People*
+
+      Zach talked about his personal experience of being fired from GitHub and
+      what he went through afterwards. He gave good advice on how to behave in
+      those situations whether you’re the one fired, the one doing the firing,
+      or a coworker of the one fired.
+
+      **Aaron Patterson** - *How are method calls formed?*
+
+      Aaron’s humor broke the ice before his deep technical talk about how to
+      form method calls. Although he focused on “nasty” things like caching
+      method calls, he started his presentation by tackling broad ideas and
+      issues that everyone could understand before getting into the
+      nitty-gritty. It was a great, engaging way to discuss technical concepts
+      for people of all skill levels.
+
+      #### Between talks
+
+      Probably the busiest places during breaks were the Job and Open Source
+      boards. It seems everyone is looking for developers, and these boards were
+      a cool way to reach out to them.
+
+      ![Breaks](http://www.refactorit.co/images/bathruby_breaks.jpg)
+
+      Another great thing about conferences like Bath Ruby is the socializing.
+      We had many breaks for tea, coffee, and snacks where we could make
+      contacts and talk to each other. Even after the closing words, the
+      conference went on as everyone hung out and enjoyed food and drink at the
+      informal after-party.
+
+      #### Final words
+
+      Everything at Bath Ruby seemed to go smoothly. The talks happened on time.
+      Technical glitches were absent (except, maybe, for Aaron’s pinky
+      presentation), and the organizers were incredibly helpful.
+
+      A big thank you from us to all the organizers and sponsors who made this
+      conference happen. We send special thanks to guys who helped us print our
+      leaflet and then put it up on the board while we were on lunch break. :)
+
+      Long story short, it was awesome! See you next year!
+    BODY
+    )
+  )
 end
