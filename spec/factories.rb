@@ -20,5 +20,9 @@ FactoryGirl.define do
       status "published"
     end
   end
+
+  factory :topic do
+    sequence(:name) { |n| "Topic #{n}" }
+  end
 end
 
