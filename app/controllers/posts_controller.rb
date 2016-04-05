@@ -1,10 +1,8 @@
 class PostsController < ApplicationController
-  VISITOR_INDEX_PAGES = [:index, :author_index, :topic_index]
-
   before_action :authenticate_user!, except: [:show, :index, :author_index, :topic_index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :set_authors, only: VISITOR_INDEX_PAGES
-  before_action :set_topics, only: VISITOR_INDEX_PAGES
+  before_action :set_authors, only: [:index, :author_index, :topic_index]
+  before_action :set_topics, except: [:show, :destroy, :admin_index]
 
   def admin_index
     @posts = Post.all
@@ -85,7 +83,8 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :description, :body, :status)
+      params.require(:post).permit(:title, :description, :body, :status, :slug,
+      :topic_id)
     end
 
     def render_404

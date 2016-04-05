@@ -3,5 +3,5 @@
   = f.input :slug
   = f.input :body
   = f.input :status, as: :select, collection: Post.status_keys, default: Post.default_status
+  = f.input :topic_id, as: :select, collection: @topics, default: @post.topic
   = f.button :submit
-
