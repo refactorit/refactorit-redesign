@@ -13,6 +13,7 @@ FactoryGirl.define do
 
   factory :post do
     association :author, factory: :user
+    association :topic, factory: :topic
     sequence(:title) { |n| "Post title #{n}" }
     description 'Post description'
     body 'Post body'
@@ -25,4 +26,3 @@ FactoryGirl.define do
     sequence(:name) { |n| "Topic #{n}" }
   end
 end
-

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PostsController, :type => :controller do
   let(:user) { FactoryGirl.create(:user) }
+  let(:topic) { FactoryGirl.create(:topic) }
 
   context "user is signed in" do
     before { sign_in user }
@@ -43,7 +44,11 @@ RSpec.describe PostsController, :type => :controller do
     end
 
     describe 'POST create without slug in params' do
-      subject { post :create, params: { post: FactoryGirl.attributes_for(:post) } }
+      subject { post :create,
+        params: {
+          post: FactoryGirl.attributes_for(:post).merge({topic_id: topic.id})
+        }
+      }
 
       it 'responds with 302' do
         subject
@@ -58,7 +63,10 @@ RSpec.describe PostsController, :type => :controller do
 
     describe 'POST create with slug in params' do
       subject do
-        post :create, params: { post: { title: "Some title", body: "Some body" } }
+        post :create, params: { post:
+          { title: "Some title", body: "Some body", slug: 'some-custom-slug',
+          topic_id: topic.id }
+        }
       end
 
       it 'responds with 302' do
@@ -74,7 +82,7 @@ RSpec.describe PostsController, :type => :controller do
       it 'assigns slug from params' do
         subject
         post = Post.last
-        expect(post.slug).to eq "some-title"
+        expect(post.slug).to eq "some-custom-slug"
       end
     end
 
