@@ -110,5 +110,123 @@ ActiveRecord::Base.transaction do
     BODY
     )
   )
+  Post.create!(title: 'Talk like a pirate with Pirate glyphicons',
+    author: vanessa, status: 1, slug: 'pirate-glyphicons',
+    published_at: DateTime.parse('2015-04-02 20:14:12'), topic: design,
+    description: (<<~DESC
+      Grab these custom made glyphicons to make it more piratey.
+    DESC
+    ),
+    body: (<<~BODY
+      Grab these custom made glyphicons to make it more piratey.
 
+      Throughout college, I've been a huge fan of typography, and even
+      considered studying it at the Type and Media Dept at KABK in The Hague.
+      Our mentor, Nikola Djurek has taught us to use the same amount of care
+      with designing icons as well as letters.
+
+      Realising there is a lack of pirate glyphicons, I made this, a small
+      addition to the basic glyphicons set. After I've generated the glyphs as
+      a font with FontLab, I wasn't sure what unicodes to assign to them and
+      how to make them easy to use. My holy grail was [icomoon.io]("https://icomoon.io"), which assigns
+      unicodes and even prepares a demo html to test the newly generated glyphs.
+
+      To prepare your vectors so that they can function as a glyphicon set, you
+      need to make sure that:
+      1.  your nodes are in the correct position
+      2.  you have the smallest possible amount of nodes to make the desired effect
+      3.  make sure the weights are the same on each of them
+      4.  approximately define the same size for all the glyphs
+      5.  merge all overlapping vectors before generating
+      Download the pirate glyphicons set [here](http://www.refactorit.co/files/pirate-glyphicons.zip)
+      #
+      ![pirate glyphicons](http://www.refactorit.co/images/pirate.jpg)
+    BODY
+    )
+  )
+  Post.create!(title: 'The Spicy Octo Bootstrap Theme',
+    author: vanessa, status: 1, slug: 'the-spicy-octo-theme',
+    published_at: DateTime.parse('2015-06-26 12:00:00'), topic: design,
+    description: (<<~DESC
+      The Spicy Octo Theme is an easily adjustable Bootstrap template.
+    DESC
+    ),
+    body: (<<~BODY
+      The Spicy Octo Theme is an easily adjustable Bootstrap template.
+
+      Contains the most essential parts for presenting a startup or a small
+      company. Completely responsive, includes Font Awesome icons and a Google
+      map. The color scheme is in grayscale so it’s highly adaptable for various
+      purposes.
+
+      * Snatch on [Github](http://github.com/vanessazoyd/The-Spicy-Octo-Bootstrap-Theme)
+      * View on [Behance](https://www.behance.net/gallery/27164131/The-Spicy-Octo-FREE-Responsive-Template)
+      * Throw a ball on [Dribbble](https://dribbble.com/shots/2119718-The-Spicy-Octo-Bootstrap-Theme?list=users&offset=0)
+
+      If you have any questions or comments contact me [vanessa.serka@refactorit.co](mailto:vanessa.serka@refactorit.co?Subject=Template%20question)
+      ![responsive](http://www.refactorit.co/images/responsive-octo.jpg)
+    BODY
+    )
+  )
+  Post.create!(title: 'Using custom scope in Rails association',
+    author: filip, status: 1, slug: 'using-custom-scope-in-rails-association',
+    published_at: DateTime.parse('2016-02-05 09:15:27'), topic: development,
+    description: (<<~DESC
+      I came across a situation that I needed a custom scope in an 5
+      association, something that is unusual. It can help a lot, and here’s how.
+    DESC
+    ),
+    body: (<<~BODY
+      I came across a situation that I needed a custom scope in an 5
+      association, something that is unusual. It can help a lot, and here’s how.
+
+      ![Scoped associations](http://www.refactorit.co/images/scoped_associations.png)
+
+      On a project that I’m working on, BidProduct model delegates photo_url
+      to a Product model. The Product model uses [Paranoia](https://github.com/rubysherpas/paranoia)
+      gem for soft delete.
+
+      Simplified a bit, it look like this:
+
+      ```ruby
+      class BidProduct < ActiveRecord::Base
+        belongs_to :product
+
+        delegate :photo_url, to: :product
+      end
+      class Product < ActiveRecord::Base
+        acts_as_paranoid
+      end
+      ```
+
+      The problem occurs when someone deletes Product object. Calling photo_url
+      method in BidProduct raises Module::DelegationError exception. Desired
+      functionality is to keep BidProduct record and show it’s photo even when
+      original Product is deleted.
+
+      Luckily, Paranoia gem provides with_deleted scope which includes deleted
+      records in the results. Less known feature in Rails associations is
+      passing scope block to it. When scope block is passed in association, it
+      is applied when the connected model is accessed.
+
+      Combining these two we can write our BidProduct class like this:
+
+      ```ruby
+      class BidProduct < ActiveRecord::Base
+        belongs_to :product, -> { with_deleted }
+
+        delegate :photo_url, to: :product
+
+      end
+      ```
+
+      Now photo_url on the BidProduct object is delegated to the Product object
+      even when it’s soft deleted.
+
+      Any other standard querying method can be used inside the scope block.
+      You can check more about it in [Scopes for belongs_to](http://guides.rubyonrails.org/association_basics.html#scopes-for-belongs-to)
+      section of Rails guides.
+    BODY
+    )
+  )
 end
