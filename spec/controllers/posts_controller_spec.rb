@@ -55,6 +55,11 @@ RSpec.describe PostsController, :type => :controller do
         expect(response).to have_http_status 302
       end
 
+      it 'associates correct topic' do
+        subject
+        expect(Post.last.topic).to eq topic
+      end
+
       it 'increases the number of posts' do
         expect{ subject }.
         to change{ Post.count }.by(1)
@@ -79,6 +84,11 @@ RSpec.describe PostsController, :type => :controller do
         to change{ Post.count }.by(1)
       end
 
+      it 'associates correct topic' do
+        subject
+        expect(Post.last.topic).to eq topic
+      end
+
       it 'assigns slug from params' do
         subject
         post = Post.last
@@ -95,7 +105,7 @@ RSpec.describe PostsController, :type => :controller do
         subject
         expect(response).to have_http_status 200
       end
-
+      
       it "doesn't increase the number of posts" do
         subject
         expect(Post.count).to eq 0
