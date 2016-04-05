@@ -8,26 +8,15 @@ section
     / blog post snippet
     div class="medium-7 columns"
       h5 class="medium-2 medium-text-center large-text-center" Blog
-      div class="medium-2 columns text-center category-icon"
-        = image_tag "ruby.png", alt: "ruby"
-        br
-        span class="category" Ruby
-        hr
-      div class="medium-10 columns"
-        h3 Super Awesome Headline
-        p Maecenas dapibus elit a enim vulputate consequat. Maecenas urna enim, viverra molestie tortor a, viverra scelerisque eros. Sed hendrerit, urna sit amet interdum volutpat, mi justo interdum libero, a interdum massa quam vitae ex. Nullam in ornare augue, non interdum lectus.
-        br
-
-      div class="medium-2 columns text-center category-icon"
-        i class="fi-monitor"
-        br
-        span class="category" Design
-        hr
-      div class="medium-10 columns"
-        h3 Another One
-        p Maecenas dapibus elit a enim vulputate consequat. Maecenas urna enim, viverra molestie tortor a, viverra scelerisque eros. Sed hendrerit, urna sit amet interdum volutpat, mi justo interdum libero, a interdum massa quam vitae ex. Nullam in ornare augue, non interdum lectus.
-
-
+      - @posts.each do |post|
+        div class='medium-2 columns text-center category-icon'
+          i class="fi-monitor"
+          br
+          span class='category' = post.topic_name
+          hr
+        div class='medium-10 columns'
+          h3 = post.title
+          p = post.description
 
     / news and testimonials
     div class="medium-5 columns"
