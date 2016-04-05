@@ -6,6 +6,7 @@ table
       th Title
       th Description
       th Body
+      th Topic
       th Status
       th Publish Date
       th
@@ -18,6 +19,7 @@ table
         td = post.title
         td = post.description
         td = post.body
+        td = post.topic.name
         td = post.status
         td = post.published_at
         td = link_to 'Show', post
