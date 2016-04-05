@@ -8,6 +8,7 @@ section
     / blog post snippet
     div class="medium-7 columns"
       h5 class="medium-2 medium-text-center large-text-center" Blog
+      
       - @posts.each do |post|
         div class='medium-2 columns text-center category-icon'
           i class="fi-monitor"
@@ -19,15 +20,16 @@ section
           p = post.description
 
     / news and testimonials
-    div class="medium-5 columns"
+    div class="medium-5 columns testimonials"
       aside
         h5 News
         p Maecenas dapibus elit a enim vulputate consequat. Maecenas urna enim, viverra molestie tortor a, viverra scelerisque eros. Sed hendrerit, urna sit amet interdum volutpat, mi justo interdum libero, a interdum massa quam vitae ex. Nullam in ornare augue, non interdum lectus. 
         h5  class="space-top" Testimonials
         blockquote Those people who think they know everything are a great annoyance to those of us who do.
         cite Isaac Asimov
-        blockquote Those people who think they know everything are a great annoyance to those of us who do.
-        cite Isaac Asimov
+        div class="hide-for-medium-only"
+          blockquote Those people who think they know everything are a great annoyance to those of us who do.
+          cite Isaac Asimov
   / dribbble
   - if @dribbble_shots.any?
     section class="dribbble"
@@ -66,5 +68,3 @@ section
             input type="text" id="n-invite" placeholder="Your email here"
           div class="small-2 columns"
             a href="#" class="button postfix" Subscribe!
-
-
