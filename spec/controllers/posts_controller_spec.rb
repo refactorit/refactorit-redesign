@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PostsController, :type => :controller do
   let(:user) { FactoryGirl.create(:user) }
+  let(:topic) { FactoryGirl.create(:topic) }
 
   context "user is signed in" do
     before { sign_in user }
@@ -43,11 +44,20 @@ RSpec.describe PostsController, :type => :controller do
     end
 
     describe 'POST create without slug in params' do
-      subject { post :create, params: { post: FactoryGirl.attributes_for(:post) } }
+      subject { post :create,
+        params: {
+          post: FactoryGirl.attributes_for(:post).merge({topic_id: topic.id})
+        }
+      }
 
       it 'responds with 302' do
         subject
         expect(response).to have_http_status 302
+      end
+
+      it 'associates correct topic' do
+        subject
+        expect(Post.last.topic).to eq topic
       end
 
       it 'increases the number of posts' do
@@ -58,7 +68,10 @@ RSpec.describe PostsController, :type => :controller do
 
     describe 'POST create with slug in params' do
       subject do
-        post :create, params: { post: { title: "Some title", body: "Some body" } }
+        post :create, params: { post:
+          { title: "Some title", body: "Some body", slug: 'some-custom-slug',
+          topic_id: topic.id }
+        }
       end
 
       it 'responds with 302' do
@@ -71,10 +84,15 @@ RSpec.describe PostsController, :type => :controller do
         to change{ Post.count }.by(1)
       end
 
+      it 'associates correct topic' do
+        subject
+        expect(Post.last.topic).to eq topic
+      end
+
       it 'assigns slug from params' do
         subject
         post = Post.last
-        expect(post.slug).to eq "some-title"
+        expect(post.slug).to eq "some-custom-slug"
       end
     end
 
@@ -87,7 +105,7 @@ RSpec.describe PostsController, :type => :controller do
         subject
         expect(response).to have_http_status 200
       end
-
+      
       it "doesn't increase the number of posts" do
         subject
         expect(Post.count).to eq 0
