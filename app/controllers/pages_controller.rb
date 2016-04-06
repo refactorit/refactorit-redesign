@@ -4,6 +4,7 @@ class PagesController < ApplicationController
     if @dribbble_shots.empty? || @dribbble_shots.first.created_at < 1.hour.ago
       ShotsUpdateJob.perform_later
     end
+    @posts = Post.published.order(published_at: :desc).limit(2)
   end
 
   def about
