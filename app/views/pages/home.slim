@@ -22,8 +22,12 @@ section
     / news and testimonials
     div class="medium-5 columns testimonials"
       aside
-        h5 News
-        p Maecenas dapibus elit a enim vulputate consequat. Maecenas urna enim, viverra molestie tortor a, viverra scelerisque eros. Sed hendrerit, urna sit amet interdum volutpat, mi justo interdum libero, a interdum massa quam vitae ex. Nullam in ornare augue, non interdum lectus. 
+        - if @news.present?
+          h5 News
+
+          p = @news.title
+          p = @news.description
+          p = link_to "Read more", @news.url
         h5  class="space-top" Testimonials
         blockquote Those people who think they know everything are a great annoyance to those of us who do.
         cite Isaac Asimov
