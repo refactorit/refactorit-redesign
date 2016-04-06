@@ -36,23 +36,34 @@ section
       div class="row"
         div class="small-12 columns"
           h5 Dribbble
-      div class="row expanded"
+      div class="row expanded dribbble-expanded"
         - @dribbble_shots.each do |shot|
           div class="medium-4 large-2 columns"
             div class="row card"
-              div class="shot-image"
+              div class="shot-image overlay-box overlay-effect"
                 = link_to shot.html_url do
                   = image_tag shot.image_url, class: 'thumbnail'
-            div class="row text-right"
-              div class="small-7 columns"
-                p.text-left = shot.title
-              div class="small-5 columns text-right"
-                p.card-likes
-                span class="size-10 fi-heart"
-                  = shot.likes_count
-                p.card-views
-                span class="size-10 fi-eye"
-                  = shot.views_count
+                div class="overlay-content"
+                  div class="row text-right dribbble-text hide-for-small-only"
+                    div class="small-12 columns"
+                      p.text-left = shot.title
+                    div class="small-12 columns text-right"
+                      p.card-likes
+                        span class="size-10 fi-heart"
+                          = shot.likes_count
+                      p.card-views
+                        span class="size-10 fi-eye"
+                          = shot.views_count
+                div class="row text-right dribbble-text show-for-small-only"
+                  div class="small-7 columns"
+                    p.text-left = shot.title
+                  div class="small-5 columns text-right"
+                    p.card-likes
+                      span class="size-10 fi-heart"
+                        = shot.likes_count
+                    p.card-views
+                      span class="size-10 fi-eye"
+                        = shot.views_count
 
 = render partial: 'pages/shared/team'
 

@@ -18,9 +18,11 @@
 
 /************************* GLOBAL *************************/
 
+$black: #000000;
 $white: #ffffff;
 $refactorit-red: #ed1a33;
 $refactorit-gray: #666666;
+$electric-blue: #3C3C99;
 
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,500,300&subset=latin,latin-ext);
 
@@ -60,7 +62,12 @@ h5 {
 }
 
 section {
-  padding: 5em 0;
+  padding-top: 5em;
+}
+
+.blue-section, .blue-section label {
+  background-color: $electric-blue;
+  color: $white;
 }
 
 p {
@@ -121,12 +128,31 @@ footer a {
   position: relative;
 }
 
-.card .fi-eye:before, .card .fi-heart:before {
+.card-views .fi-eye:before, .card-likes .fi-heart:before {
   margin-right: 0.3em;
 }
 
 .card-views {
   margin: 0;
+}
+
+.dribbble-expanded .columns {
+  padding: 0;
+}
+
+.thumbnail + .shot-image:hover, .thumbnail:hover {
+  -webkit-filter: brightness(50%);
+}
+
+.thumbnail:hover:after {
+  content: "\f009";
+  font-size: 1em;
+  font-family: foundation-icons;
+  color: $black;
+}
+
+.dribbble-text {
+  padding: 0 1em;
 }
 
 /********** blog **********/

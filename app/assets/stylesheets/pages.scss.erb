@@ -33,6 +33,38 @@ $refactorit-gray: #666666;
   width: 30px;
 }
 
+.overlay-box {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.overlay-effect:hover .overlay-content {
+  opacity: 1;
+}
+
+.overlay-effect:hover img {
+  filter: contrast(90%);
+  -webkit-filter: contrast(90%);
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  transform: scale(1.5);
+  opacity: 0.3;
+}
+
+.overlay-content {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  color: $refactorit-red;
+}
+
 // team
 .team
   h5 {
