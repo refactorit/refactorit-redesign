@@ -10,6 +10,7 @@ RSpec.describe Post, :type => :model do
     it { should belong_to(:topic) }
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:body) }
+    it { should validate_presence_of(:description)}
     it { should validate_uniqueness_of(:title) }
     it { should validate_uniqueness_of(:slug) }
   end
@@ -67,4 +68,3 @@ RSpec.describe Post, :type => :model do
     end
   end
 end
-
