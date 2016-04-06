@@ -30,7 +30,8 @@ ActiveRecord::Schema.define(version: 20160406095843) do
   create_table "news", force: :cascade do |t|
     t.string   "title",        null: false
     t.string   "description",  null: false
-    t.string   "published_at"
+    t.datetime "published_at"
+    t.boolean  "published"
     t.string   "url"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
