@@ -229,6 +229,319 @@ ActiveRecord::Base.transaction do
     BODY
     )
   )
+  Post.create!(title: 'Rails application from ground zero', author: ivan,
+    status: 1, slug: 'rails-app-from-ground-zero',
+    published_at: DateTime.parse('2016-02-26 09:11:27'), topic: development,
+    description: (<<~DESC
+      This post is a follow-up to a talk I gave on the Ruby Zagreb meetup. The
+      motivation for it was the desire to better understand how Rails works and
+      to learn how to create an application from complete scratch. There aren’t
+      many use cases for it but it’s worth doing for the sake of becoming a
+      better Rails developer.
+    DESC
+    ),
+    body: (<<~BODY
+      This post is a follow-up to a talk I gave on the Ruby Zagreb meetup. The
+      motivation for it was the desire to better understand how Rails works and
+      to learn how to create an application from complete scratch. There aren’t
+      many use cases for it but it’s worth doing for the sake of becoming a
+      better Rails developer.
+
+      ![Rails from zero](http://www.refactorit.co/images/rails_from_zero.png)
+
+      Instead of generating ~40 files with rails new command we'll start with
+      a single file and continue building upon it.
+
+
+      #### Rack application
+
+      Rails is a Rack-based web framework so let’s recall how Rack applications
+      looks like. From the Rack documentation:
+
+      _To use Rack, provide an "app": an object that responds to the call method,
+      taking the environment hash as a parameter, and returning an Array with
+      three elements:_
+
+      * _The HTTP response code_
+      * _A Hash of headers_
+      * _The response body, which must respond to each_
+
+      Here is an example of a simple Rack application:
+
+      ```ruby
+      # config.ru
+      app = Proc.new {
+        |env| [200, { 'Content-Type' => 'text/html' }, ['Hello World!']]
+      }
+
+      run app
+      ```
+
+      It is invoked with rackup config.ru. Let's check in ruby console what
+      call() method returns:
+
+      ```ruby
+      irb> app.call('REQUEST_METHOD' => 'GET', 'PATH_INFO' => '/')
+
+      => [200, {"Content-Type"=>"text/html"}, ["Hello World!"]]
+      ```
+
+      #### Minimalistic Rails application
+
+      Cool! Now let’s create a simple Rails app. It should be similar to the pure
+      Rack app but now app object is going to be Rails::Application instance instead
+      of Proc.
+
+      ```ruby
+      # config.ru
+      require 'rails'
+
+      app = Class.new(Rails::Application){
+
+      }.initialize!
+
+      run app
+      ```
+
+      This isn’t enough because app object should respond to the call() method.
+      Defining response to the root path is going to fulfil that condition.
+
+      Every request goes through ActionDispatch and is routed to a controller so
+      ActionController has to be included in the app.
+      Requiring 'rails/all' instead of 'action_controller' will include other common
+      libraries such as ActiveRecord, ActionView or ActionMailer but those aren't
+      needed for now.
+
+      ```ruby
+      # config.ru
+      require 'rails'
+      require 'action_controller'
+
+      app = Class.new(Rails::Application){
+        routes.append{ root to:proc{
+          [200, { 'Content-Type' => 'text/html' }, ['Hello World!']]
+        }}
+      }.initialize!
+
+      run app
+      ```
+
+      It's almost working! :)
+ 
+      One more thing is required to make it work and that is the secret token.
+      It is a randomised string used to verify the integrity of signed cookies.
+      It can be any string but in production you’ll probably want to use
+      something more secure to generate it, such as SecureRandom.hex(64) or the
+      Rails built-in rake secret task.
+
+      ```ruby
+      # config.ru
+      require 'rails'
+      require 'action_controller'
+
+      app = Class.new(Rails::Application){
+        config.secret_key_base='0837359d48a53883'
+        routes.append{ root to:proc{
+          [200, {'Content-Type'=>'text/html'}, ['Hello World!']]
+        }}
+      }.initialize!
+
+      run app
+      ```
+
+      That’s it! Visiting http://localhost:9292 in a browser should return
+      ‘Hello World!’ and here is the response to the call() method in ruby
+      console.
+
+      ```ruby
+      irb> app.call('REQUEST_METHOD' => 'GET', 'PATH_INFO' => '/')
+
+      => [200, {"Content-Type"=>"text/html", "ETag"=>"W/\"ed076287532e86365e841e92bfc50d8c\"", "Cache-Control"=>"max-age=0, private, must-revalidate"
+      ```
+
+      #### Configuration and initialization
+
+      Now that we understand what’s required for a minimalistic Rails app we can
+      expand it and create something that will look more like a usual application.
+      Configuration should be separated into multiple files for better organization.
+
+      From Rails 4.2 version there is a config/secrets.yml file aimed to store
+      application’s secrets:
+
+      ```ruby
+      # config/secrets.yml
+      development:
+      secret_key_base: '0837359d48a53883'
+      ```
+
+      Routes should be extracted into config/routes.rb where all paths are defined:
+
+      ```ruby
+      # config/routes.rb
+      Rails.application.routes.draw do
+        root to:proc{ [200, { }, ['Hello World!']] }
+      end
+      ```
+
+      Configuration for Rails::Application which will be used once the
+      application is fully initialized is defined in config/application.rb:
+
+      ```ruby
+      # config/application.rb
+      require 'rails'
+      require 'action_controller'
+
+      Class.new(Rails::Application){
+
+      }
+      ```
+
+      The application is initialized in config/environment.rb:
+
+      ```ruby
+      # config/environment.rb
+      require File.expand_path('../application', __FILE__)
+
+      Rails.application.initialize!
+      ```
+
+      Config.ru is still used to start the application, but it is much simpler now.
+
+      ```ruby
+      # config.ru
+      require File.expand_path('../config/environment', __FILE__)
+
+      run Rails.application
+      ```
+
+      #### Bundler
+
+      Using Bundler is a standard way of handling dependencies and it’s hard to
+      imagine development without it. Environment variable BUNDLE_GEMFILE is set
+      in config/boot.rb and it points to a Gemfile location. Same file is used
+      to configure the load path so all dependencies in a Gemfile can be
+      required:
+
+      ```ruby
+      # config/boot.rb
+      ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
+
+      require 'bundler/setup'
+      ```
+
+      ```ruby
+      # config/application.rb
+      require File.expand_path('../boot', __FILE__)
+
+      require 'rails'
+      require 'action_controller'
+
+      Bundler.require(:default)
+
+      Class.new(Rails::Application){
+
+      }
+      ```
+
+      ```ruby
+      # Gemfile
+      source 'https://rubygems.org'
+
+      gem 'rails', '~> 4.2.5'
+      ```
+
+      #### Command line - rails and rake commands
+
+      Although it’s great fun to write an app from scratch there are some commands
+      that are essential for Rails development. We want to enable rails commands so
+      that we can benefit from using the console or running the server. Rails
+      commands are included in the bin/rails app so we’ll add that file:
+ 
+      ```ruby
+      # bin/rails
+      APP_PATH = File.expand_path('../../config/application', __FILE__)
+      require_relative '../config/boot'
+      require 'rails/commands'
+      ```
+
+      Another command line tool that is useful is Rake. Loading tasks happens in
+      Rakefile:
+
+      ```ruby
+      # Rakefile
+      require File.expand_path('../config/application', __FILE__)
+
+      Rails.application.load_tasks
+      ```
+
+      #### Requiring rails/all
+
+      To use all of the libraries that make Rails such a powerful framework rails/all
+      should be included in config/application.rb. Also, instead of initializing an
+      instance of an unnamed class (that is Class.new(Rails::Application)) we’ll
+      create a proper class definition.
+
+      ```ruby
+      # config/application.rb
+      require File.expand_path('../boot', __FILE__)
+
+      require 'rails/all'
+
+      Bundler.require(:default)
+
+      module RailsFromZero
+        class Application < Rails::Application
+ 
+        end
+      end
+      ```
+ 
+      Before we start creating controllers for our resources ApplicationController
+      should be defined because other controllers subclass it.
+
+      ```ruby
+      # app/controllers/application_controller.rb
+      class ApplicationController < ActionController::Base
+
+      end
+      ```
+
+      We’ll probably want to enable the database in the application. In this example
+      we’ll make do with SQLite which is the default Rails database. To set it up,
+      sqlite3 gem should be added in the Gemfile and config/database.yml should have
+      a database configuration for every application environment:
+ 
+      ```ruby
+      # Gemfile
+      source 'https://rubygems.org'
+
+      gem 'rails', '~> 4.2.5'
+      gem 'sqlite3'
+      ```
+
+      ```ruby
+      # config/database.yml
+      default: &default
+        adapter: sqlite3
+        pool: 5
+        timeout: 5000
+
+      development:
+        <<: *default
+        database: db/development.sqlite3
+      ```
+
+      From this point it should be possible to use most of the features that come
+      with Rails. To learn more about rails configuration you can read the
+      [Configuring Rails Applications](http://guides.rubyonrails.org/configuring.html)
+      guide and for better understand the initialization process there is
+      [The Rails Initialization Process](http://guides.rubyonrails.org/initialization.html).
+ 
+      Of course, the best way to understand it deeply is to check the source code of
+      the Rails framework and the source of the newly generated application.
+    BODY
+    )
+  )
   Post.create!(title: 'Bath Ruby 2016 Review', author: ivan,
     status: 1, slug: 'bath-ruby-2016-review',
     published_at: DateTime.parse('2016-03-16 16:24:27'), topic: community,
