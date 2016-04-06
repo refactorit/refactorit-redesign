@@ -5,6 +5,7 @@ class PagesController < ApplicationController
       ShotsUpdateJob.perform_later
     end
     @posts = Post.published.order(published_at: :desc).limit(2)
+    @news  = News.published.order(published_at: :desc).first
   end
 
   def about
