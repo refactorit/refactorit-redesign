@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :posts, except: [:edit, :new]
   scope "pirates" do
     resources :posts, only: [:edit, :new]
+    resources :news
   end
   get  'pirates/posts', to: 'posts#admin_index', as: :admin_posts
   get  'authors/:id/posts', to: 'posts#author_index', as: :author_posts

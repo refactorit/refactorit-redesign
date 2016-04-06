@@ -25,4 +25,15 @@ FactoryGirl.define do
   factory :topic do
     sequence(:name) { |n| "Topic #{n}" }
   end
+
+  factory :news do
+    sequence(:title) { |n| "Title #{n}" }
+    sequence(:description) { |n| "Title #{n}" }
+    sequence(:url) { |n| "http://someurl.com/#{n}" }
+    published false
+    factory :published_news do
+      published    true
+      published_at Time.now
+    end
+  end
 end
