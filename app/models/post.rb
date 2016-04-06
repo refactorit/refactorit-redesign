@@ -6,9 +6,9 @@ class Post < ApplicationRecord
 
   belongs_to :author, class_name: 'User'
   belongs_to :topic
-  
+
   validates :topic, presence: true
-  validates :title, :body, presence: true
+  validates :title, :body, :description, presence: true
   validates :slug, :title, uniqueness: true
 
   before_save :assign_slug
