@@ -1,11 +1,4 @@
 div class="row"
-  div class="medium-2 medium-offset-5 medium-pull-5 columns text-center"
-    i class="fi-monitor"
-    br
-    span class='category' = post.topic_name
-    hr  
-      
-div class="row"
   div class="medium-9 columns"
     h2 class="blogpost-title" = link_to post.title, post_path(id: post.slug)
   div class="medium-3 columns"
@@ -20,9 +13,13 @@ div class="row"
 div class="row"
   div class="medium-2 columns blogpost-author text-left"
     p
+      i class="fi-monitor icon-space-right"
+      span class='category' = post.topic_name
+  div class="medium-2 columns blogpost-author text-left"
+    p
       i class="fi-torso icon-space-right"
       = link_to post.author_name, author_posts_path(id: post.author_slug)
-  div class="medium-10 columns text-left"
+  div class="medium-8 columns text-left"
     p class="blogpost-date"
       i class="fi-calendar icon-space-right"
       | 02 / 14 / 2016    
