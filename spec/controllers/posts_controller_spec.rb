@@ -70,7 +70,7 @@ RSpec.describe PostsController, :type => :controller do
       subject do
         post :create, params: { post:
           { title: "Some title", body: "Some body", slug: 'some-custom-slug',
-          topic_id: topic.id }
+          topic_id: topic.id, description: "Cool description" }
         }
       end
 
@@ -105,7 +105,7 @@ RSpec.describe PostsController, :type => :controller do
         subject
         expect(response).to have_http_status 200
       end
-      
+
       it "doesn't increase the number of posts" do
         subject
         expect(Post.count).to eq 0
@@ -198,7 +198,9 @@ RSpec.describe PostsController, :type => :controller do
     end
 
     describe 'POST create' do
-      subject { post :create, params: { post: FactoryGirl.attributes_for(:post) } }
+      subject { post :create, params: {
+        post: FactoryGirl.attributes_for(:post).merge({topic_id: topic.id}) }
+      }
 
       it 'responds with 302' do
         subject

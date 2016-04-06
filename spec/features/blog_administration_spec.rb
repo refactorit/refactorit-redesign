@@ -38,6 +38,7 @@ feature "Blog administration" do
         expect(page).to have_field  :post_slug
         expect(page).to have_field  :post_body
         expect(page).to have_field  :post_status
+        expect(page).to have_field  :post_description
         expect(page).to have_field  :post_topic_id
         expect(page).to have_button "Create post"
       end
@@ -46,6 +47,7 @@ feature "Blog administration" do
         before do
           fill_in :post_title, with: "Some title"
           fill_in :post_body, with: "Some post content"
+          fill_in :post_description, with: "Some description"
           click_button "Create post"
         end
 
@@ -67,6 +69,7 @@ feature "Blog administration" do
           expect(page).to have_field  :post_slug
           expect(page).to have_field  :post_body, with: "Some post content"
           expect(page).to have_field  :post_status
+          expect(page).to have_field  :post_description
           expect(page).to have_field  :post_topic_id
           expect(page).to have_button "Create post"
         end
