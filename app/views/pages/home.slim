@@ -45,15 +45,19 @@ section
                   = image_tag shot.image_url, class: 'thumbnail'
                 div class="overlay-content"
                   div class="row text-right dribbble-text hide-for-small-only"
-                    div class="small-12 columns"
+                    div class="small-12 columns headline-shot"
                       p.text-left = shot.title
-                    div class="small-12 columns text-right"
+                    div class="small-8 columns text-left d-stats"
                       p.card-likes
                         span class="size-10 fi-heart"
                           = shot.likes_count
                       p.card-views
                         span class="size-10 fi-eye"
                           = shot.views_count
+                    div class="small-2 small-offset-8 columns text-right d-stats"
+                      p.card-likes
+                        span class="large fi-social-dribbble" &nbsp;
+                        span class="size-10 fi-arrow-right"
                 div class="row text-right dribbble-text show-for-small-only"
                   div class="small-7 columns"
                     p.text-left = shot.title
