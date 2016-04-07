@@ -16,5 +16,7 @@ html lang="en"
     = render 'layouts/flash_messages'
     = yield
 
-  /footer
-    / render 'layouts/footer'
+  footer
+    = render 'layouts/footer'
+- if Rails.env.production?
+  = render 'layouts/analytics'
