@@ -52,6 +52,7 @@ gem 'friendly_id'
 gem 'dribbble'
 # Background job processing
 gem 'sidekiq'
+gem 'mailgun_rails'
 
 # Deployment related gems
 gem 'capistrano', '~> 3.1.0'
