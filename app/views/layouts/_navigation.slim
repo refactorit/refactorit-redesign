@@ -8,7 +8,7 @@ div class="top-bar" id="navbar-menu"
       li class="title-bar-title"
         = link_to root_path do
           = image_tag "refactorit.svg", alt: "refactorit-logo", class: "r-brand hide-for-small-only"
-        end
+
     div class="top-bar-section"
       ul class="medium-horizontal menu drilldown vertical top-bar-right" data-responsive-menu="drilldown medium-dropdown"
         li = link_to "Team", team_path
@@ -18,16 +18,15 @@ div class="top-bar" id="navbar-menu"
         - if current_user.present?
           li = link_to "News", news_index_path
           li = link_to "Logout", destroy_user_session_path, method: :delete
-        li
         li class="hide-for-small-only"
-          a href="#"
+          = link_to refactorit_facebook_url do
             i class="fi-social-facebook"
         li class="hide-for-small-only"
-          a href="#"
+          = link_to refactorit_github_url do
             i class="fi-social-github"
         li class="hide-for-small-only"
-          a href="#"
+          = link_to refactorit_dribbble_url do
             i class="fi-social-dribbble"
         li class="hide-for-small-only"
-          a href="#"
+          = link_to refactorit_twitter_url do
             i class="fi-social-twitter"
