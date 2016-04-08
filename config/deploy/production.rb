@@ -14,7 +14,7 @@
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server 'seaseuropa.eu', user: 'nrakonic', roles: %w{web}
+server '146.185.128.78', user: 'nrakonic', roles: %w{web db}
 # server 'seaseuropa.eu', user: 'ilucev', roles: %w{web app}
 
 # you can set custom ssh options
