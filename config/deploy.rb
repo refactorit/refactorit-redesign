@@ -22,7 +22,7 @@ set :deploy_to, '/srv/www/refactorit'
 # set :pty, true
 
 # Default value for :linked_files is []
-# set :linked_files, %w{config/database.yml config/secrets.yml}
+set :linked_files, %w{.env}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
@@ -42,25 +42,39 @@ set :rbenv_custom_path, "/opt/rbenv/"
 set :bundle_binstubs, -> { shared_path.join('bin') }
 set :bundle_gemfile, -> { release_path.join('Gemfile') }
 
+namespace :sidekiq do
+
+  desc 'Start sidekiq'
+  task :start do
+    on roles(:web) do
+      execute "cd #{ current_path } && bundle exec sidekiq -e #{ fetch(:stage) } -L log/sidekiq.log -d"
+    end
+  end
+end
+
+
 namespace :deploy do
+
+  desc 'Start application'
+  task :start do
+    on roles(:web) do
+      execute "cd #{ current_path } && bundle exec unicorn -c config/unicorn.rb -E #{ fetch(:stage) } -D"
+    end
+  end
+
+  desc 'Stop application'
+  task :stop do
+    on roles(:web) do
+      execute "kill `cat #{current_path}/tmp/pids/unicorn.pid`"
+    end
+  end
 
   desc 'Restart application'
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
-    end
+    invoke 'deploy:stop'
+    invoke 'deploy:start'
   end
 
   after :publishing, :restart
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
-  end
 
 end
