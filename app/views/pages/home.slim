@@ -13,10 +13,10 @@ section
         div class='medium-2 columns text-center category-icon'
           i class="fi-monitor"
           br
-          span class='category' = post.topic_name
+          span class='category' = link_to post.topic_name, topic_posts_path(post.topic)
           hr
         div class='medium-10 columns'
-          h3 = post.title
+          h3 = link_to post.title, posts_path(post)
           p = post.description
 
     / news and testimonials
@@ -24,10 +24,10 @@ section
       aside
         - if @news.present?
           h5 News
-
           p = @news.title
           p = @news.description
-          p = link_to "Read more", @news.url
+          p = link_to "Read more", @news.url if @news.url.present?
+
         h5  class="space-top" Testimonials
         blockquote Those people who think they know everything are a great annoyance to those of us who do.
         cite Isaac Asimov
