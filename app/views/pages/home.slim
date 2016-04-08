@@ -16,7 +16,7 @@ section
           span class='category' = link_to post.topic_name, topic_posts_path(post.topic)
           hr
         div class='medium-10 columns'
-          h3 = link_to post.title, posts_path(post)
+          h3 = link_to post.title, post_path(post)
           p = post.description
 
     / news and testimonials
