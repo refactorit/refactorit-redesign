@@ -53,6 +53,8 @@ gem 'dribbble'
 # Background job processing
 gem 'sidekiq'
 gem 'mailgun_rails'
+# Loading environment variables
+gem 'dotenv-rails'
 
 # Deployment related gems
 gem 'capistrano', '~> 3.1.0'
@@ -72,8 +74,6 @@ group :development, :test do
   gem 'byebug'
   # Test suite
   gem 'rspec-rails', '~> 3.0'
-  # Loading environment variables
-  gem 'dotenv-rails'
 end
 
 group :test do
