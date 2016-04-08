@@ -14,7 +14,7 @@
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server '***REMOVED***', user: '***REMOVED***', roles: %w{web}
+server '***REMOVED***', user: '***REMOVED***', roles: %w{web db}
 # server '***REMOVED***', user: '***REMOVED***', roles: %w{web app}
 
 # you can set custom ssh options
