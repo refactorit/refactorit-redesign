@@ -13,8 +13,8 @@ feature 'Home Page' do
 
     specify "he sees first two published blog posts" do
       # only the last two published posts are shown
-      expect(page).to have_link published_posts[2].title, href: posts_path(published_posts[2])
-      expect(page).to have_link published_posts[1].title, href: posts_path(published_posts[1])
+      expect(page).to have_link published_posts[2].title, href: post_path(published_posts[2])
+      expect(page).to have_link published_posts[1].title, href: post_path(published_posts[1])
     end
 
     specify "he doesn't see older published posts" do
