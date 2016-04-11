@@ -6,8 +6,6 @@ set :repo_url, 'git@github.com:refactorit/refactorit-redesign.git'
 
 # Default branch is :master
 set :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
-# Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/srv/www/refactorit'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -22,7 +20,7 @@ set :deploy_to, '/srv/www/refactorit'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{.env}
+set :linked_files, %w{.env config/unicorn.rb}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
