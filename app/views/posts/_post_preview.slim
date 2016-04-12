@@ -25,4 +25,5 @@ div class="row"
         = format_date(post.published_at)
 div class="row"
   div class="medium-10 small-12 columns blogpost"
-    p  = markdown_to_html(post.body)
+    p  = markdown_to_html(post.description)
+    p  = link_to "Read more...", post_path(post.slug)
