@@ -29,7 +29,8 @@ feature "Blog" do
       end
 
       specify "he sees author links in a special box" do
-        within(".menu-text", text: "authors") do
+        within(".sidebar-menu") do
+          expect(page).to have_content 'authors'
           expect(page).to have_link author.name, href: author_posts_path(author)
           expect(page).to have_link other_author.name, href: author_posts_path(other_author)
         end
@@ -73,10 +74,6 @@ feature "Blog" do
 
       specify "user sees edit post link" do
         expect(page).to_not have_link "Edit", href: edit_post_path(published_posts[0].slug)
-      end
-
-      specify "user sees back link" do
-        expect(page).to have_link "Back", href: posts_path
       end
     end
   end
