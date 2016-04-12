@@ -1,12 +1,7 @@
 div class="row"
-  div class="small-6 columns"
+  div class="medium-9 columns"
     h2 class="blogpost-title" = link_to post.title, post_path(id: post.slug)
-  div class="small-6 columns"
-    h5 class="blogpost-date text-right" Feb 14 2016
-div class="row"
-  div class="small-6 columns blogpost-author"
-    p  = link_to post.author_name, author_posts_path(id: post.author_slug)
-  div class="small-6 columns text-right"
+  div class="medium-3 columns"
     span Share on
     a href="#"
       i class="fi-social-facebook social-space"
@@ -14,6 +9,20 @@ div class="row"
       i class="fi-social-twitter social-space"
     a href="#"
       i class="fi-social-reddit social-space"
+
 div class="row"
-  div class="medium-10 small-12 columns"
+  div class="medium-2 columns blogpost-author text-left"
+    p
+      i class="fi-monitor icon-space-right"
+      span class='category' = post.topic_name
+  div class="medium-2 columns blogpost-author text-left"
+    p
+      i class="fi-torso icon-space-right"
+      = link_to post.author_name, author_posts_path(id: post.author_slug)
+  div class="medium-8 columns text-left"
+    p class="blogpost-date"
+      i class="fi-calendar icon-space-right"
+      | 02 / 14 / 2016    
+div class="row"
+  div class="medium-10 small-12 columns blogpost"
     p  = markdown_to_html(post.body)
