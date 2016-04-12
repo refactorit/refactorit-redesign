@@ -1,21 +1,22 @@
-p#notice = notice
+div class="callout small page-headline"
+  div class="row"
+    div class="medium-offset-1 medium-pull-1 medium-3 columns"
+      h5 blog
+div class="row blog-list"
+  div class="medium-2 columns hide-for-small-only"
+    ul class="menu vertical"
+      li class="menu-text"
+        | topic
 
-p
-  strong Title:
-  = @post.title
-p
-  strong Description:
-  = @post.description
-p
-  strong Body:
-  = markdown_to_html(@post.body)
-p
-  strong Status:
-  = @post.status
+      li class="menu-text"
+        | authors
 
-- if current_user.present?
-  = link_to 'Edit', edit_post_path(@post)
-  ||
-= link_to 'Back', posts_path
+  div class="medium-9 medium-pull-1 columns blogpost"
+    = render @post
 
-= render 'disqus'
+    - if current_user.present?
+      = link_to 'Edit', edit_post_path(@post)
+      ||
+      = link_to 'Back', posts_path
+
+    = render 'disqus'
