@@ -29,7 +29,8 @@ feature "Blog" do
       end
 
       specify "he sees author links in a special box" do
-        within(".menu-text", text: "authors") do
+        within(".sidebar-menu") do
+          expect(page).to have_content 'authors'
           expect(page).to have_link author.name, href: author_posts_path(author)
           expect(page).to have_link other_author.name, href: author_posts_path(other_author)
         end
