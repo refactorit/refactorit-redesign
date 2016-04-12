@@ -15,4 +15,5 @@ div class="row blog-list"
 
 
   div class="medium-9 medium-pull-1 columns"
-    = render @posts
+    - @posts.each do |post|
+      = render "post_preview", post: post

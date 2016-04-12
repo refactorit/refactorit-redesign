@@ -9,19 +9,19 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.published_with_authors
+    @posts = Post.published_with_authors.order('published_at DESC')
   end
 
   def author_index
     @author = User.friendly.find(params[:id])
-    @posts = @author.posts.published
+    @posts = @author.posts.published.order('published_at DESC')
 
     render template: 'posts/index'
   end
 
   def topic_index
     @topic = Topic.friendly.find(params[:id])
-    @posts = @topic.posts.published
+    @posts = @topic.posts.published.order('published_at DESC')
 
     render template: 'posts/index'
   end
