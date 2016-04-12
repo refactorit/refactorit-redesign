@@ -75,10 +75,6 @@ feature "Blog" do
       specify "user sees edit post link" do
         expect(page).to_not have_link "Edit", href: edit_post_path(published_posts[0].slug)
       end
-
-      specify "user sees back link" do
-        expect(page).to have_link "Back", href: posts_path
-      end
     end
   end
 end
