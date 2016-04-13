@@ -16,7 +16,7 @@ div class="row"
     p
       i class="fi-monitor icon-space-right"
       span class='category'
-        = post.topic_name
+        = link_to post.topic_name, topic_posts_path(id: post.topic_slug)
   div class="medium-2 columns blogpost-author text-left"
     p
       i class="fi-torso icon-space-right"

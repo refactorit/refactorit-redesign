@@ -63,17 +63,18 @@ feature "Blog" do
       specify "he sees posts for a topic" do
         expect(page).to have_content design_post.title
       end
-
-      # specify "he can't see other author's posts" do
-      #   expect(page).to_not have_content other_authors_post.title
-      # end
     end
 
     describe "on show post page" do
-      before { visit post_path(published_posts.first) }
+      let(:post) { published_posts.first }
+      before { visit post_path(post) }
 
-      specify "user sees edit post link" do
-        expect(page).to_not have_link "Edit", href: edit_post_path(published_posts[0].slug)
+      specify "can't see edit post link" do
+        expect(page).to_not have_link "Edit", href: edit_post_path(post.slug)
+      end
+
+      specify "sees post topic index link" do
+        expect(page).to have_link post.topic_name, href: topic_posts_path(post.topic_slug)
       end
     end
   end
