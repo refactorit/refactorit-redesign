@@ -77,13 +77,4 @@ section
 
 / newsletter
 section
-  form
-    div class="row"
-      div class="small-10 large-8 large-offset-2 columns"
-        div class="row collapse"
-          div class="small-10"
-            label for="n-invite" class="right inline small-12" Subscribe to our newsletter!
-          div class="small-10 columns"
-            input type="text" id="n-invite" placeholder="Your email here"
-          div class="small-2 columns"
-            a href="#" class="button postfix" Subscribe!
+  = render 'shared/newsletter'
