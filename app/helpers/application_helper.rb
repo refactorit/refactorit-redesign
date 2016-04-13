@@ -26,4 +26,16 @@ module ApplicationHelper
   def refactorit_dribbble_url
     "https://dribbble.com/refactorit"
   end
+
+  def facebook_share_url(url)
+    "https://www.facebook.com/sharer/sharer.php?u=#{url}"
+  end
+
+  def twitter_share_url
+    "http://twitter.com/share"
+  end
+
+  def reddit_share_url(url)
+    "https://www.reddit.com/submit?url=#{url}"
+  end
 end
