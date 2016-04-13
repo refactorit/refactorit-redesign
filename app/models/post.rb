@@ -15,12 +15,11 @@ class Post < ApplicationRecord
   before_save :strip_title
   before_save :change_published_date
 
-  delegate :name, to: :topic, prefix: true
-
   enum status: [:draft, :published]
   scope :published_with_authors, -> { published.includes(:author) }
 
   delegate :name, :slug, to: :author, prefix: true
+  delegate :name, :slug, to: :topic, prefix: true
 
   def assign_slug
     self.slug ||= slugify(title)
