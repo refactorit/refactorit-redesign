@@ -53,8 +53,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post.author = current_user
-
     if @post.update(post_params)
       redirect_to admin_posts_path, notice: 'Post was successfully updated.'
     else
