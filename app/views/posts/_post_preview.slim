@@ -1,22 +1,12 @@
 div class="row"
   div class="medium-9 columns"
-    h2 class="blogpost-title"
-      = link_to post.title, post_path(id: post.slug)
-  div class="medium-3 columns"
-    span Share on
-    = link_to facebook_share_url(request.url) do
-      i class="fi-social-facebook social-space"
-    = link_to twitter_share_url do
-      i class="fi-social-twitter social-space"
-    = link_to reddit_share_url(request.url) do
-      i class="fi-social-reddit social-space"
+    h2 class="blogpost-title" = link_to post.title, post_path(id: post.slug)
 
 div class="row"
   div class="medium-2 columns blogpost-author text-left"
     p
       i class="fi-monitor icon-space-right"
-      span class='category'
-        = link_to post.topic_name, topic_posts_path(id: post.topic_slug)
+      span class='category' = post.topic_name
   div class="medium-2 columns blogpost-author text-left"
     p
       i class="fi-torso icon-space-right"
@@ -27,4 +17,5 @@ div class="row"
         = format_date(post.published_at)
 div class="row"
   div class="medium-10 small-12 columns blogpost"
-    p  = markdown_to_html(post.body)
+    p  = markdown_to_html(post.description)
+    p  = link_to "Read more...", post_path(post.slug)
