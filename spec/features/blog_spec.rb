@@ -37,8 +37,11 @@ feature "Blog" do
       end
 
       specify "he sees topic links" do
-        expect(page).to have_link topics.first.name, href: topic_posts_path(topics.first)
-        expect(page).to have_link topics.second.name, href: topic_posts_path(topics.second)
+        within(".sidebar-menu") do
+          expect(page).to have_content "topic"
+          expect(page).to have_link topics.first.name, href: topic_posts_path(topics.first)
+          expect(page).to have_link topics.second.name, href: topic_posts_path(topics.second)
+        end
       end
     end
 
@@ -75,6 +78,22 @@ feature "Blog" do
 
       specify "sees post topic index link" do
         expect(page).to have_link post.topic_name, href: topic_posts_path(post.topic_slug)
+      end
+
+      specify "he sees author links in a special box" do
+        within(".sidebar-menu") do
+          expect(page).to have_content 'authors'
+          expect(page).to have_link author.name, href: author_posts_path(author)
+          expect(page).to have_link other_author.name, href: author_posts_path(other_author)
+        end
+      end
+
+      specify "he sees topic links" do
+        within(".sidebar-menu") do
+          expect(page).to have_content "topic"
+          expect(page).to have_link topics.first.name, href: topic_posts_path(topics.first)
+          expect(page).to have_link topics.second.name, href: topic_posts_path(topics.second)
+        end
       end
     end
   end

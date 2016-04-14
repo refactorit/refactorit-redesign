@@ -4,15 +4,7 @@ div class="callout small page-headline"
       h5 blog
 div class="row blog-list"
   div class="medium-2 columns hide-for-small-only"
-    ul class="menu sidebar-menu vertical"
-      li class="menu-text"
-        | topic
-        = render @topics
-
-      li class="menu-text"
-        | authors
-        = render @authors
-
+    = render "posts/sidebar_menu", topics: @topics, authors: @authors
 
   div class="medium-9 medium-pull-1 columns"
     - @posts.each do |post|
