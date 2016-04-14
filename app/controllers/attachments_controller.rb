@@ -21,7 +21,7 @@ class AttachmentsController < ApplicationController
   def destroy
     @attachment = Attachment.find(params[:id])
     @attachment.destroy
-    redirect_to attachments_path
+    redirect_to attachments_path, notice: "Image succesfully destroyed"
   end
 
   private
