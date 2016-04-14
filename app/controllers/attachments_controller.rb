@@ -27,6 +27,6 @@ class AttachmentsController < ApplicationController
   private
 
     def attachment_params
-      params.require(:attachment).permit(:image)
+      params.require(:attachment).permit(:image) if params[:attachment]
     end
 end
