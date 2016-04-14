@@ -4,6 +4,7 @@ SimpleCov.start
 require 'capybara/rspec'
 require 'capybara/email/rspec'
 require 'webmock/rspec'
+require "paperclip/matchers"
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -30,6 +31,12 @@ RSpec.configure do |config|
   end
 
   WebMock.disable_net_connect!(allow_localhost: true)
+  config.include Paperclip::Shoulda::Matchers
+
+  # Removes created files after testing
+  config.after(:suite) do
+    FileUtils.rm_rf(Dir["#{Rails.root}/spec/test_files/"])
+  end
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.

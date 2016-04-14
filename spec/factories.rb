@@ -1,3 +1,5 @@
+include ActionDispatch::TestProcess
+
 FactoryGirl.define do
   factory :user do
     sequence(:email) { |n| "person_#{n}@example.com" }
@@ -35,5 +37,11 @@ FactoryGirl.define do
       published    true
       published_at Time.now
     end
+  end
+
+  factory :attachment do
+    sequence(:image_file_name) { |n| "image#{n}.png" }
+    image_file_size 1.megabyte
+    image_content_type 'image/png'
   end
 end
