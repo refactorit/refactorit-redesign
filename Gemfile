@@ -55,6 +55,8 @@ gem 'sidekiq'
 gem 'mailgun_rails'
 # Loading environment variables
 gem 'dotenv-rails'
+# File upload
+gem 'paperclip'
 
 # Deployment related gems
 gem 'capistrano', '~> 3.1.0'
