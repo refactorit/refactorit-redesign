@@ -21,6 +21,15 @@ feature "Attachment administration" do
         expect(page).to have_link "Destroy", href: attachment_path(attachments.first)
         expect(page).to have_link "Destroy", href: attachment_path(attachments.second)
       end
+
+      describe "user clicks destroy button" do
+        before { click_link "Destroy", href: attachment_path(attachments.second) }
+
+        specify "and is redirected to index page with post remved" do
+          expect(page).to_not have_content attachments.second.image_file_name
+          expect(page).to have_content "Image succesfully destroyed"
+        end
+      end
     end
 
     describe "on new page" do
