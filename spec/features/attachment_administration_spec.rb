@@ -18,8 +18,8 @@ feature "Attachment administration" do
       end
 
       specify "user sees delete image links" do
-        expect(page).to have_link "Destroy", href: attachments_path(attachments.first)
-        expect(page).to have_link "Destroy", href: attachments_path(attachments.second)
+        expect(page).to have_link "Destroy", href: attachment_path(attachments.first)
+        expect(page).to have_link "Destroy", href: attachment_path(attachments.second)
       end
     end
 
