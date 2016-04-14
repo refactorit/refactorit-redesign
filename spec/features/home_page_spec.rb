@@ -30,6 +30,10 @@ feature 'Home Page' do
       expect(page).to have_link published_posts[2].topic_name, href: topic_posts_path(topic)
     end
 
+    specify "visitor sees favicon" do
+      expect(page).to have_xpath("/html/head/link[@href='favicon.ico']", visible: false)
+    end
+
     context "there is no published news" do
       specify "visitor sees no news" do
         expect(page).to_not have_content news.title
