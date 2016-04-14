@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index, :author_index, :topic_index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :set_authors, only: [:index, :author_index, :topic_index]
-  before_action :set_topics, except: [:show, :destroy, :admin_index]
+  before_action :set_authors, only: [:index, :show, :author_index, :topic_index]
+  before_action :set_topics, except: [:destroy, :admin_index]
 
   def admin_index
     @posts = Post.all
