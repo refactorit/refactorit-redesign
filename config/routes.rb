@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   get  'topics/:id/posts', to: 'posts#topic_index', as: :topic_posts
   get  '/:year/:month/:slug', to: redirect('/posts/%{slug}'), year: /\d{4}/, month: /\d{2}/
   get  '/blog', to: redirect('/posts')
-  get  '/.well-known/acme-challenge/7T5st_HFomn4vqyVndfLWShktzcS2qVrBETkf1r4jmM', to: redirect('/posts')
+  get  '/.well-known/acme-challenge/:id', to: proc { [200, {}, ['']] }
 end
