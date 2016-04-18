@@ -25,6 +25,11 @@ div class="row"
            |Dribbble
 
   div class="medium-9 medium-pull-1 columns"
+    h6
+      | Want to work together or interested in learning more about us?
+        Don't hesitate to contact us at
+      = mail_to " contact@refactorit.co "
+      | or using the form below:
     = simple_form_for @contact, url: send_question_path, method: :post do |f|
       = f.input :name
       = f.input :email
