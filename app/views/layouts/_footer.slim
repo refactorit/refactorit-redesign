@@ -1,29 +1,30 @@
 div class="wrap row small-up-1 medium-up-3 text-left"
-	div class="medium-4 column"
-		ul class="menu vertical"
-			li
-				= link_to "Home", root_path
-			li
-				= link_to "Team", team_path
-			li
-				= link_to "Services", services_path
-			li
-				= link_to "Contact us", contact_new_path
-	div class="medium-4 column"
-		ul class="menu vertical"
-			li
-				= link_to refactorit_facebook_url do
-					i class='fi-social-facebook'
-					  |Facebook
-			li
-				= link_to refactorit_github_url do
-				 	i class="fi-social-github"
-				 	  |Github
-			li
-				= link_to refactorit_dribbble_url do
-				 	i class="fi-social-dribbble"
-				 	  |Dribbble
-			li
-				= link_to refactorit_twitter_url do
-					i class="fi-social-twitter"
-					  |Twitter
+  div class="medium-4 column"
+    ul class="menu vertical footer-menu"
+      li
+        = link_to "Home", root_path
+      li
+        = link_to "Team", team_path
+      li
+        = link_to "Services", services_path
+      li
+        = link_to "Contact us", contact_new_path
+  div class="medium-4 column"
+    ul class="menu vertical"
+      li
+        = link_to refactorit_facebook_url do
+          i class="fi-social-facebook"
+          |Facebook
+            
+      li
+        = link_to refactorit_github_url do
+          i class="fi-social-github"
+          |Github
+      li
+        = link_to refactorit_dribbble_url do
+          i class="fi-social-dribbble"
+          |Dribbble
+      li
+        = link_to refactorit_twitter_url do
+          i class="fi-social-twitter"
+          |Twitter

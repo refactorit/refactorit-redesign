@@ -35,3 +35,15 @@ input {
     font-weight: 700;
   }
 }
+
+.medium-space-top {
+  margin-top: 1rem;
+}
+
+.space-bottom {
+  margin-bottom: 2rem;
+}
+
+.footer-menu:not(:first-child) {
+  padding: 1rem;
+}
