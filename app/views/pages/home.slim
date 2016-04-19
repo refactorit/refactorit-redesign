@@ -42,6 +42,7 @@ section
       div class="row"
         div class="small-12 columns"
           h5 Dribbble
+          hr
       div class="row expanded dribbble-expanded"
         - @dribbble_shots.each do |shot|
           div class="medium-4 large-2 columns"
@@ -78,5 +79,7 @@ section
 = render partial: 'pages/shared/team'
 
 / newsletter
-section
-  = render 'shared/newsletter'
+div class="large cover-photo cover-newsletter"
+  div class="expanded row column text-center"
+  section
+    = render 'shared/newsletter'
