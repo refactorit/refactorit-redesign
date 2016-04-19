@@ -1,13 +1,15 @@
 / cover
 div class="large cover-photo main-back"
   div class="expanded row column text-center"
-    / h4 Ruby. That's what we do.
+    h6 class="medium-8 headline-shot hero-title"
+      |We are here to get your wheels turning.
 / main
 section
   div class="row"
     / blog post snippet
     div class="medium-7 columns"
       h5 class="medium-2 medium-text-center large-text-center" Blog
+      hr
 
       - @posts.each do |post|
         div class='medium-2 columns text-center category-icon'
@@ -15,8 +17,8 @@ section
           br
           span class='category' = link_to post.topic_name, topic_posts_path(post.topic)
           hr
-        div class='medium-10 columns'
-          h3 = link_to post.title, post_path(post)
+        div class='medium-10 columns medium-space-top'
+          h3 class="headline-shot" = link_to post.title, post_path(post)
           p = post.description
 
     / news and testimonials

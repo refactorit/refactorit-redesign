@@ -47,3 +47,21 @@ input {
 .footer-menu:not(:first-child) {
   padding: 1rem;
 }
+
+// covers
+
+.cover-contact {
+  background: no-repeat center/100% url("<%= asset_path 'p-contact.jpg' %>");
+}
+
+.cover-team {
+  background: no-repeat center/100% url("<%= asset_path 'p-team.jpg' %>");
+}
+
+.cover-services {
+  background: no-repeat center/100% url("<%= asset_path 'p-services.jpg' %>");
+}
+
+.cover-blog {
+  background: no-repeat center/100% url("<%= asset_path 'p-blog.jpg' %>");
+}
