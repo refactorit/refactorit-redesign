@@ -1,0 +1,99 @@
+$refactorit-red: #ed1a33;
+$refactorit-gray: #666666;
+$light-red: #FF4C62;
+$dark-red: #7F000F;
+
+a {
+  color: $light-red;
+}
+
+a:focus {
+  outline: 0;
+}
+
+a:hover, a:active {
+  color: $dark-red;
+}
+
+.button {
+  background-color: $light-red;
+}
+
+.button:hover {
+  background-color: $dark-red;
+}
+
+input {
+  margin-bottom: 0;
+}
+
+.page-headline {
+  background-color: #b0b0b0;
+  border: none;
+  h5 {
+    color: #ffffff;
+    font-weight: 700;
+  }
+}
+
+.medium-space-top {
+  margin-top: 1rem;
+}
+
+.space-bottom {
+  margin-bottom: 2rem;
+}
+
+.footer-menu:not(:first-child) {
+  padding: 1rem;
+}
+
+// covers
+
+.cover-contact {
+  background: no-repeat bottom/100% url("<%= asset_path 'p-contact.jpg' %>");
+}
+
+.cover-team {
+  background: no-repeat center/100% url("<%= asset_path 'p-team.jpg' %>");
+}
+
+.cover-services {
+  background: no-repeat center/100% url("<%= asset_path 'p-services.jpg' %>");
+}
+
+.cover-blog {
+  background: no-repeat bottom/100% url("<%= asset_path 'p-blog.jpg' %>");
+}
+
+.cover-newsletter {
+  background: linear-gradient( 180deg, #EBEBEB, white );
+}
+
+.cover-contact, .cover-team, .cover-services, .cover-blog {
+  margin-bottom: 2em;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.pos-abs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: inherit;
+}
+
+.dotted-overlay {
+  padding: 2.25em 1.6875em;
+  background-image: -webkit-repeating-radial-gradient(center center, rgba(255,255,255,.2), rgba(255,255,255,.2) 1px, transparent 1px, transparent 100%);
+  background-image: -moz-repeating-radial-gradient(center center, rgba(255,255,255,.2), rgba(255,255,255,.2) 1px, transparent 1px, transparent 100%);
+  background-image: -ms-repeating-radial-gradient(center center, rgba(255,255,255,.2), rgba(255,255,255,.2) 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, rgba(255,255,255,.2), rgba(255,255,255,.2) 1px, transparent 1px, transparent 100%);
+  -webkit-background-size: 3px 3px;
+  -moz-background-size: 3px 3px;
+  background-size: 3px 3px;
+  height: inherit;
+  }
