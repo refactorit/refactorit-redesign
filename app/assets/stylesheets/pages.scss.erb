@@ -113,7 +113,17 @@ $refactorit-gray: #666666;
 }
 
 .main-back {
-  background: no-repeat center/100% url("<%= asset_path 'r-back.jpg' %>");
+  background: repeating-radial-gradient(
+    circle,
+    #E0E0E0,
+    #E0E0E0 10px,
+    #E5E5E5 10px,
+    #E5E5E5 20px
+  );
+}
+
+.hero-title {
+  margin-top: 15%;
 }
 
 // blog
@@ -137,6 +147,10 @@ $refactorit-gray: #666666;
   font-size: 1.2em;
   font-family: 'Fira', sans-serif;
   margin: 0.5em 0 5em 0;
+}
+
+.blogpost-preview {
+  margin:0 0 2.3em;
 }
 
 .blogpost-author {
