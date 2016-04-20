@@ -9,7 +9,7 @@ feature 'Navigation' do
       expect(page).to have_link "Team", href: team_path
       expect(page).to have_link "Contact us", href: contact_new_path
       expect(page).to have_link "Services", href: services_path
-      expect(page).to have_link "Blog", href: posts_path
+      expect(page).to have_link "Blog", href: blog_index_path
       expect(page).to_not have_link "News", href: news_index_path
       expect(page).to_not have_link "Logout", href: destroy_user_session_path
     end
