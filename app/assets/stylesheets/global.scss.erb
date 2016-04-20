@@ -3,6 +3,10 @@ $refactorit-gray: #666666;
 $light-red: #FF4C62;
 $dark-red: #7F000F;
 
+body {
+  font-family: 'Fira', sans-serif;
+}
+
 a {
   color: $light-red;
 }
@@ -86,6 +90,14 @@ input {
   height: inherit;
 }
 
+.menu .d-inline {
+  display: inline;
+}
+
+.remove-padd li:first-child a{
+  padding: 0;
+}
+
 .dotted-overlay {
   padding: 2.25em 1.6875em;
   background-image: -webkit-repeating-radial-gradient(center center, rgba(255,255,255,.2), rgba(255,255,255,.2) 1px, transparent 1px, transparent 100%);
@@ -97,3 +109,19 @@ input {
   background-size: 3px 3px;
   height: inherit;
   }
+
+// footer
+
+.white-text {
+  color: white;
+}
+
+.gray-form {
+  background-color: $refactorit-gray;
+  border: #828282 1px solid;
+}
+
+.gray-form:focus {
+  border: none;
+  box-shadow: none;
+}

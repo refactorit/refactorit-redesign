@@ -1,7 +1,6 @@
-div class="callout small page-headline"
-  div class="row"
-    div class="medium-offset-1 medium-pull-1 medium-3 columns"
-      h5 blog
+div class="large cover-photo cover-blog pos-rel"
+  div class="pos-abs"
+    div class="dotted-overlay"
 div class="row blog-list"
   div class="medium-2 columns hide-for-small-only"
     = render "sidebar_menu", topics: @topics, authors: @authors
@@ -15,3 +14,6 @@ div class="row blog-list"
       = link_to 'Back', posts_path
 
     = render 'disqus'
+    
+section
+  = render 'shared/newsletter'

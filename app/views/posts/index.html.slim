@@ -12,3 +12,13 @@ div class="row blog-list"
   div class="medium-9 medium-pull-1 columns"
     - @posts.each do |post|
       = render "post_preview", post: post
+      
+div class="row expanded space-bottom large cover-photo cover-newsletter"
+  div class="small-12 medium-10 columns"
+    div class="row collapse"
+      div class="small-10"
+        label for="n-invite" class="right inline small-12" Subscribe to our newsletter!
+      div class="small-10 columns"
+        input type="text" id="n-invite" placeholder="Your email here"
+      div class="small-2 columns"
+        a href="#" class="button postfix" Subscribe!
