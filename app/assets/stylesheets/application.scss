@@ -55,11 +55,17 @@ i {
 	font-size: 1.5em;
 }
 
-h5 {
+.blogpost h4, .small-c, h5 {
 	text-transform: lowercase;
 	font-variant: small-caps;
   color: $refactorit-gray;
   letter-spacing: 0.05em;
+  font-size: 1.25rem;
+  font-family: "Fira", sans-serif;
+}
+
+.blogpost h4 {
+  margin-top: 1.4em;
 }
 
 section {
