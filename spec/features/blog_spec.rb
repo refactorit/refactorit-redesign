@@ -12,7 +12,7 @@ feature "Blog" do
     let!(:topics) { FactoryGirl.create_list(:topic, 2)}
 
     describe "on index page" do
-      before { visit posts_path }
+      before { visit blog_index_path }
 
       specify "he sees correct blog posts" do
         expect(page).to have_content published_posts[0].title
