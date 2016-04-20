@@ -3,7 +3,7 @@ module ApplicationHelper
     if current_user.present?
       admin_posts_path
     else
-      posts_path
+      blog_index_path
     end
   end
 
