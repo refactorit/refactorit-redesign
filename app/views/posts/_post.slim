@@ -1,7 +1,7 @@
 div class="row medium-space-top"
   div class="medium-8 columns"
     h2 class="blogpost-title headline-shot"
-      = link_to post.title, post_path(id: post.slug)
+      = link_to post.title, blog_path(id: post.slug)
   div class="medium-3 medium-pull-1 columns"
     span Share on
     = link_to facebook_share_url(request.url) do
