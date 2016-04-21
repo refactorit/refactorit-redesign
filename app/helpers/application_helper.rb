@@ -38,4 +38,8 @@ module ApplicationHelper
   def reddit_share_url(url)
     "https://www.reddit.com/submit?url=#{url}"
   end
+
+  def mobile_device?
+    request.user_agent =~ /Mobile|webOS/
+  end
 end
