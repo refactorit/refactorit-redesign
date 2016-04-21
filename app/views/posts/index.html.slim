@@ -9,17 +9,6 @@ div class="row blog-list expanded"
   div class="medium-2 columns hide-for-small-only"
     = render "posts/sidebar_menu", topics: @topics, authors: @authors
 
-  div class="medium-7 columns"
+  div class="medium-10 columns"
     - @posts.each do |post|
       = render "post_preview", post: post
-  div class="medium-3 medium-pull-1 columns"
-    form
-      div class="row"
-        div class="small-10 columns"
-          div class="row collapse"
-            div class="small-10"
-              label for="n-invite" class="right inline small-12" Subscribe to our newsletter!
-            div class="small-10 columns"
-              input type="text" id="n-invite" placeholder="Your email here"
-            div class="small-2 columns"
-              a href="#" class="button postfix" Subscribe!

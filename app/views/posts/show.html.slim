@@ -4,14 +4,15 @@ div class="large cover-photo cover-blog pos-rel"
 div class="row blog-list expanded"
   div class="medium-2 columns hide-for-small-only"
     = render "sidebar_menu", topics: @topics, authors: @authors
-
-  div class="medium-7 columns blogpost"
+    
+  div class="medium-10 large-10 columns blogpost end"
     = render @post
 
     - if current_user.present?
       = link_to 'Edit', edit_post_path(@post)
       ||
       = link_to 'Back', posts_path
+  div class="medium-12 columns blogpost end"
     ul class="menu expanded"
       li class="text-left"
         a href="#"
@@ -23,20 +24,9 @@ div class="row blog-list expanded"
           |Read next
           i class="fi-arrow-right social-space"
         p Next Post
-          
-  div class="medium-3 medium-pull-1 columns"
-    form
-      div class="row"
-        div class="small-10 columns"
-          div class="row collapse"
-            div class="small-10"
-              label for="n-invite" class="right inline small-12" Subscribe to our newsletter!
-            div class="small-10 columns"
-              input type="text" id="n-invite" placeholder="Your email here"
-            div class="small-2 columns"
-              a href="#" class="button postfix" Subscribe!
-  div class="medium-7 medium-pull-3 columns space-top"
-    = render 'disqus'
+  div class="row"
+    div class="medium-10 large-11 large-push-1 columns space-top end"
+      = render 'disqus'
     
 
               

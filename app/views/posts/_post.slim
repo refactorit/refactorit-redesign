@@ -2,14 +2,6 @@ div class="row medium-space-top"
   div class="medium-8 columns"
     h2 class="blogpost-title headline-shot"
       = link_to post.title, blog_path(id: post.slug)
-  div class="medium-3 medium-pull-1 columns"
-    span Share on
-    = link_to facebook_share_url(request.url) do
-      i class="fi-social-facebook social-space"
-    = link_to twitter_share_url do
-      i class="fi-social-twitter social-space"
-    = link_to reddit_share_url(request.url) do
-      i class="fi-social-reddit social-space"
 
 div class="row"
   div class="medium-2 columns blogpost-author text-left"
@@ -17,11 +9,11 @@ div class="row"
       i class="fi-monitor icon-space-right"
       span class='category'
         = link_to post.topic_name, topic_posts_path(id: post.topic_slug)
-  div class="medium-2 columns blogpost-author text-left"
+  div class="medium-2 large-2 columns blogpost-author text-left"
     p
       i class="fi-torso icon-space-right"
       = link_to post.author_name, author_posts_path(id: post.author_slug)
-  div class="medium-8 columns text-left"
+  div class="medium-10 large-8 columns text-left"
     p class="blogpost-date"
       i class="fi-calendar icon-space-right"
       = format_date(post.published_at)
