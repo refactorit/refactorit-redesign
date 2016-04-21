@@ -1,17 +1,42 @@
-div class="callout small page-headline"
-  div class="row"
-    div class="medium-offset-1 medium-pull-1 medium-3 columns"
-      h5 blog
-div class="row blog-list"
+div class="large cover-photo cover-blog pos-rel"
+  div class="pos-abs"
+    div class="dotted-overlay"
+div class="row blog-list expanded"
   div class="medium-2 columns hide-for-small-only"
     = render "sidebar_menu", topics: @topics, authors: @authors
 
-  div class="medium-9 medium-pull-1 columns blogpost"
+  div class="medium-7 columns blogpost"
     = render @post
 
     - if current_user.present?
       = link_to 'Edit', edit_post_path(@post)
       ||
       = link_to 'Back', posts_path
-
+    ul class="menu expanded"
+      li class="text-left"
+        a href="#"
+          i class="fi-arrow-left icon-space-right"
+          |Read previous
+        p Previous Post
+      li class="text-right"
+        a href="#" 
+          |Read next
+          i class="fi-arrow-right social-space"
+        p Next Post
+          
+  div class="medium-3 medium-pull-1 columns"
+    form
+      div class="row"
+        div class="small-10 columns"
+          div class="row collapse"
+            div class="small-10"
+              label for="n-invite" class="right inline small-12" Subscribe to our newsletter!
+            div class="small-10 columns"
+              input type="text" id="n-invite" placeholder="Your email here"
+            div class="small-2 columns"
+              a href="#" class="button postfix" Subscribe!
+  div class="medium-7 medium-pull-3 columns space-top"
     = render 'disqus'
+    
+
+              
