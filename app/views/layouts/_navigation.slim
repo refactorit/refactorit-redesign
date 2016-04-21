@@ -1,7 +1,8 @@
 div class="title-bar" data-responsive-toggle="navbar-menu" data-hide-for="medium"
   button class="small-left menu-icon" type="button" data-toggle="toggle"
   div class="title-bar-title"
-    = image_tag "refactorit.svg", alt: "refactorit-logo", class: "r-brand"
+    = link_to root_path do
+      = image_tag "refactorit.svg", alt: "refactorit-logo", class: "r-brand"
 div class="top-bar" id="navbar-menu"
   nav class="top-bar" data-topbar="topbar" role="navigation"
     ul class="title-bar-left large-horizontal menu"

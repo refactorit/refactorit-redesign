@@ -12,12 +12,12 @@ section
       hr
 
       - @posts.each do |post|
-        div class='medium-2 columns text-center category-icon'
+        div class='medium-3 columns text-center category-icon'
           i class="fi-monitor"
           br
           span class='category' = link_to post.topic_name, topic_posts_path(post.topic)
           hr
-        div class='medium-10 columns medium-space-top'
+        div class='medium-9 columns medium-space-top'
           h3 class="headline-shot" = link_to post.title, post_path(post)
           p = post.description
 
