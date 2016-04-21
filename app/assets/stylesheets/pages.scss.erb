@@ -8,23 +8,36 @@ $refactorit-gray: #666666;
 
 // home
 
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 39.9375em) {
 .cover-photo {
   height: 10em;
   }
 .hero-title {
   margin-top: 2em;
 }
+footer {
+  position: relative;
+}
+body {
+  margin-bottom: 0;
+}
 }
 
-@media only screen and (min-width: 40em) {
+@media only screen and (min-width: 39.9375em) {
 .cover-photo {
   height: 21em;
   }
 .hero-title {
   margin-top: 5em;
 }
+footer {
+  position: absolute;
 }
+body {
+  margin-bottom: 16em;
+}
+}
+
 
 .testimonials cite{
   margin-bottom: 1.5em;
