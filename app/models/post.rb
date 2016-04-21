@@ -32,6 +32,16 @@ class Post < ApplicationRecord
     self.title = self.title.strip if self.title.present?
   end
 
+  def next
+    Post.published.where("published_at > ?", self.published_at).
+      order(published_at: :desc).last
+  end
+
+  def previous
+    Post.published.where("published_at < ?", self.published_at).
+      order(published_at: :desc).first
+  end
+
   # necessary for select inputs in forms, since enum is a number and
   # forms send strings
   def self.status_keys
