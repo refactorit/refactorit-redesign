@@ -4,7 +4,7 @@ div class="large cover-photo cover-blog pos-rel"
 div class="row blog-list expanded"
   div class="medium-2 columns hide-for-small-only"
     = render "sidebar_menu", topics: @topics, authors: @authors
-
+    
   div class="medium-12 large-10 columns blogpost end"
     = render @post
 
@@ -24,8 +24,9 @@ div class="row blog-list expanded"
           |Read next
           i class="fi-arrow-right social-space"
         p Next Post
-  div class="medium-12 medium-offset-2 large-7 large-offset-3 columns space-top end"
-    = render 'disqus'
+  div class="row"
+    div class="medium-10 large-12 columns space-top end"
+      = render 'disqus'
     
 
               
