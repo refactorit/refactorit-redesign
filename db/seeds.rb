@@ -169,7 +169,7 @@ ActiveRecord::Base.transaction do
     )
   )
   Post.create!(title: 'Using custom scope in Rails association',
-    author: filip, status: 1, slug: 'using-custom-scope-in-rails-association',
+    author: ivan, status: 1, slug: 'using-custom-scope-in-rails-association',
     published_at: DateTime.parse('2016-02-05 09:15:27'), topic: development,
     description: (<<~DESC
       I came across a situation that I needed a custom scope in an 5
@@ -668,6 +668,143 @@ ActiveRecord::Base.transaction do
       leaflet and then put it up on the board while we were on lunch break. :)
 
       Long story short, it was awesome! See you next year!
+    BODY
+    )
+  )
+  Post.create!(title: 'Random Active Record', author: neven,
+    status: 1, slug: 'random-active-record',
+    published_at: DateTime.parse('2016-04-19 01:00:00'), topic: development,
+    description: (<<~DESC
+      Getting random results from a database table using Active Record is a
+      fairly common action that seems straightforward, but even though there
+      are several ways to do it, they all have their drawbacks and subtleties.
+      For this post I will use Rails 4.2.3 with PostgresSQL 9.3 for all the
+      examples.
+    DESC
+    ),
+    body: (<<~BODY
+      Getting random results from a database table using Active Record is a
+      fairly common action that seems straightforward, but even though there
+      are several ways to do it, they all have their drawbacks and subtleties.
+      For this post I will use Rails 4.2.3 with PostgresSQL 9.3 for all the
+      examples.
+
+      ![Dices](http://www.refactorit.co/images/dices.png)
+
+      #### Sample solution
+
+      Certainly the simplest way to get a random record from the database is
+      this:
+
+      ```sql
+      User.all.sample
+      ```
+
+      And the generated SQL:
+
+      ```sql
+      SELECT "users".* FROM "users"
+      ```
+
+      If you know that you’ll only ever have a few records it will work well
+      enough, and we can easily choose what number of random results we want by
+      passing an integer to the sample method. e.g. sample(8) will return an
+      array of 8 random records.
+
+      However if you have stored a large number of records this solution will
+      become very slow. All the objects will be loaded into memory before the
+      random one is chosen which in case of millions of rows will amount in a
+      pretty large amount of memory used, as can be seen in the benchmark where
+      getting a record from a million rows takes a whopping 14 seconds on my
+      machine, almost 2 orders of magnitude slower than the most efficient
+      solution in this post.
+
+      The next two solutions offload most of the work to the database:
+
+      #### Offset solution
+
+      ```ruby
+      offset = rand(User.count)
+      result = User.offset(offset).limit(1).first
+      ```
+
+      ```sql
+      SELECT COUNT(*) FROM "users"
+      SELECT  "users".* FROM "users" LIMIT 1 OFFSET 54
+      ```
+
+      The offset solution is a bit more complicated and it generates two
+      queries. First we get a count of the rows in the table and pick a random
+      number based on the count, and then we pick a random record by offseting
+      that number. We can’t just use find(offset), because there could be
+      missing rows in the table due to deletion which would cause errors and
+      highest IDs would never be fetched since count would always be lower than
+      the largest ID number.
+
+      You can still get multiple results by modifying the query a bit and
+      calling .limit(n) instead. In that case we get an ActiveRecord_Relation
+      as a result so we can perform all the actions associated with that class
+      on the results.
+
+      Performance wise we call two queries and count will have to scan through
+      the whole table sequentially, and the Postgres docs say that large
+      offsets might be inefficient but this solution is still much much quicker
+      than the previous one.
+
+      Random function solution
+
+      ```ruby
+      User.order("random()").first
+      ```
+
+      ```sql
+      SELECT  "users".* FROM "user"  ORDER BY Random() LIMIT 1
+      ```
+
+      Now we only have one line of code and one query generated but it’s not
+      database agnostic, MySQL has a similar function rand() and other databases
+      probably have their own functions for random ordering. Using the random
+      order on the database level is slower on a million records than the offset
+      solution (around 2.5 times), but on a smaller table the performance is
+      about the same.
+
+      The positive side of this approach is that we can keep earlier ordering
+      when fetching the record. Let’s say you have premium and regular users,
+      and you want to sort them so that the premium users come first in the
+      order. In this case you can still get a random premium user, while if
+      there are no premium users the query will still return a random regular
+      user. In other solutions you would have to repeat the process for regular
+      users if you find no premium users so the random function saves you from
+      doing more queries on the database.
+
+      #### Conclusion
+
+      The offset solution is probably suitable for most use cases as it is the
+      most performant one, but as explained there are cases when other solutions
+      can be handy too. There are certainly more performant ways to get a random
+      result from the database, but it involves writing custom SQL queries or
+      using performant databases like Redis, but that is outside the scope of
+      this post.
+
+      #### Completely non scientific benchmark
+
+      Thousand records
+
+      ```bash
+      user     system      total        real
+      sample   0.010000   0.000000   0.010000 (  0.015339)
+      offset   0.000000   0.000000   0.000000 (  0.001908)
+      order    0.000000   0.000000   0.000000 (  0.001666)
+      ```
+
+      Million records
+
+      ```bash
+      user     system      total        real
+      sample  12.230000   1.690000  13.920000 ( 17.872464)
+      offset   0.010000   0.000000   0.010000 (  0.272729)
+      order    0.000000   0.000000   0.000000 (  0.693145)
+      ```
     BODY
     )
   )
