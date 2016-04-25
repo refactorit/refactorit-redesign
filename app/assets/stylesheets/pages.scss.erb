@@ -11,6 +11,9 @@ $refactorit-gray: #666666;
 @media only screen and (max-width: 39.9375em) {
 .cover-photo {
   height: 10em;
+  .dotted-overlay {
+    display: none;
+  }
   }
 .hero-title {
   margin-top: 2em;
@@ -102,6 +105,12 @@ body {
   box-shadow: none;
 }
 
+// services
+
+.services-titles h4 {
+  height: 4.375em;
+}
+
 // team
 .team
   h5 {
@@ -168,26 +177,7 @@ body {
   font-size: inherit;
 }
 
-.blogpost {
-  font-size: 1.2em;
-  font-family: 'Fira', sans-serif;
-  margin: 0.5em 0 1em 0;
-  em {
-    font-size: large;
-    font-style: normal;
-  }
-  ul {
-    list-style-type: circle;
-  }
-}
 
-.blogpost-preview {
-  margin:0 0 2.3em;
-}
-
-.blogpost-author {
-  line-height: 5;
-}
 
 // contact
 

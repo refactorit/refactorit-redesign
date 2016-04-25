@@ -6,9 +6,8 @@ div class="large cover-photo cover-blog pos-rel"
     h6 class="medium-8 headline-shot hero-title"
 
 div class="row blog-list expanded"
-  div class="medium-2 columns hide-for-small-only"
-    = render "posts/sidebar_menu", topics: @topics, authors: @authors
-
-  div class="medium-10 columns"
+  div class="medium-9 columns"
     - @posts.each do |post|
       = render "post_preview", post: post
+  div class="medium-3 columns hide-for-small-only"
+    = render "posts/sidebar_menu", topics: @topics, authors: @authors
