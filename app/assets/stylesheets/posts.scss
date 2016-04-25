@@ -19,3 +19,37 @@
   margin: 2em 0;
   padding: 0.7em;
 }
+
+.blogpost h4, .small-c, h5 {
+	text-transform: lowercase;
+	font-variant: small-caps;
+  color: $refactorit-gray;
+  letter-spacing: 0.05em;
+  font-size: 1.25rem;
+  font-family: "Fira", sans-serif;
+}
+
+.blogpost h4 {
+  margin-top: 1.4em;
+}
+
+.blogpost {
+  font-size: 1.2em;
+  font-family: 'Fira', sans-serif;
+  margin: 0.5em 0 1em 0;
+  em {
+    font-size: large;
+    font-style: normal;
+  }
+  ul {
+    list-style-type: circle;
+  }
+}
+
+.blogpost-preview {
+  margin:0 0 2.3em;
+}
+
+.blogpost-author {
+  line-height: 5;
+}
