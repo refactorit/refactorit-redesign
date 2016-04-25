@@ -1,22 +1,20 @@
-div class="row medium-space-top"
-  div class="medium-8 columns"
+div class="medium-9 columns"
+  div class="row"
     h2 class="blogpost-title headline-shot"
       = link_to post.title, blog_path(id: post.slug)
-
-div class="row"
-  div class="medium-2 columns blogpost-author text-left"
-    p
-      i class="fi-monitor icon-space-right"
-      span class='category'
-        = link_to post.topic_name, topic_posts_path(id: post.topic_slug)
-  div class="medium-2 large-2 columns blogpost-author text-left"
-    p
-      i class="fi-torso icon-space-right"
-      = link_to post.author_name, author_posts_path(id: post.author_slug)
-  div class="medium-10 large-8 columns text-left"
-    p class="blogpost-date"
-      i class="fi-calendar icon-space-right"
-      = format_date(post.published_at)
-div class="row"
-  div class="medium-10 small-12 columns blogpost"
-    p  = markdown_to_html(post.body)
+    div class="medium-4 columns blogpost-author text-left"
+      p
+        i class="fi-monitor icon-space-right"
+        span class='category'
+          = link_to post.topic_name, topic_posts_path(id: post.topic_slug)
+    div class="medium-4 columns blogpost-author text-left"
+      p
+        i class="fi-torso icon-space-right"
+        = link_to post.author_name, author_posts_path(id: post.author_slug)
+    div class="medium-4 columns text-left"
+      p class="blogpost-date"
+        i class="fi-calendar icon-space-right"
+        = format_date(post.published_at)
+    div class="row"
+      div class="medium-10 small-12 columns blogpost end"
+        p  = markdown_to_html(post.body)
