@@ -1,3 +1,21 @@
 // Place all the styles related to the Contact controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$dark-red: #EC1B33;
+
+.required input, .required textarea{
+  border: 1px solid $dark-red;
+}
+
+.input-class [type='text'] + span {
+  margin-bottom: 0;
+}
+
+.error-input {
+  color: $dark-red;
+  margin-top: -0.5em;
+  position: absolute;
+  margin-top: -1.5em;
+  font-size: 0.6em;
+  text-transform: uppercase;
+}

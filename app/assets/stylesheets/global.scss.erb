@@ -1,7 +1,7 @@
 $refactorit-red: #ed1a33;
 $refactorit-gray: #666666;
 $light-red: #FF4C62;
-$dark-red: #7F000F;
+$dark-red: #EC1B33;
 $white: #ffffff;
 $light-gray: #b0b0b0;
 
@@ -9,20 +9,20 @@ body {
   font-family: 'Fira', sans-serif;
 }
 
-a {
-  color: $light-red;
+a, a:active, a:visited {
+  color: $dark-red;
 }
 
 a:focus {
   outline: 0;
 }
 
-a:hover, a:active {
-  color: $dark-red;
+a:hover {
+  color: $light-red;
 }
 
 .button {
-  background-color: $light-red;
+  background-color: $dark-red;
 }
 
 .button:hover {
@@ -111,27 +111,3 @@ input {
   background-size: 3px 3px;
   height: inherit;
   }
-
-// footer
-
-.white-text {
-  color: white;
-}
-
-.gray-form {
-  background-color: $refactorit-gray;
-  border: #828282 1px solid;
-}
-
-.gray-form:focus {
-  border: none;
-  box-shadow: none;
-}
-
-footer a {
-  color: $white;
-}
-
-footer a:hover {
-  color: $light-gray;
-}
