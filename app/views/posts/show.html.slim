@@ -1,17 +1,17 @@
 div class="large cover-photo cover-blog pos-rel"
   div class="pos-abs"
     div class="dotted-overlay"
-div class="row blog-list expanded"
-  div class="medium-2 columns hide-for-small-only"
-    = render "sidebar_menu", topics: @topics, authors: @authors
-    
-  div class="medium-10 large-10 columns blogpost end"
+div class="row blog-list expanded"    
+  div class="blogpost"
     = render @post
 
     - if current_user.present?
       = link_to 'Edit', edit_post_path(@post)
       ||
       = link_to 'Back', posts_path
+  div class="medium-3 columns hide-for-small-only"
+    = render "posts/sidebar_menu", topics: @topics, authors: @authors
+div class="row expanded"
   div class="medium-12 columns blogpost end"
     ul class="menu expanded"
       li class="text-left"
