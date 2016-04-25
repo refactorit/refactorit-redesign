@@ -48,18 +48,23 @@ body {
   color: $refactorit-gray;
   font-size: 100%;
   height: auto;
-  margin-bottom: 16em;
 }
 
 i {
 	font-size: 1.5em;
 }
 
-h5 {
+.blogpost h4, .small-c, h5 {
 	text-transform: lowercase;
 	font-variant: small-caps;
   color: $refactorit-gray;
   letter-spacing: 0.05em;
+  font-size: 1.25rem;
+  font-family: "Fira", sans-serif;
+}
+
+.blogpost h4 {
+  margin-top: 1.4em;
 }
 
 section {
@@ -97,6 +102,16 @@ nav a {
   color: $refactorit-gray;
 }
 
+.current {
+  color: $refactorit-red;
+}
+
+// moves hamburger menu to the right side
+.menu-icon {
+  float: right;
+  margin-top: 0.5rem;
+}
+
 /********** footer **********/
 footer {
 	width: 100%;
@@ -104,7 +119,6 @@ footer {
 	text-align: center;
 	font-size: 1.2rem;
 	padding: 1rem;
-  position: absolute;
   bottom: 0;
 }
 

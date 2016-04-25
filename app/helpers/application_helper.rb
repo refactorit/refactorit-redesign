@@ -3,7 +3,7 @@ module ApplicationHelper
     if current_user.present?
       admin_posts_path
     else
-      posts_path
+      blog_index_path
     end
   end
 
@@ -25,5 +25,25 @@ module ApplicationHelper
 
   def refactorit_dribbble_url
     "https://dribbble.com/refactorit"
+  end
+
+  def facebook_share_url(url)
+    "https://www.facebook.com/sharer/sharer.php?u=#{url}"
+  end
+
+  def twitter_share_url
+    "http://twitter.com/share"
+  end
+
+  def reddit_share_url(url)
+    "https://www.reddit.com/submit?url=#{url}"
+  end
+
+  def mobile_device?
+    request.user_agent =~ /Mobile|webOS/
+  end
+
+  def current_page(path)
+    "current" if current_page?(path)
   end
 end

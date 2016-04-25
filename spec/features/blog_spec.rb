@@ -12,7 +12,7 @@ feature "Blog" do
     let!(:topics) { FactoryGirl.create_list(:topic, 2)}
 
     describe "on index page" do
-      before { visit posts_path }
+      before { visit blog_index_path }
 
       specify "he sees correct blog posts" do
         expect(page).to have_content published_posts[0].title
@@ -29,15 +29,19 @@ feature "Blog" do
       end
 
       specify "he sees author links in a special box" do
-        within(".menu-text", text: "authors") do
+        within(".sidebar-menu") do
+          expect(page).to have_content 'authors'
           expect(page).to have_link author.name, href: author_posts_path(author)
           expect(page).to have_link other_author.name, href: author_posts_path(other_author)
         end
       end
 
       specify "he sees topic links" do
-        expect(page).to have_link topics.first.name, href: topic_posts_path(topics.first)
-        expect(page).to have_link topics.second.name, href: topic_posts_path(topics.second)
+        within(".sidebar-menu") do
+          expect(page).to have_content "topic"
+          expect(page).to have_link topics.first.name, href: topic_posts_path(topics.first)
+          expect(page).to have_link topics.second.name, href: topic_posts_path(topics.second)
+        end
       end
     end
 
@@ -62,21 +66,34 @@ feature "Blog" do
       specify "he sees posts for a topic" do
         expect(page).to have_content design_post.title
       end
-
-      # specify "he can't see other author's posts" do
-      #   expect(page).to_not have_content other_authors_post.title
-      # end
     end
 
     describe "on show post page" do
-      before { visit post_path(published_posts.first) }
+      let(:post) { published_posts.first }
+      before { visit post_path(post) }
 
-      specify "user sees edit post link" do
-        expect(page).to_not have_link "Edit", href: edit_post_path(published_posts[0].slug)
+      specify "can't see edit post link" do
+        expect(page).to_not have_link "Edit", href: edit_post_path(post.slug)
       end
 
-      specify "user sees back link" do
-        expect(page).to have_link "Back", href: posts_path
+      specify "sees post topic index link" do
+        expect(page).to have_link post.topic_name, href: topic_posts_path(post.topic_slug)
+      end
+
+      specify "he sees author links in a special box" do
+        within(".sidebar-menu") do
+          expect(page).to have_content 'authors'
+          expect(page).to have_link author.name, href: author_posts_path(author)
+          expect(page).to have_link other_author.name, href: author_posts_path(other_author)
+        end
+      end
+
+      specify "he sees topic links" do
+        within(".sidebar-menu") do
+          expect(page).to have_content "topic"
+          expect(page).to have_link topics.first.name, href: topic_posts_path(topics.first)
+          expect(page).to have_link topics.second.name, href: topic_posts_path(topics.second)
+        end
       end
     end
   end
