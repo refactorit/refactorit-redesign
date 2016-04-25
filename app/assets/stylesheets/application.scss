@@ -23,6 +23,7 @@ $white: #ffffff;
 $refactorit-red: #ed1a33;
 $refactorit-gray: #666666;
 $electric-blue: #3C3C99;
+$light-gray: #b0b0b0;
 
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,500,300&subset=latin,latin-ext);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,900);
@@ -98,7 +99,7 @@ aside {
   width: 90px;
 }
 
-nav a {
+.top-bar-right a {
   color: $refactorit-gray;
 }
 
@@ -112,12 +113,13 @@ footer {
   bottom: 0;
 }
 
-// footer, .push {
-//   height: 16em;
-// }
-
-footer a {
+footer .menu a {
   font-size: 0.7em;
+  color: $white;
+}
+
+a.newsletter-submit {
+  color: $white;
 }
 
 .footer-wrap {
@@ -125,6 +127,29 @@ footer a {
   height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
   height: 100%;
   margin: 0 auto -16em; /* the bottom margin is the negative value of the footer's height */
+}
+
+
+.white-text {
+  color: white;
+}
+
+.gray-form {
+  background-color: $refactorit-gray;
+  border: #828282 1px solid;
+}
+
+.gray-form:focus {
+  border: none;
+  box-shadow: none;
+}
+
+footer a {
+  color: $white;
+}
+
+footer a:hover {
+  color: $light-gray;
 }
 
 /* dribbble*/
