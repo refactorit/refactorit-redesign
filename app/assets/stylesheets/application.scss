@@ -103,7 +103,13 @@ nav a {
 }
 
 .current {
-  color: $refactorit-red;  
+  color: $refactorit-red;
+}
+
+// moves hamburger menu to the right side
+.menu-icon {
+  float: right;
+  margin-top: 0.5rem;
 }
 
 /********** footer **********/
