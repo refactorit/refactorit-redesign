@@ -1,36 +1,38 @@
-div class="callout small page-headline"
-  div class="row"
-    div class="medium-offset-1 medium-pull-1 medium-3 columns"
-      h5 contact us
-
-div class="row"
+/ cover
+div class="large cover-photo cover-contact pos-rel"
+  div class="pos-abs"
+    div class="dotted-overlay"
+  div class="expanded row column text-center"
+    h6 class="medium-8 headline-shot hero-title"
+    
+div class="row medium-space-top"
   div class="medium-2 columns hide-for-small-only"
     ul class="menu vertical"
       li class="menu-text" social
       li
         = link_to refactorit_facebook_url do
           i class='fi-social-facebook'
-           |Facebook
+          |Facebook
       li
         = link_to refactorit_twitter_url do
           i class="fi-social-twitter"
-           |Twitter
-      li
-        = link_to refactorit_github_url do
-          i class="fi-social-github"
-           |Github
-      li
-        = link_to refactorit_dribbble_url do
-          i class="fi-social-dribbble"
-           |Dribbble
+          |Twitter
 
-  div class="medium-9 medium-pull-1 columns"
-    = simple_form_for @contact, url: send_question_path, method: :post do |f|
-      = f.input :name
-      = f.input :email
-      = f.input :message, as: :text, input_html: { rows: 8 }
-      div class="small-5 small-offset-7"
-        = f.button :submit, id: :contact_submit, value: "Send message", class: "button expanded"
+  div class="contact-align-med medium-9 medium-pull-1 columns"
+    div class="row"
+      h6 class="medium-8 headline-shot"
+        | Want to work together
+    div class="row"
+      h6 class="medium-space-top space-bottom"
+        |  or interested in learning more about us? Don't hesitate to contact us at
+        = mail_to " contact@refactorit.co "
+        | or using the form below:
+      = simple_form_for @contact, url: send_question_path, method: :post do |f|
+        = f.input :name
+        = f.input :email
+        = f.input :message, as: :text, input_html: { rows: 8 }
+        div class="small-5 small-offset-7"
+          = f.button :submit, id: :contact_submit, value: "Send message", class: "button expanded"
 
 div class="row"
   div class="medium-12 columns"

@@ -67,4 +67,40 @@ RSpec.describe Post, :type => :model do
       expect(default_post.reload.slug).to eq "some-cool-title"
     end
   end
+
+  describe "#next" do
+    let!(:post_1) { FactoryGirl.create(:published_post, published_at: 3.weeks.ago) }
+    let!(:post_2) { FactoryGirl.create(:published_post, published_at: 2.weeks.ago) }
+    let!(:post_3) { FactoryGirl.create(:published_post, published_at: 1.week.ago) }
+
+    context "when next post exist" do
+      it "returns correct post" do
+        expect(post_1.next).to eq post_2
+      end
+    end
+
+    context "when next post does not exist" do
+      it "returns nil" do
+        expect(post_3.next).to be_nil
+      end
+    end
+  end
+
+  describe "#previous" do
+    let!(:post_1) { FactoryGirl.create(:published_post, published_at: 3.weeks.ago) }
+    let!(:post_2) { FactoryGirl.create(:published_post, published_at: 2.weeks.ago) }
+    let!(:post_3) { FactoryGirl.create(:published_post, published_at: 1.week.ago) }
+
+    context "when previous post exist" do
+      it "returns correct post" do
+        expect(post_3.previous).to eq post_2
+      end
+    end
+
+    context "when previous post does not exist" do
+      it "returns nil" do
+        expect(post_1.previous).to be_nil
+      end
+    end
+  end
 end

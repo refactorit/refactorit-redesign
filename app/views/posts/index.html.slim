@@ -1,21 +1,14 @@
-div class="callout small page-headline"
-  div class="row"
-    div class="medium-offset-1 medium-pull-1 medium-3 columns"
-      h5 blog
-div class="row blog-list"
+/ cover
+div class="large cover-photo cover-blog pos-rel"
+  div class="pos-abs"
+    div class="dotted-overlay"
+  div class="expanded row column text-center"
+    h6 class="medium-8 headline-shot hero-title"
+
+div class="row blog-list expanded"
   div class="medium-2 columns hide-for-small-only"
-    ul class="menu vertical"
-      li class="menu-text"
-        | topic
-        = render @topics
-      / li
-      /   a href="#" ruby
-      / li
-      /   a href="#" design
-      li class="menu-text"
-        | authors
-        = render @authors
+    = render "posts/sidebar_menu", topics: @topics, authors: @authors
 
-
-  div class="medium-9 medium-pull-1 columns"
-    = render @posts
+  div class="medium-10 columns"
+    - @posts.each do |post|
+      = render "post_preview", post: post

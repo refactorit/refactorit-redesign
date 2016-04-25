@@ -1,27 +1,27 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index, :author_index, :topic_index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :set_authors, only: [:index, :author_index, :topic_index]
-  before_action :set_topics, except: [:show, :destroy, :admin_index]
+  before_action :set_authors, only: [:index, :show, :author_index, :topic_index]
+  before_action :set_topics, except: [:destroy, :admin_index]
 
   def admin_index
     @posts = Post.all
   end
 
   def index
-    @posts = Post.published_with_authors
+    @posts = Post.published_with_authors.order('published_at DESC')
   end
 
   def author_index
     @author = User.friendly.find(params[:id])
-    @posts = @author.posts.published
+    @posts = @author.posts.published.order('published_at DESC')
 
     render template: 'posts/index'
   end
 
   def topic_index
     @topic = Topic.friendly.find(params[:id])
-    @posts = @topic.posts.published
+    @posts = @topic.posts.published.order('published_at DESC')
 
     render template: 'posts/index'
   end
@@ -53,8 +53,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post.author = current_user
-
     if @post.update(post_params)
       redirect_to admin_posts_path, notice: 'Post was successfully updated.'
     else

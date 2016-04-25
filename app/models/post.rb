@@ -15,12 +15,11 @@ class Post < ApplicationRecord
   before_save :strip_title
   before_save :change_published_date
 
-  delegate :name, to: :topic, prefix: true
-
   enum status: [:draft, :published]
   scope :published_with_authors, -> { published.includes(:author) }
 
   delegate :name, :slug, to: :author, prefix: true
+  delegate :name, :slug, to: :topic, prefix: true
 
   def assign_slug
     self.slug ||= slugify(title)
@@ -31,6 +30,16 @@ class Post < ApplicationRecord
     # in practical usage it shouldn't be necessary since we check for
     # title's presence
     self.title = self.title.strip if self.title.present?
+  end
+
+  def next
+    Post.published.where("published_at > ?", self.published_at).
+      order(published_at: :desc).last
+  end
+
+  def previous
+    Post.published.where("published_at < ?", self.published_at).
+      order(published_at: :desc).first
   end
 
   # necessary for select inputs in forms, since enum is a number and

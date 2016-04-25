@@ -1,0 +1,5 @@
+h6 = attachment.image.url
+= image_tag attachment.image.url
+br
+= link_to "Destroy", attachment_path(attachment.id), data: {:confirm => 'Are you sure?'}, method: :delete
+hr

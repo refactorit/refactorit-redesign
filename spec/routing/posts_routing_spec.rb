@@ -4,7 +4,7 @@ RSpec.describe PostsController, :type => :routing do
   describe "routing" do
 
     it "routes to #index" do
-      expect(:get => "/posts").to route_to("posts#index")
+      expect(:get => "/blog").to route_to("posts#index")
     end
 
     it "routes to #admin_index" do
@@ -12,11 +12,11 @@ RSpec.describe PostsController, :type => :routing do
     end
 
     it "routes to #author_index" do
-      expect(:get => "/authors/some-author/posts").to route_to("posts#author_index", :id => "some-author")
+      expect(:get => "/authors/some-author").to route_to("posts#author_index", :id => "some-author")
     end
 
     it "routes to #topic_index" do
-      expect(:get => "/topics/some-topic/posts").to route_to("posts#topic_index", :id => "some-topic")
+      expect(:get => "/topics/some-topic").to route_to("posts#topic_index", :id => "some-topic")
     end
 
     it "routes to #new" do
