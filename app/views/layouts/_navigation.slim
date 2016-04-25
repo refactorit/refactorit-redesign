@@ -12,12 +12,12 @@ div class="top-bar" id="navbar-menu"
 
     div class="top-bar-section"
       ul class="medium-horizontal menu drilldown vertical top-bar-right" data-responsive-menu="drilldown medium-dropdown"
-        li = link_to "Team", team_path
-        li = link_to "Services", services_path
-        li = link_to "Contact us", contact_new_path
-        li = link_to "Blog", determine_blog_path
+        li = link_to "Team", team_path, class: current_page(team_path)
+        li = link_to "Services", services_path, class: current_page(services_path)
+        li = link_to "Contact us", contact_new_path, class: current_page(contact_new_path)
+        li = link_to "Blog", determine_blog_path, class: current_page(determine_blog_path)
         - if current_user.present?
-          li = link_to "News", news_index_path
+          li = link_to "News", news_index_path, class: current_page(news_path)
           li = link_to "Logout", destroy_user_session_path, method: :delete
         li class="hide-for-small-only"
           = link_to refactorit_facebook_url do
