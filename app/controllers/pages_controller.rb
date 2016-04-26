@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @dribbble_shots = DribbbleShot.limit(6)
+    @dribbble_shots = DribbbleShot.limit(6).order(likes_count: :desc)
     if @dribbble_shots.empty? || @dribbble_shots.first.created_at < 1.hour.ago
       ShotsUpdateJob.perform_later
     end
