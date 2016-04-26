@@ -1,4 +1,4 @@
-div class="medium-9 columns"
+div class="medium-8 medium-offset-1 columns"
   div class="row"
     h2 class="blogpost-title headline-shot"
       = link_to post.title, blog_path(id: post.slug)
@@ -16,5 +16,5 @@ div class="medium-9 columns"
         i class="fi-calendar icon-space-right"
         = format_date(post.published_at)
     div class="row"
-      div class="medium-10 small-12 columns blogpost end"
+      div class="medium-11 small-12 columns blogpost end"
         p  = markdown_to_html(post.body)
