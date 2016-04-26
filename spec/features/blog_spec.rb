@@ -69,7 +69,7 @@ feature "Blog" do
     end
 
     describe "on show post page" do
-      let(:post) { published_posts.first }
+      let(:post) { published_posts[1] }
       before { visit post_path(post) }
 
       specify "can't see edit post link" do
@@ -94,6 +94,14 @@ feature "Blog" do
           expect(page).to have_link topics.first.name, href: topic_posts_path(topics.first)
           expect(page).to have_link topics.second.name, href: topic_posts_path(topics.second)
         end
+      end
+
+      specify "user sees read previous link" do
+        expect(page).to have_link "Read previous", href: post_path(published_posts[0])
+      end
+
+      specify "user sees read next link" do
+        expect(page).to have_link "Read next", href: post_path(published_posts[2])
       end
     end
   end

@@ -14,16 +14,16 @@ div class="row blog-list expanded"
 div class="row expanded"
   div class="medium-12 columns blogpost end"
     ul class="menu expanded"
-      li class="text-left"
-        a href="#"
-          i class="fi-arrow-left icon-space-right"
-          |Read previous
-        p Previous Post
-      li class="text-right"
-        a href="#" 
-          |Read next
-          i class="fi-arrow-right social-space"
-        p Next Post
+      - if @post.previous.present?
+        li class="text-left"
+          = link_to @post.previous do
+            i class="fi-arrow-left icon-space-right"
+            |Read previous
+      - if @post.next.present?
+        li class="text-right"
+          = link_to @post.next do
+            |Read next
+            i class="fi-arrow-right social-space"
   div class="row"
     div class="medium-10 large-11 large-push-1 columns space-top end"
       = render 'disqus'
