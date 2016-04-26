@@ -3,13 +3,13 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 121 121" style="enable-background:new 0 0 121 121;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#8F1929;}
+	.st0{fill:#ED1A33;}
 </style>
 <title>mentor</title>
 <g>
 	<g>
 		<g>
-			<path class="st0" d="M60.5,74.7c-7,0-12.6-3-12.6-6.8V59l12.6,5.9l11.4-5.1l0.2,0.5h0.9v7.6C73.1,71.7,67.5,74.7,60.5,74.7z
+			<path class="st0" d="M60.5,74.7c-7,0-12.6-3-12.6-6.8V59l12.6,5.9l11.4-5.1l0.2,0.5H73v7.6C73.1,71.7,67.5,74.7,60.5,74.7z
 				 M49.2,60.1v7.8c0,2.9,5.2,5.4,11.3,5.4s11.3-2.5,11.3-5.4v-7.6l-11.3,5L49.2,60.1z"/>
 		</g>
 	</g>

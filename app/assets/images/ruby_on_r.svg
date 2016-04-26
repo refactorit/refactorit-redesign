@@ -3,16 +3,26 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 121 121" style="enable-background:new 0 0 121 121;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#8F1929;}
-	.st1{fill:none;stroke:#8F1929;stroke-width:1.5;stroke-miterlimit:10;}
+	.st0{fill:#ED1A33;}
 </style>
 <title>ruby_on_r</title>
 <g>
-	<path class="st0" d="M74.8,43.2L83,54.6L60.5,77.2L38,54.6l8.2-11.4L74.8,43.2 M75.6,41.7l-30.2,0L36,54.8l24.5,24.5L85,54.8
-		L75.6,41.7L75.6,41.7z"/>
+	<g>
+		<path class="st0" d="M74.8,43.2L83,54.6L60.5,77.2L38,54.6l8.2-11.4L74.8,43.2 M75.6,41.7H45.4L36,54.8l24.5,24.5L85,54.8
+			L75.6,41.7L75.6,41.7z"/>
+	</g>
 </g>
-<rect x="37.4" y="54" class="st0" width="46.2" height="1.6"/>
-<polyline class="st1" points="75.3,42.5 71.7,52.9 60.5,44 49.3,52.9 46.1,43.1 "/>
-<line class="st1" x1="49.3" y1="54.8" x2="60.5" y2="78.2"/>
-<line class="st1" x1="71.7" y1="54.8" x2="60.5" y2="78.2"/>
+<g>
+	<rect x="37.4" y="54" class="st0" width="46.2" height="1.6"/>
+</g>
+<g>
+	<polygon class="st0" points="48.9,54.2 45.4,43.3 46.8,42.9 49.7,51.6 60.5,43 71.3,51.7 74.6,42.3 76,42.7 72.1,54.1 60.5,45 	"/>
+</g>
+<g>
+	<rect x="54.2" y="53.5" transform="matrix(0.902 -0.4317 0.4317 0.902 -23.3299 30.2187)" class="st0" width="1.5" height="25.9"/>
+</g>
+<g>
+	
+		<rect x="53.1" y="65.7" transform="matrix(0.4322 -0.9018 0.9018 0.4322 -22.4358 97.3683)" class="st0" width="25.9" height="1.5"/>
+</g>
 </svg>
