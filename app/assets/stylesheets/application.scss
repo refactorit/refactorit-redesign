@@ -107,7 +107,7 @@ footer {
   bottom: 0;
 }
 
-footer .menu a {
+footer .menu a, .contact-mail {
   font-size: 0.7em;
   color: $white;
 }
@@ -121,6 +121,15 @@ a.newsletter-submit {
   height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
   height: 100%;
   margin: 0 auto -16em; /* the bottom margin is the negative value of the footer's height */
+}
+
+.button-gray {
+  background-color: transparent;
+  border: 4px solid $refactorit-gray;
+}
+
+.button-gray:hover {
+  background-color: $black;
 }
 
 
@@ -144,6 +153,13 @@ footer a {
 
 footer a:hover {
   color: $light-gray;
+}
+
+footer .menu {
+  margin: 0.7em 0;
+  a {
+    padding-left: 0;
+  }
 }
 
 /* dribbble*/
