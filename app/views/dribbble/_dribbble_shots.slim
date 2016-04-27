@@ -17,9 +17,6 @@
                     span class="size-10 fi-eye"
                       = shot.views_count
                 div class="small-2 small-offset-8 columns text-right d-stats"
-                  p.card-likes
-                    span class="large fi-social-dribbble" &nbsp;
-                    span class="size-10 fi-arrow-right"
         - else
           div class="shot-image"
             = link_to shot.html_url do
@@ -27,7 +24,7 @@
             div class="row text-right dribbble-text"
               div class="small-7 columns"
                 p.text-left = shot.title
-              div class="small-5 columns"
+              div class="small-5 columns text-right"
                 p.card-likes
                   span class="size-10 fi-heart"
                     = shot.likes_count
