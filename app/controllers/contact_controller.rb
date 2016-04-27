@@ -7,7 +7,7 @@ class ContactController < ApplicationController
     @contact = ContactForm.new(contact_form_params)
     if @contact.valid?
       ContactMailer.contact_email(@contact).deliver
-      redirect_to contact_new_path, notice: "E-mail succesfully sent"
+      redirect_to thank_you_path
     else
       render 'new'
     end
