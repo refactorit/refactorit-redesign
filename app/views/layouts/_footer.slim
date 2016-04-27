@@ -1,26 +1,35 @@
 div class="wrap row small-up-1 medium-up-3 text-left" data-equalizer=true
-  div class="medium-4 columns"
+  div class="small-12 columns"
+    h5 data-equalizer-watch=true site overview
+    ul class="menu vertical"
+      li
+        = link_to "Home", root_path, class:"d-inline"
+      li
+        = link_to "Team", team_path, class:"d-inline"
+      li
+        = link_to "Services", services_path, class:"d-inline"
+      li
+        = link_to "Contact us", contact_new_path, class:"d-inline"
+      li
+        = link_to "Blog", determine_blog_path, class:"d-inline"
+  div class="small-12 columns"
     h5 data-equalizer-watch=true follow us
-    ul class="menu inline-list top-bar-left remove-padd"
+    ul class="menu vertical"
       li
         = link_to refactorit_facebook_url, class:"d-inline" do
-          i class="fi-social-facebook show-for-large"
           |Facebook
       li
         = link_to refactorit_github_url, class:"d-inline" do
-          i class="fi-social-github show-for-large"
           |Github
       li
         = link_to refactorit_dribbble_url, class:"d-inline" do
-          i class="fi-social-dribbble show-for-large"
           |Dribbble
       li
         = link_to refactorit_twitter_url, class:"d-inline" do
-          i class="fi-social-twitter show-for-large"
           |Twitter
-    p class="small-c" contact us
-    = mail_to "contact@refactorit.co", "contact@refactorit.co", class: " contact-mail "
-  div class="medium-4 columns"
+      p class="small-c" contact us
+      = mail_to "contact@refactorit.co", "contact@refactorit.co", class: " contact-mail "
+  div class="small-12 columns"
     #mc_embed_signup
       form#mc-embedded-subscribe-form.validate action="//refactorit.us13.list-manage.com/subscribe/post?u=27dfcfeddca64a2cd6f133f8d&amp;id=8213b109ec" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate=""
         #mc_embed_signup_scroll.row.align-med
@@ -36,18 +45,5 @@ div class="wrap row small-up-1 medium-up-3 text-left" data-equalizer=true
             div style="position: absolute; left: -5000px;" aria-hidden="true"
               input type="text" name="b_27dfcfeddca64a2cd6f133f8d_8213b109ec" tabindex="-1" value=""
             .input-group-button
-              input#mc-embedded-subscribe.button.expanded.button-gray type="submit" value="Subscribe" name="subscribe"
+              input#mc-embedded-subscribe.button.expanded.button-gray.hollow.secondary type="submit" value="Subscribe" name="subscribe"
             .clear
-  div class="medium-3 medium-push-1 columns"
-    h5 data-equalizer-watch=true site overview
-    ul class="menu vertical"
-      li
-        = link_to "Home", root_path
-      li
-        = link_to "Team", team_path
-      li
-        = link_to "Services", services_path
-      li
-        = link_to "Contact us", contact_new_path
-      li
-        = link_to "Blog", determine_blog_path

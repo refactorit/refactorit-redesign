@@ -124,12 +124,11 @@ a.newsletter-submit {
 }
 
 .button-gray {
-  background-color: transparent;
-  border: 4px solid $refactorit-gray;
+  color: $refactorit-gray;
 }
 
-.button-gray:hover {
-  background-color: $black;
+.button.hollow.button-gray:hover {
+  color: $white;
 }
 
 
