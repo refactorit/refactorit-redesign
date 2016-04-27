@@ -29,7 +29,7 @@ div class="row"
 
     - @posts.each do |post|
       div class='medium-3 columns text-center category-icon'
-        i class="fi-monitor"
+        = image_tag topic_icon(post)
         br
         span class='category' = link_to post.topic_name, topic_posts_path(post.topic)
         hr
