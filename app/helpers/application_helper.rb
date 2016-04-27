@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def refactorit_twitter_url
-    "https://twitter.com/refactorit/"
+    "https://twitter.com/refactorit"
   end
 
   def refactorit_facebook_url
