@@ -6,6 +6,6 @@ module PostsHelper
 
   # takes in ActiveSupport::TimeWithZone
   def format_date(date)
-    date.strftime(" %d / %m / %Y")
+    date.strftime(" %b %d, %Y")
   end
 end

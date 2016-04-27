@@ -12,7 +12,7 @@ RSpec.describe PostsHelper, :type => :helper do
     it "converts dates correctly" do
       post = FactoryGirl.build(:published_post,
         published_at: Time.new(2015, 10, 31, 12, 0, 0))
-      expect(format_date(post.published_at)).to eq " 31 / 10 / 2015"
+      expect(format_date(post.published_at)).to eq " Oct 31, 2015"
     end
   end
 end
