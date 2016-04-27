@@ -8,4 +8,8 @@ module PostsHelper
   def format_date(date)
     date.strftime(" %b %d, %Y")
   end
+
+  def topic_icon(post)
+    "#{post.topic_name.downcase}.svg"
+  end
 end
