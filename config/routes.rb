@@ -23,4 +23,7 @@ Rails.application.routes.draw do
   get  'authors/:id', to: 'posts#author_index', as: :author_posts
   get  'topics/:id', to: 'posts#topic_index', as: :topic_posts
   get  '/:year/:month/:slug', to: redirect('/posts/%{slug}'), year: /\d{4}/, month: /\d{2}/
+
+
+  get  '*path', to: 'pages#page_not_found', as: :page_not_found
 end
