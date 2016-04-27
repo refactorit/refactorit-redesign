@@ -1,40 +1,49 @@
-div class="wrap row small-up-1 medium-up-3 text-left"
-  div class="medium-2 large-2 columns"
-    ul class="menu vertical footer-menu"
+div class="wrap row small-up-1 medium-up-3 text-left" data-equalizer=true
+  div class="small-12 columns"
+    h5 data-equalizer-watch=true site overview
+    ul class="menu vertical"
       li
-        = link_to "Home", root_path
+        = link_to "Home", root_path, class:"d-inline"
       li
-        = link_to "Team", team_path
+        = link_to "Team", team_path, class:"d-inline"
       li
-        = link_to "Services", services_path
+        = link_to "Services", services_path, class:"d-inline"
       li
-        = link_to "Contact us", contact_new_path
-  div class="medium-4 large-4 large-pull-2 columns"
-    h5 follow us
-    ul class="menu inline-list top-bar-left stacked-for-medium remove-padd"
+        = link_to "Contact us", contact_new_path, class:"d-inline"
+      li
+        = link_to "Blog", determine_blog_path, class:"d-inline"
+  div class="small-12 columns"
+    h5 data-equalizer-watch=true follow us
+    ul class="menu vertical"
       li
         = link_to refactorit_facebook_url, class:"d-inline" do
-          i class="fi-social-facebook show-for-large"
           |Facebook
       li
         = link_to refactorit_github_url, class:"d-inline" do
-          i class="fi-social-github show-for-large"
           |Github
       li
         = link_to refactorit_dribbble_url, class:"d-inline" do
-          i class="fi-social-dribbble show-for-large"
           |Dribbble
       li
         = link_to refactorit_twitter_url, class:"d-inline" do
-          i class="fi-social-twitter show-for-larger"
           |Twitter
-    p class="small-c" contact us
-    = mail_to " contact@refactorit.co "
-  / div class="medium-3 small-12columns"
-  /   form
-  /     div class="row"
-  /     .input-group
-  /       label for="n-invite" class="input-group-label" Subscribe to our newsletter
-  /       input class="input-group-field gray-form" type="text" id="n-invite" placeholder="Your email here"
-  /       div class="input-group-button"
-  /         input class="button newsletter-submit" type="submit" value="Submit" /
+      p class="small-c" contact us
+      = mail_to "contact@refactorit.co", "contact@refactorit.co", class: " contact-mail "
+  div class="small-12 columns"
+    #mc_embed_signup
+      form#mc-embedded-subscribe-form.validate action="//refactorit.us13.list-manage.com/subscribe/post?u=27dfcfeddca64a2cd6f133f8d&amp;id=8213b109ec" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate=""
+        #mc_embed_signup_scroll.row.align-med
+          .mc-field-group.row.collapse
+            .small-12.input-group.white-text
+              label.n-label data-equalizer-watch=true for="mce-EMAIL" Subscribe to our newsletter!
+            .small-12.columns
+              input#mce-EMAIL.required.email.input-group-field.gray-form type="email" value="" name="EMAIL" placeholder="Your email here"
+            #mce-responses.clear
+              #mce-error-response.response style="display:none"
+              #mce-success-response.response style="display:none"
+            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            div style="position: absolute; left: -5000px;" aria-hidden="true"
+              input type="text" name="b_27dfcfeddca64a2cd6f133f8d_8213b109ec" tabindex="-1" value=""
+            .input-group-button
+              input#mc-embedded-subscribe.button.expanded.button-gray.hollow.secondary type="submit" value="Subscribe" name="subscribe"
+            .clear
