@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'about',             to: 'pages#about'
   get 'team',              to: 'pages#team'
   get 'services',          to: 'pages#services'
+  get 'thank-you',         to: 'pages#thank_you', as: :thank_you
   # Contact routes
   get 'contact',           to: 'contact#new',            as: :contact_new
   post 'send-question',    to: 'contact#send_question'
