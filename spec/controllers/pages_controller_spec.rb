@@ -27,7 +27,7 @@ describe PagesController do
   end
 
   it "#page_not_found responds with 404" do
-    get :page_not_found, path: 'page-does-not-exist'
+    get :page_not_found, params: { path: 'page-does-not-exist' }
     expect(response).to have_http_status 404
   end
 end
