@@ -41,14 +41,8 @@ feature "Contact" do
         click_button :contact_submit
       end
 
-      specify "he can see the contact form" do
-        expect(page).to have_field :contact_form_email
-        expect(page).to have_field :contact_form_name
-        expect(page).to have_field :contact_form_message
-      end
-
-      specify "he can see the success message" do
-        expect(page).to have_content "E-mail succesfully sent"
+      specify "he can see the thank you page" do
+        expect(page).to have_content "Thank you for getting in touch!"
       end
 
       specify "e-mail with correct contents is sent" do
