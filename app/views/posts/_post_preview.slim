@@ -2,9 +2,9 @@ div class="row medium-space-top"
   div class="medium-9 columns end"
     h2 class="blogpost-title headline-shot" = link_to post.title, blog_path(id: post.slug)
 div class="row"
-  div class="medium-4 columns blogpost-author text-left"
+  div class="medium-4 columns blogpost-author text-left category-icon"
     p
-      i class="fi-monitor icon-space-right"
+      = image_tag topic_icon(post)
       span class='category'
          = link_to post.topic_name, topic_posts_path(id: post.topic_slug)
   div class="medium-4 columns blogpost-author text-left"

@@ -15,4 +15,12 @@ RSpec.describe PostsHelper, :type => :helper do
       expect(format_date(post.published_at)).to eq " Oct 31, 2015"
     end
   end
+
+  describe "#topic_icon" do
+    it 'render correct image tag' do
+      topic = FactoryGirl.create(:topic, name: "design")
+      post = FactoryGirl.build(:published_post, topic: topic)
+      expect(topic_icon(post)).to eq "#{post.topic_name}.svg"
+    end
+  end
 end
