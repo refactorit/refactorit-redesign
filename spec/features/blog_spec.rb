@@ -80,6 +80,10 @@ feature "Blog" do
         expect(page).to have_link post.topic_name, href: topic_posts_path(post.topic_slug)
       end
 
+      specify "sees correct title" do
+        expect(page).to have_title "Refactorit | #{post.title}"
+      end
+
       specify "he sees author links in a special box" do
         within(".sidebar-menu") do
           expect(page).to have_content 'authors'

@@ -8,9 +8,6 @@ class PagesController < ApplicationController
     @news  = News.published.order(published_at: :desc).first
   end
 
-  def about
-  end
-
   def team
   end
 
