@@ -1,7 +1,8 @@
+= content_for :title, @post.title
 div class="large cover-photo cover-blog pos-rel"
   div class="pos-abs"
     div class="dotted-overlay"
-div class="row blog-list expanded"    
+div class="row blog-list expanded"
   div class="blogpost"
     = render @post
 
@@ -27,6 +28,3 @@ div class="row expanded"
   div class="row"
     div class="medium-10 columns space-top end"
       = render 'disqus'
-    
-
-              

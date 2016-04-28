@@ -2,7 +2,7 @@
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
-Rails.application.config.assets.precompile += %w( dev.svg )
+Rails.application.config.assets.precompile += %w( development.svg )
 Rails.application.config.assets.precompile += %w( external-m.svg )
 Rails.application.config.assets.precompile += %w( mentor.svg )
 Rails.application.config.assets.precompile += %w( mvp.svg )
