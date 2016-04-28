@@ -9,14 +9,14 @@
               div class="row text-right dribbble-text"
                 div class="small-12 columns headline-shot"
                   p.text-left = shot.title
-                div class="small-8 columns text-left d-stats"
-                  p.card-likes
-                    span class="size-10 fi-heart"
-                      = shot.likes_count
+                div class="small-6 columns text-left d-stats"
                   p.card-views
                     span class="size-10 fi-eye"
                       = shot.views_count
-                div class="small-2 small-offset-8 columns text-right d-stats"
+                div class="small-6 columns text-right d-stats"
+                  p.card-likes
+                    span class="size-10 fi-heart"
+                      = shot.likes_count
         - else
           div class="shot-image"
             = link_to shot.html_url do

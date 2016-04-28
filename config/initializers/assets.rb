@@ -12,6 +12,7 @@ Rails.application.config.assets.precompile += %w( ruby_on_r.svg )
 Rails.application.config.assets.precompile += %w( team_m.svg )
 Rails.application.config.assets.precompile += %w( ui.svg )
 Rails.application.config.assets.precompile += %w( refactorit_v.svg )
+Rails.application.config.assets.precompile += %w( development.svg )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
