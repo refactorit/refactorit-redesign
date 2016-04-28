@@ -4,24 +4,12 @@ div class="large cover-photo cover-contact pos-rel"
     div class="dotted-overlay"
   div class="expanded row column text-center"
     h6 class="medium-8 headline-shot hero-title"
-    
-div class="row medium-space-top"
-  div class="medium-2 columns hide-for-small-only"
-    ul class="menu vertical"
-      li class="menu-text" social
-      li
-        = link_to refactorit_facebook_url do
-          i class='fi-social-facebook'
-          |Facebook
-      li
-        = link_to refactorit_twitter_url do
-          i class="fi-social-twitter"
-          |Twitter
 
-  div class="contact-align-med medium-9 medium-pull-1 columns"
+div class="row medium-space-top space-bottom-padding-big"
+  div class="contact-align-med medium-9 medium-offset-1 columns"
     div class="row"
       h6 class="medium-8 headline-shot"
-        | Want to work together
+        | Want to work together?
     div class="row"
       h6 class="medium-space-top space-bottom contact-page"
         |  or interested in learning more about us? Don't hesitate to contact us at
@@ -34,6 +22,16 @@ div class="row medium-space-top"
         div class="small-5 small-offset-7"
           = f.button :submit, id: :contact_submit, value: "Send message", class: "button expanded"
 
-div class="row"
-  div class="medium-12 columns"
-    div class="callout"
+  div class="medium-2 columns hide-for-small-only"
+    ul class="menu vertical"
+      li class="menu-text" social
+      li
+        = link_to refactorit_facebook_url do
+          |Facebook
+      li
+        = link_to refactorit_twitter_url do
+          |Twitter
+
+  div class="row"
+    div style="opacity: 0.5;" class="medium-offset-1 medium-9 columns contact-align-med"
+      p Refactorit d.o.o. Remetinečka cesta 7, 10000 Zagreb, Upisan u registar Trgovačkog suda u Zagrebu, MBS: 080854936 OIB: 39100529663,Temeljni kapital u iznosu od 20.000,00kn uplaćen je u cijelosti, Član uprave: Ivan Lučev IBAN: HR6823400091110597886, Privredna banka Zagreb d.d.
