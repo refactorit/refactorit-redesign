@@ -8,12 +8,16 @@ class PagesController < ApplicationController
     @news  = News.published.order(published_at: :desc).first
   end
 
-  def about
-  end
-
   def team
   end
 
   def services
+  end
+
+  def thank_you
+  end
+
+  def page_not_found
+    render status: 404
   end
 end

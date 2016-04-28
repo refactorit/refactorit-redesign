@@ -6,6 +6,10 @@ module PostsHelper
 
   # takes in ActiveSupport::TimeWithZone
   def format_date(date)
-    date.strftime(" %d / %m / %Y")
+    date.strftime(" %b %d, %Y")
+  end
+
+  def topic_icon(post)
+    "#{post.topic_name.downcase}.svg"
   end
 end

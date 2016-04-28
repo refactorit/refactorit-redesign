@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   # Pages routes
-  get 'about',             to: 'pages#about'
   get 'team',              to: 'pages#team'
   get 'services',          to: 'pages#services'
+  get 'thank-you',         to: 'pages#thank_you', as: :thank_you
   # Contact routes
   get 'contact',           to: 'contact#new',            as: :contact_new
   post 'send-question',    to: 'contact#send_question'
@@ -22,4 +22,7 @@ Rails.application.routes.draw do
   get  'authors/:id', to: 'posts#author_index', as: :author_posts
   get  'topics/:id', to: 'posts#topic_index', as: :topic_posts
   get  '/:year/:month/:slug', to: redirect('/posts/%{slug}'), year: /\d{4}/, month: /\d{2}/
+
+
+  get  '*path', to: 'pages#page_not_found', as: :page_not_found
 end
