@@ -81,7 +81,7 @@ feature "Blog" do
       end
 
       specify "sees correct title" do
-        expect(page).to have_title "Refactorit | #{post.title}"
+        expect(page).to have_title "#{post.title} | Refactorit"
       end
 
       specify "he sees author links in a special box" do
