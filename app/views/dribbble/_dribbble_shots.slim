@@ -1,0 +1,33 @@
+- dribbble_shots.each do |shot|
+  div class="medium-4 large-2 columns" data-equalizer-watch=true
+    div class="row card"
+        - unless mobile_device?
+          div class="shot-image overlay-box overlay-effect"
+            = link_to shot.html_url do
+              = image_tag shot.image_url, class: 'thumbnail'
+            div class="overlay-content"
+              div class="row text-right dribbble-text"
+                div class="small-12 columns headline-shot"
+                  p.text-left = shot.title
+                div class="small-6 columns text-left d-stats"
+                  p.card-views
+                    span class="size-10 fi-eye"
+                      = shot.views_count
+                div class="small-6 columns text-right d-stats"
+                  p.card-likes
+                    span class="size-10 fi-heart"
+                      = shot.likes_count
+        - else
+          div class="shot-image"
+            = link_to shot.html_url do
+              = image_tag shot.image_url, class: 'thumbnail'
+            div class="row text-right dribbble-text"
+              div class="small-7 columns"
+                p.text-left = shot.title
+              div class="small-5 columns text-right"
+                p.card-likes
+                  span class="size-10 fi-heart"
+                    = shot.likes_count
+                p.card-views
+                  span class="size-10 fi-eye"
+                    = shot.views_count

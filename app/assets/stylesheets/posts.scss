@@ -28,13 +28,14 @@ $light-gray: #b0b0b0;
   padding: 0.7em;
 }
 
-.blogpost h4, .small-c, h5 {
+.blogpost h4, .small-c, h5, .n-label {
 	text-transform: lowercase;
 	font-variant: small-caps;
   color: $refactorit-gray;
   letter-spacing: 0.05em;
   font-size: 1.25rem;
-  font-family: "Fira", sans-serif;
+  font-family: "Fira Sans", sans-serif;
+  line-height: 1;
 }
 
 .blogpost h4 {
@@ -43,7 +44,7 @@ $light-gray: #b0b0b0;
 
 .blogpost {
   font-size: 1.2em;
-  font-family: 'Fira', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   margin: 0.5em 0 1em 0;
   em {
     font-size: large;

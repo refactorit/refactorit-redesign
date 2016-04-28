@@ -27,7 +27,7 @@ describe ContactController do
   context "#send_question with valid params" do
     it "redirects to contact_new_path when params are valid" do
       post :send_question, params: valid_params
-      expect(response).to redirect_to contact_new_path
+      expect(response).to redirect_to thank_you_path
     end
 
     it "sends contact e-mail with an instance of contact form" do

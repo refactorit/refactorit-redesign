@@ -25,9 +25,39 @@ $refactorit-gray: #666666;
 $electric-blue: #3C3C99;
 $light-gray: #b0b0b0;
 
-@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,500,300&subset=latin,latin-ext);
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,900);
+// we load the fonts locally, leaving this here in case we need it in future for some reason
+// @import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,500,300&subset=latin,latin-ext);
+// @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,900);
 
+@font-face {
+  font-family: 'Fira Sans';
+  src: url("<%= asset_path 'FiraSans-Regular.ttf' %>") format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  src: url("<%= asset_path 'FiraSans-Light.ttf' %>") format('truetype');
+  font-weight:  300;
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  src: url("<%= asset_path 'FiraSans-Bold.ttf' %>") format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src:url("<%= asset_path 'RobotoSlab-Regular.ttf' %>") format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src:url("<%= asset_path 'RobotoSlab-Bold.ttf' %>") format('truetype');
+  font-weight: 700;
+}
 
 *{
   margin: 0;
@@ -107,7 +137,7 @@ footer {
   bottom: 0;
 }
 
-footer .menu a {
+footer .menu a, .contact-mail {
   font-size: 0.7em;
   color: $white;
 }
@@ -121,6 +151,14 @@ a.newsletter-submit {
   height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
   height: 100%;
   margin: 0 auto -16em; /* the bottom margin is the negative value of the footer's height */
+}
+
+.button-gray {
+  color: $refactorit-gray;
+}
+
+.button.hollow.button-gray:hover {
+  color: $white;
 }
 
 
@@ -146,6 +184,13 @@ footer a:hover {
   color: $light-gray;
 }
 
+footer .menu {
+  margin: 0.7em 0;
+  a {
+    padding-left: 0;
+  }
+}
+
 /* dribbble*/
 
 .shot-image {
@@ -156,15 +201,11 @@ footer a:hover {
   margin-right: 0.3em;
 }
 
-.card-views {
-  margin: 0;
-}
-
 .dribbble-expanded .columns {
   padding: 0;
 }
 
-.thumbnail + .shot-image:hover, .thumbnail:hover {
+.thumbnail + .shot-image:hover {
   -webkit-filter: brightness(50%);
 }
 

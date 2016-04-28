@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require foundation.min
 //= require turbolinks
+//= require typed
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
