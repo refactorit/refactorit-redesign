@@ -13,6 +13,7 @@ feature 'Home Page' do
 
     specify "he sees first two published blog posts" do
       # only the last two published posts are shown
+      byebug
       expect(page).to have_link published_posts[2].title, href: blog_path(published_posts[2])
       expect(page).to have_link published_posts[1].title, href: blog_path(published_posts[1])
     end
