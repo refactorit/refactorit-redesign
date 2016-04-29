@@ -24,38 +24,13 @@ div class="row services-titles space-bottom-padding-big"
     h5 class="text-center" Pair Programming
 div class="row"
   / blog post snippet
-  div class="medium-7 columns"
+  div class="columns"
     h5 = link_to "Blog", determine_blog_path
     hr
-
+  div class="medium-9 medium-offset-1 columns"
     - @posts.each do |post|
-      div class='medium-3 columns text-center category-icon'
-        = image_tag topic_icon(post)
-        br
-        span class='category' = link_to post.topic_name, topic_posts_path(post.topic)
-        hr
-      div class='medium-9 columns medium-space-top'
-        h3 class="headline-shot" = link_to post.title, post_path(post)
-        p = post.description
+      = render "posts/post_preview", post: post
 
-  / news and testimonials
-  div class="medium-5 columns testimonials"
-    aside
-      - if @news.present?
-        h5 News
-        p = @news.title
-        p = @news.description
-        p = link_to "Read more", @news.url if @news.url.present?
-
-      h5  class="space-top" Testimonials
-      blockquote Those people who think they know everything are a great annoyance to those of us who do.
-      cite Isaac Asimov
-      div class="hide-for-medium-only"
-        blockquote Those people who think they know everything are a great annoyance to those of us who do.
-        cite Isaac Asimov
-        div class="hide-for-medium-only"
-          blockquote Those people who think they know everything are a great annoyance to those of us who do.
-          cite Isaac Asimov
   / dribbble
   - if @dribbble_shots.any?
     section class="dribbble"
@@ -66,4 +41,7 @@ div class="row"
       div class="row expanded dribbble-expanded" data-equalizer=true
         = render "dribbble/dribbble_shots", dribbble_shots: @dribbble_shots
 
-= render partial: 'pages/shared/team'
+div class="row"
+  h5 = link_to "Team", team_path
+  hr
+  = render partial: 'pages/shared/team'
