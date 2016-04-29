@@ -1,4 +1,4 @@
-= content_for :title, "Home" 
+= content_for :title, "Home"
 / cover
 div class="large cover-photo main-back"
   div class="expanded row column text-center"
@@ -6,7 +6,7 @@ div class="large cover-photo main-back"
       |We are here to
       span
 div class="row"
-  h5.medium-space-top.medium-2.sc-titles-align = link_to "Services", services_path 
+  h5.medium-space-top.medium-2.sc-titles-align = link_to "Services", services_path
   hr
 
 div class="row services-titles"
@@ -30,25 +30,9 @@ div class="row"
     h5.sc-titles-align = link_to "Blog", determine_blog_path
     hr
 div class="row"
-  div class="medium-9 medium-offset-1 columns end"
+  div class="medium-9 medium-offset-1 columns"
     - @posts.each do |post|
-      div class='medium-3 columns text-center category-icon'
-        = image_tag topic_icon(post)
-        br
-        span class='category' = link_to post.topic_name, topic_posts_path(post.topic)
-        hr
-      div class='medium-9 columns medium-space-top'
-        h3 class="headline-shot" = link_to post.title, post_path(post)
-        p = post.description
-
-  / news and testimonials
-  div class="medium-5 columns testimonials"
-    aside
-      - if @news.present?
-        h5 News
-        p = @news.title
-        p = @news.description
-        p = link_to "Read more", @news.url if @news.url.present?
+      = render "posts/post_preview", post: post
 
 / dribbble
 - if @dribbble_shots.any?
