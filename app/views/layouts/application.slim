@@ -1,9 +1,13 @@
+= content_for :og_description, "We are a small team that enjoys building beautiful web applications and always doing our best to deliver a high-quality product."
+
 doctype html
 html lang="en"
   head
     title #{yield :title} | Refactorit
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta property="og:description" content="#{ yield :og_description }"
+    meta property="og:image" content="#{ yield :og_image }"
     link rel="shortcut icon" href="favicon.ico"
     = csrf_meta_tags
 

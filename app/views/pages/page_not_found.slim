@@ -6,25 +6,23 @@ div class="large cover-photo cover-contact pos-rel"
   div class="expanded row column text-center"
     h6 class="medium-8 headline-shot hero-title"
 
-div class="row medium-space-top"
-  div class="medium-2 columns hide-for-small-only"
-    ul class="menu vertical"
-      li class="menu-text" social
-      li
-        = link_to refactorit_facebook_url do
-          i class='fi-social-facebook'
-          |Facebook
-      li
-        = link_to refactorit_twitter_url do
-          i class="fi-social-twitter"
-          |Twitter
-
-  div class="contact-align-med medium-9 medium-pull-1 columns"
+div class="row medium-space-top space-bottom-padding-big"
+  div class="contact-align-med medium-9 medium-offset-1 columns"
     div class="row"
       h6 class="medium-8 headline-shot"
         | 404 - Page doesn't exist
     div class="row"
       h6 class="medium-space-top space-bottom"
         | If you want to hire us you should visit the
-        = link_to "contact page", contact_new_path
+        = link_to " contact page", contact_new_path
         | .
+
+  div class="medium-2 columns hide-for-small-only"
+    ul class="menu vertical"
+      li class="menu-text" social
+      li
+        = link_to refactorit_facebook_url do
+          |Facebook
+      li
+        = link_to refactorit_twitter_url do
+          |Twitter

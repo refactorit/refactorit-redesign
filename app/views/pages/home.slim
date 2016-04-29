@@ -1,69 +1,62 @@
-= content_for :title, "Home" 
+= content_for :title, "Ruby development and consulting"
+= content_for :og_image, image_path("refactorit_fb.png")
+
 / cover
-div class="large cover-photo main-back"
+div class="large cover-photo cover-home"
   div class="expanded row column text-center"
-    h6 class="medium-centered headline-shot hero-title"
+    h6 class="medium-centered headline-shot hero-title white-text"
       |We are here to
       span
 div class="row"
-  div class="small-12 columns"
-    h5.medium-space-top.medium-2 = link_to "Services", services_path 
-    hr
-div class="row services-titles space-bottom-padding-big"
-  div class="medium-3 columns"
-    = image_tag "ruby_on_r.svg", alt: "ruby on rails"
-    h5 class="text-center" Ruby on Rails Development
-  div class="medium-3 columns"
-    = image_tag "ui.svg", alt: "user interface design"
-    h5 class="text-center" User Interface Design
-  div class="medium-3 columns"
-    = image_tag "responsive.svg", alt: "responsive design"
-    h5 class="text-center" Responsive Design
-  div class="medium-3 columns"
-    = image_tag "pair-p.svg", alt: "pair programming"
-    h5 class="text-center" Pair Programming
+  h5.medium-space-top.medium-2.sc-titles-align = link_to "What we do", services_path
+  hr
+
+div class="row services-titles"
+  div class="small-6 medium-3 columns"
+    = link_to services_path do
+      = image_tag "ruby_on_r.svg", alt: "ruby on rails"
+      h5 class="text-center" Ruby on Rails Development
+  div class="small-6 medium-3 columns"
+    = link_to services_path do
+      = image_tag "ui.svg", alt: "user interface design"
+      h5 class="text-center" User Interface Design
+  div class="small-6 medium-3 columns"
+    = link_to services_path do
+      = image_tag "responsive.svg", alt: "responsive design"
+      h5 class="text-center" Responsive Design
+  div class="small-6 medium-3 columns"
+    = link_to services_path do
+      = image_tag "pair-p.svg", alt: "pair programming"
+      h5 class="text-center" Pair Programming
 div class="row"
-  / blog post snippet
-  div class="medium-7 columns"
-    h5 = link_to "Blog", determine_blog_path
+    h5.sc-titles-align = link_to "Latest blog posts", determine_blog_path
     hr
-
+div class="row"
+  div class="medium-9 medium-offset-1 columns"
     - @posts.each do |post|
-      div class='medium-3 columns text-center category-icon'
-        = image_tag topic_icon(post)
-        br
-        span class='category' = link_to post.topic_name, topic_posts_path(post.topic)
-        hr
-      div class='medium-9 columns medium-space-top'
-        h3 class="headline-shot" = link_to post.title, post_path(post)
-        p = post.description
+      = render "posts/post_preview", post: post
 
-  / news and testimonials
-  div class="medium-5 columns testimonials"
-    aside
-      - if @news.present?
-        h5 News
-        p = @news.title
-        p = @news.description
-        p = link_to "Read more", @news.url if @news.url.present?
+/ dribbble
+- if @dribbble_shots.any?
+  section class="dribbble padding-reset"
+    div class="row contact-align-med"
+      h5.sc-titles-align = link_to "Design Work", "https://dribbble.com/refactorit"
+      hr
+      div class="small-12 columns end"
+    div class="row expanded dribbble-expanded" data-equalizer=true
+      = render "dribbble/dribbble_shots", dribbble_shots: @dribbble_shots
 
-      h5  class="space-top" Testimonials
-      blockquote Those people who think they know everything are a great annoyance to those of us who do.
-      cite Isaac Asimov
-      div class="hide-for-medium-only"
-        blockquote Those people who think they know everything are a great annoyance to those of us who do.
-        cite Isaac Asimov
-        div class="hide-for-medium-only"
-          blockquote Those people who think they know everything are a great annoyance to those of us who do.
-          cite Isaac Asimov
-  / dribbble
-  - if @dribbble_shots.any?
-    section class="dribbble"
-      div class="row"
-        div class="small-12 columns"
-          h5 Dribbble
-          hr
-      div class="row expanded dribbble-expanded" data-equalizer=true
-        = render "dribbble/dribbble_shots", dribbble_shots: @dribbble_shots
 
-= render partial: 'pages/shared/team'
+div class="row space-top contact-align-med"
+  h5.sc-titles-align = link_to "Meet our team", team_path
+  hr
+  = render partial: 'pages/shared/team'
+
+/ news and testimonials
+div class="row expanded space-bottom-padding cover-testimonial contact-align-med"
+  .row
+    h5.space-top.sc-titles-align Testimonials
+    hr
+    div class="small-12 medium-10 end columns testimonials space-bottom-padding"
+        blockquote We worked remotely with Refactorit on a rather complex Ruby on Rails-project including frontend development. After having worked with other developers, we chose Refactorit due to their good reputation and stayed with them for about 1 and a half years until the project was finished. They immediately proved to be very professional, reliable and skilled at what they do. It was always a pleasure to work with them and we would be glad to work together again if there is an opportunity in the future.
+        cite Daniel Haese, Wortwink

@@ -13,8 +13,8 @@ feature 'Home Page' do
 
     specify "he sees first two published blog posts" do
       # only the last two published posts are shown
-      expect(page).to have_link published_posts[2].title, href: post_path(published_posts[2])
-      expect(page).to have_link published_posts[1].title, href: post_path(published_posts[1])
+      expect(page).to have_link published_posts[2].title, href: blog_path(published_posts[2])
+      expect(page).to have_link published_posts[1].title, href: blog_path(published_posts[1])
     end
 
     specify "he doesn't see older published posts" do
@@ -46,11 +46,13 @@ feature 'Home Page' do
       end
 
       specify "visitor sees correct news" do
+        pending("news are not decided yet")
         visit root_path
         expect(page).to have_content news.title
       end
 
       specify "visitor sees read more link when url for the news exists" do
+        pending("news are not decided yet")
         visit root_path
         expect(page).to have_link "Read more", href: news.url
       end
