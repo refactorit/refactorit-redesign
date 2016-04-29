@@ -36,11 +36,11 @@ div class="row"
 
 / dribbble
 - if @dribbble_shots.any?
-  section class="dribbble"
+  section class="dribbble padding-reset"
     div class="row contact-align-med"
       h5.sc-titles-align = link_to "Design Work", "https://dribbble.com/refactorit"
       hr
-      div class="small-12 columns"
+      div class="small-12 columns end"
     div class="row expanded dribbble-expanded" data-equalizer=true
       = render "dribbble/dribbble_shots", dribbble_shots: @dribbble_shots
 
