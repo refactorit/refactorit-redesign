@@ -8,7 +8,7 @@ div class="large cover-photo cover-home"
       |We are here to
       span
 div class="row"
-  h5.medium-space-top.medium-2.sc-titles-align = link_to "Services", services_path
+  h5.medium-space-top.medium-2.sc-titles-align = link_to "What we do", services_path
   hr
 
 div class="row services-titles"
@@ -29,7 +29,7 @@ div class="row services-titles"
       = image_tag "pair-p.svg", alt: "pair programming"
       h5 class="text-center" Pair Programming
 div class="row"
-    h5.sc-titles-align = link_to "Blog", determine_blog_path
+    h5.sc-titles-align = link_to "Latest blog posts", determine_blog_path
     hr
 div class="row"
   div class="medium-9 medium-offset-1 columns"
@@ -48,7 +48,7 @@ div class="row"
 
 
 div class="row space-top contact-align-med"
-  h5.sc-titles-align = link_to "Team", team_path
+  h5.sc-titles-align = link_to "Meet our team", team_path
   hr
   = render partial: 'pages/shared/team'
 
