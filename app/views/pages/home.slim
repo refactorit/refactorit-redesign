@@ -2,7 +2,9 @@
 = content_for :og_image, image_path("refactorit_fb.png")
 
 / cover
-div class="large cover-photo cover-home"
+div class="large cover-photo cover-home pos-rel"
+  div class="pos-abs"
+    div class="dotted-overlay"
   div class="expanded row column text-center"
     h6 class="medium-centered headline-shot hero-title white-text"
       |We are here to
@@ -10,6 +12,8 @@ div class="large cover-photo cover-home"
 div class="row"
   h5.medium-space-top.medium-2.sc-titles-align = link_to "What we do", services_path
   hr
+
+
 
 div class="row services-titles"
   div class="small-6 medium-3 columns"
