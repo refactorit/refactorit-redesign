@@ -18,3 +18,17 @@ div class="medium-8 medium-offset-1 columns"
     div class="row"
       div class="medium-11 small-12 columns blogpost end"
         p  = markdown_to_html(post.body)
+    div class="row expanded"
+      div class="medium-12 columns blogpost end"
+        ul class="menu expanded button-group bottom-space"
+          - if @post.previous.present?
+            li class="text-left"
+              = link_to @post.previous, class: "button button-hollow button-sized" do
+                i class="fi-arrow-left icon-space-right"
+                |Read previous
+          - if @post.next.present?
+            li class="text-right"
+              = link_to @post.next, class: "button button-hollow button-sized float-right" do
+                |Read next
+                i class="fi-arrow-right social-space"
+        = render 'disqus'
