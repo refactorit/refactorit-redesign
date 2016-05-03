@@ -20,7 +20,12 @@ div class="medium-8 medium-offset-1 columns"
         p  = markdown_to_html(post.body)
     div class="row expanded"
       div class="medium-12 columns blogpost end"
-        ul class="menu expanded button-group bottom-space"
+        h4 Share on
+        div class="expanded button-group space-bottom"
+          a class="button button-hollow" Facebook
+          a class="button button-hollow" Twitter
+          a class="button button-hollow" Reddit
+        ul class="menu expanded button-group"
           - if @post.previous.present?
             li class="text-left"
               = link_to @post.previous, class: "button button-hollow button-sized" do

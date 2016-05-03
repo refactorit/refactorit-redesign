@@ -12,5 +12,5 @@ div class="row blog-list expanded"
   div class="medium-8 medium-offset-1 columns"
     - @posts.each do |post|
       = render "post_preview", post: post
-  div class="medium-3 columns hide-for-small-only"
+  div class="medium-3 columns hide-for-small-only space-bottom"
     = render "posts/sidebar_menu", topics: @topics, authors: @authors
