@@ -22,9 +22,9 @@ div class="medium-8 medium-offset-1 columns"
       div class="medium-12 columns blogpost end"
         h4 Share on
         div class="expanded button-group space-bottom"
-          a class="button button-hollow" Facebook
-          a class="button button-hollow" Twitter
-          a class="button button-hollow" Reddit
+          = link_to "Facebook", facebook_share_url(request.original_url), class: "button button-hollow"
+          = link_to "Twitter", twitter_share_url, class: "button button-hollow"
+          = link_to "Reddit", reddit_share_url(request.original_url), class: "button button-hollow"
         ul class="menu expanded button-group"
           - if @post.previous.present?
             li class="text-left"
