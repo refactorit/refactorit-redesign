@@ -20,11 +20,24 @@ div class="medium-8 medium-offset-1 columns"
         p  = markdown_to_html(post.body)
     div class="row expanded"
       div class="medium-12 columns blogpost end"
-        h4 Share on
-        div class="expanded button-group space-bottom"
-          = link_to "Facebook", facebook_share_url(request.original_url), class: "button button-hollow"
-          = link_to "Twitter", twitter_share_url, class: "button button-hollow"
-          = link_to "Reddit", reddit_share_url(request.original_url), class: "button button-hollow"
+        ul class="menu space-bottom vertical medium-horizontal large-horizontal"
+          li Share on
+          li
+            = link_to facebook_share_url(request.original_url) do
+              i class="fi-social-facebook"
+              span Facebook
+            end
+
+          li
+            = link_to twitter_share_url(request.original_url, post.title) do
+              i class="fi-social-twitter"
+              span Twitter
+            end
+          li
+            = link_to reddit_share_url(request.original_url) do
+              i class="fi-social-reddit"
+              span Reddit
+            end
         ul class="menu expanded button-group"
           - if @post.previous.present?
             li class="text-left"
