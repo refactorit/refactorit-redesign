@@ -34,7 +34,7 @@ div class="medium-8 medium-offset-1 columns"
               span Twitter
             end
           li
-            = link_to reddit_share_url(request.original_url) do
+            = link_to reddit_share_url(request.original_url, post.title) do
               i class="fi-social-reddit"
               span Reddit
             end

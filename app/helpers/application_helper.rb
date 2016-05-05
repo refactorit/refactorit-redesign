@@ -35,8 +35,8 @@ module ApplicationHelper
     "http://twitter.com/intent/tweet?original_referer=#{url}/&source=tweetbutton&text=#{title}&url=#{url}&via=refactorit"
   end
 
-  def reddit_share_url(url)
-    "https://www.reddit.com/submit?url=#{url}"
+  def reddit_share_url(url, title)
+    "https://www.reddit.com/submit?url=#{url}&title=#{title}"
   end
 
   def mobile_device?
