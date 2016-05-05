@@ -29,7 +29,7 @@ div class="medium-8 medium-offset-1 columns"
             end
 
           li
-            = link_to twitter_share_url do
+            = link_to twitter_share_url(request.original_url, post.title) do
               i class="fi-social-twitter"
               span Twitter
             end
