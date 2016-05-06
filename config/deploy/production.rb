@@ -5,7 +5,7 @@
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
 # role :app, %w{deploy@example.com}
-# role :web, %w{***REMOVED***}
+# role :web, %w{146.185.128.78}
 # role :db,  %w{deploy@example.com}
 
 # Extended Server Syntax
@@ -14,8 +14,7 @@
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server '***REMOVED***', user: '***REMOVED***', roles: %w{web db}
-# server '***REMOVED***', user: '***REMOVED***', roles: %w{web app}
+server <%= ENV['SERVER_ADDRESS'] %>, user: <%= ENV['SERVER_USERNAME'] %>, roles: %w{web db} # Default deploy_to directory is /var/www/my_app
 
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/srv/www/refactorit-production'
