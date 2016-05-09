@@ -24,6 +24,7 @@ $refactorit-red: #ed1a33;
 $refactorit-gray: #666666;
 $electric-blue: #3C3C99;
 $light-gray: #b0b0b0;
+$medium-gray: #545454;
 
 // we load the fonts locally, leaving this here in case we need it in future for some reason
 // @import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,500,300&subset=latin,latin-ext);
@@ -153,6 +154,10 @@ a.newsletter-submit {
   margin: 0 auto -16em; /* the bottom margin is the negative value of the footer's height */
 }
 
+.n-label {
+  margin-left: 0.55em;
+}
+
 .button-gray {
   color: $refactorit-gray;
 }
@@ -167,9 +172,10 @@ a.newsletter-submit {
 }
 
 .gray-form {
-  background-color: $refactorit-gray;
-  border: #828282 1px solid;
+  background-color: $medium-gray;
+  border: none;
 }
+
 
 .gray-form:focus {
   border: none;
