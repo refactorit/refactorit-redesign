@@ -39,6 +39,10 @@ module ApplicationHelper
     "https://www.reddit.com/submit?url=#{url}&title=#{title}"
   end
 
+  def tapfiliate_partial_name
+    current_page(thank_you_path) ? "layouts/tapfiliate_conversion" : "layouts/tapfiliate_landing"
+  end
+
   def mobile_device?
     request.user_agent =~ /Mobile|webOS|Android/
   end
