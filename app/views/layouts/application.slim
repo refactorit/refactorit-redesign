@@ -27,5 +27,5 @@ html lang="en"
 
   footer
     = render 'layouts/footer'
-- if Rails.env.production?
+- if Rails.env.production? && !current_user.present?
   = render 'layouts/analytics'
