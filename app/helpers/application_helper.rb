@@ -7,6 +7,10 @@ module ApplicationHelper
     end
   end
 
+  def show_description(content)
+    content.present? ? content : "We are a small team that enjoys building beautiful web applications and always doing our best to deliver a high-quality product."
+  end
+
   def refactorit_twitter_url
     "https://twitter.com/refactorit"
   end
