@@ -7,6 +7,10 @@ module ApplicationHelper
     end
   end
 
+  def show_description(content)
+    content.present? ? content : "We are a small team that enjoys building beautiful web applications and always doing our best to deliver a high-quality product."
+  end
+
   def refactorit_twitter_url
     "https://twitter.com/refactorit"
   end
@@ -37,6 +41,10 @@ module ApplicationHelper
 
   def reddit_share_url(url, title)
     "https://www.reddit.com/submit?url=#{url}&title=#{title}"
+  end
+
+  def tapfiliate_partial_name
+    current_page(thank_you_path) ? "layouts/tapfiliate_conversion" : "layouts/tapfiliate_landing"
   end
 
   def mobile_device?
