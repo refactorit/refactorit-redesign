@@ -6,7 +6,6 @@ feature 'Navigation' do
 
     specify "he sees correct navigation links" do
       expect(page).to have_link "", href: root_path
-      expect(page).to have_link "Team", href: team_path
       expect(page).to have_link "Contact us", href: contact_new_path
       expect(page).to have_link "Services", href: services_path
       expect(page).to have_link "Blog", href: blog_index_path

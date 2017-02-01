@@ -6,7 +6,6 @@ feature 'Footer' do
 
     specify "she sees correct footer links" do
       expect(page).to have_link "Home", href: root_path
-      expect(page).to have_link "Team", href: team_path
       expect(page).to have_link "Contact", href: contact_new_path
       expect(page).to have_link "Services", href: services_path
     end

@@ -14,7 +14,6 @@ div class="top-bar" id="navbar-menu"
     div class="top-bar-section"
       ul class="medium-horizontal menu drilldown vertical top-bar-right" data-responsive-menu="drilldown small-dropdown"
         li = link_to "Home", root_path, class: "show-for-small-only"
-        li = link_to "Team", team_path, class: current_page(team_path)
         li = link_to "Services", services_path, class: current_page(services_path)
         li = link_to "Contact us", contact_new_path, class: current_page(contact_new_path)
         li = link_to "Blog", determine_blog_path, class: current_page(determine_blog_path)
