@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   # Pages routes
-  get 'team',              to: 'pages#team'
   get 'services',          to: 'pages#services'
   get 'thank-you',         to: 'pages#thank_you', as: :thank_you
   # Contact routes
